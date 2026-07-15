@@ -1,0 +1,32 @@
+# Contributing to <PROJECT NAME>
+
+## Branch flow
+
+- Branch off `<default branch>` with a typed prefix: `feat/…`, `fix/…`, `docs/…`, `ops/…`.
+- <Delivery flow — pick one and delete the other:
+  (a) simple: merge to `<default>` via PR; releases via `<release branch/tag>`;
+  (b) promotion trains (owner reviews one cumulative diff — see the `git-workflow`
+  skill): feature PRs → `dev` (squash ok); `dev` → `main` promotion PR merged as a
+  MERGE COMMIT, never squash; hotfixes branch off `main` and back-merge into `dev`;
+  production deploys from `main` only.>
+
+## Commits
+
+Conventional Commits, imperative mood, scoped when useful:
+
+```
+feat(auth): add session refresh endpoint
+fix(leaderboard): use metric direction in tie-break
+docs(adr): record decision on scoring worker
+```
+
+## Definition of done
+
+1. Code + tests pass locally: `<test command>`.
+2. Lint/format clean: `<lint command>`.
+3. **Docs decision stated** (ADR / docs update / none) — see the documentation contract in `CLAUDE.md`.
+4. User-facing copy in all supported locales: <list or "n/a">.
+
+## Decision records
+
+Durable technical decisions go to `docs/adr/` (see its README for the rules). If your change contradicts an accepted ADR, write a superseding ADR in the same PR — do not silently drift.
