@@ -1,0 +1,31 @@
+# Claude Code instructions: <PROJECT NAME>
+
+<!-- Keep this file SHORT and TRUE. A CLAUDE.md that describes an idealized repo
+     is worse than none — every line here must match reality. -->
+
+Read `AGENTS.md` first if it exists — it is the canonical short operating map for this repo.
+
+## Project facts
+
+- Stack: <languages, frameworks, package manager>
+- Run: `<dev command>` · Test: `<test command>` · Lint: `<lint command>`
+- Entry points: `<main dirs/files>`
+- Environments: <dev / stage / prod and what is safe to touch>
+
+## Working rules
+
+- Keep unrelated dirty files untouched; inspect `git status` before editing.
+- Prefer root-cause, product-level fixes over superficial patches.
+- <repo-specific rules: locales, migrations policy, deploy approvals, ...>
+
+## Documentation contract
+
+A task is **not complete** until the docs decision is stated in the final report: **new ADR**, **update existing docs**, or **none** — with a one-line reason. Use `/wrap-up` to close out substantial tasks.
+
+| Change | Register as |
+| --- | --- |
+| New/changed domain rule, invariant, API contract shape, data ownership, infra topology, security boundary | **New ADR** in `docs/adr/` (use `/adr`) |
+| Reversing or amending a previous decision | **New ADR** superseding the old one (never edit the old one's meaning) |
+| Behavior described in existing docs/runbooks changes | **Update those docs** in the same change |
+| Investigation or audit | **Report** in `docs/audit/` (evidence first, fixes after triage) |
+| Mechanical refactor, copy fix, dependency bump | **None** — say so explicitly |
