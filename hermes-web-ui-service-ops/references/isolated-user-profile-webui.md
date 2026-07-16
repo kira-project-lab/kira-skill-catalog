@@ -85,4 +85,4 @@ If the first curl immediately after start fails with connection refused, inspect
 
 ## Login hardening
 
-After `hermes-web-ui reset-default-login`, immediately change `admin / 123456` via the auth API or UI, then verify old credentials return `401` and new credentials return a token. Do not leave the default password on a LAN-reachable service.
+After `hermes-web-ui reset-default-login`, immediately change the default `<username> / <password>` login via the auth API or UI, then verify old credentials return `401` and new credentials return a token. Do not leave the default password on a LAN-reachable service.

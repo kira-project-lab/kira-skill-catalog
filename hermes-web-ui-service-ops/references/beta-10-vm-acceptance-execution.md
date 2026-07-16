@@ -177,7 +177,7 @@ ReadOnlyPaths=/opt/kira/repos/hermes-web-ui-beta
 
 Use a port that is not already occupied. In the 2026-06-28 run, `18648` was misleading because another listener already owned it; switching to `127.0.0.1:28648` isolated the beta runtime. Always verify with `ss -ltnp` and `systemctl status`, not just a successful curl.
 
-Auth bootstrap pitfall: when `/api/auth/status` says `hasUsers:false`, the first login must use the built-in bootstrap credentials `admin` / `123456`; logging in with an arbitrary desired admin name returns `401`. Immediately change the admin password to a generated value, then create the dummy tenant Web UI account mapped only to `default`. Store generated dummy credentials only on the VM under the tenant root, e.g. `/data/kira/users/<uid>/acceptance-secrets/webui-auth.env` with `0700` directory and `0600` file, never in chat/evidence.
+Auth bootstrap pitfall: when `/api/auth/status` says `hasUsers:false`, the first login must use the built-in bootstrap credentials `<username>` / `<password>` (Hermes Web UI product default; values redacted here — never store them in the catalog); logging in with an arbitrary desired admin name returns `401`. Immediately change the admin password to a generated value, then create the dummy tenant Web UI account mapped only to `default`. Store generated dummy credentials only on the VM under the tenant root, e.g. `/data/kira/users/<uid>/acceptance-secrets/webui-auth.env` with `0700` directory and `0600` file, never in chat/evidence.
 
 Minimum A7/A8 loopback checks:
 

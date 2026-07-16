@@ -35,12 +35,17 @@ company skill library:
 
 Eight Hermes / platform executor skills, published from
 `kira-project-lab/kira-profile@c75d4631` so they live outside the cognitive
-profile. Byte-equivalent to source apart from three documented, safety-driven
-normalizations (one credential redaction, one nested-`SKILL.md` de-registration,
-and its citation follow-through), plus a path-only relocation of
-`hermes-web-ui-service-ops`'s five helper files from `scripts/**` to
-`references/scripts/**` so the external-catalog importer accepts the package
-(contents byte-equivalent, `sha256` unchanged). Per-file checksums, the
+profile. Of 223 published files, 212 are byte-equivalent to source and 11 carry
+a documented, safety-driven content normalization: credential redaction of the
+Hermes Web UI built-in bootstrap default login pair in four references (no
+credential value appears anywhere in the catalog), the helper-path
+follow-through that repoints documented `scripts/<name>` invocations to the
+relocated `references/scripts/<name>` in six files, and one nested-`SKILL.md`
+citation follow-through. In addition, five `hermes-web-ui-service-ops` helper
+files are relocated from `scripts/**` to `references/scripts/**` and one nested
+`SKILL.md` is published as `OVERVIEW.md` (path-only, byte-equivalent) so the
+external-catalog importer accepts the package. Every deviating file records both
+`source_sha256` (before) and `sha256` (after); per-file checksums, the
 source→target mapping, and per-file normalization notes are in
 [`provenance/platform-engineering/`](provenance/platform-engineering/README.md).
 
