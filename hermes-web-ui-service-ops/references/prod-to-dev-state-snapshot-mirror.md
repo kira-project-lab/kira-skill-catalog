@@ -41,7 +41,7 @@ DEV bridge=ipc:///tmp/hermes-agent-bridge-dev.sock
 
 ## Safe snapshot workflow
 
-Reusable helper: `scripts/prod_to_dev_state_snapshot_mirror.py` implements this flow, including SQLite backups, dev-only stop/start, dev QA login preservation, and optional `--reset-password` in both live-dev auth DB locations. Review constants before running.
+Reusable helper: `references/scripts/prod_to_dev_state_snapshot_mirror.py` implements this flow, including SQLite backups, dev-only stop/start, dev QA login preservation, and optional `--reset-password` in both live-dev auth DB locations. Review constants before running.
 
 1. Create an archive directory under:
 

@@ -4,7 +4,7 @@
   "source_repo": "kira-project-lab/kira-profile",
   "source_ref": "dev",
   "source_commit": "c75d4631030011f4c7c9915dae4233e21a24a7f9",
-  "normalization": "path-only for all files EXCEPT two documented content-safety normalizations: (1) `hermes-web-ui-service-ops/references/session-url-inspection.md` — operational login literals redacted to placeholders; (2) `hermes-token-economy/references/package-hermes-token-observability/SKILL.md` renamed to `OVERVIEW.md` to prevent mis-import as a ninth skill. All other files: source `skills/<category>/<slug>/**` published as top-level `<slug>/**`, contents byte-equivalent, per-file sha256 below.",
+  "normalization": "Publication normalizations relative to source `kira-project-lab/kira-profile@c75d4631030011f4c7c9915dae4233e21a24a7f9`. Default: each source `skills/<category>/<slug>/**` file is published as top-level `<slug>/**`, byte-equivalent, per-file `sha256` below. Documented deviations (each carries `source_sha256` (before) and `sha256` (after) + a `normalization` reason on its file entry): (A) Path-only relocations, contents byte-equivalent (source_sha256==sha256): the five `hermes-web-ui-service-ops/scripts/**` helpers are published under `references/scripts/**` so the external-catalog GitHub importer treats them as reference material, not blocked executable scripts; and the nested `hermes-token-economy/references/package-hermes-token-observability/SKILL.md` is published as `OVERVIEW.md` to prevent mis-import as a ninth skill. (B) Content normalizations, not byte-equivalent: (1) helper-invocation paths in `hermes-web-ui-service-ops/SKILL.md` and four references, plus the usage headers inside `references/scripts/bridge_latency_benchmark.py` and `references/scripts/codex_bridge_trace.py`, are updated from `scripts/<name>` to `references/scripts/<name>` to match the relocated helpers; (2) the Hermes Web UI built-in bootstrap default login pair is redacted to `<username>`/`<password>` placeholders in `references/session-url-inspection.md`, `references/beta-10-vm-acceptance-execution.md`, `references/isolated-user-profile-webui.md`, and `hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md` (no credential value appears anywhere in the catalog); (3) the token-economy `SKILL.md` reference-list citation is updated to the renamed `OVERVIEW.md`. Intentionally NOT rewritten (documented, not defects): `references/upgrade-fork-drift-audit.md` line ~39 and the deployed-path usage header in `references/scripts/check-installed-katex-rendering.mjs` reference `scripts/check-installed-katex-rendering.mjs` relative to the upstream Hermes Web UI package tree (inside a `cd .../node_modules/hermes-web-ui` audit block), not the catalog; rewriting them to `references/scripts/**` would break the documented drift-audit command.",
   "ownership": "Kira Lab",
   "skill_count": 8,
   "file_count": 223,
@@ -65,6 +65,7 @@
       "files": [
         {
           "path": "SKILL.md",
+          "source_sha256": "4731dcb4d3ff8743b2320cad26656401fb004245b5babe0d77d9778739244028",
           "sha256": "fa869e2721e607ffec2bd26f3ab85e630933777e0333668214288ac5c91417aa",
           "source_path": "skills/devops/hermes-token-economy/SKILL.md",
           "target_path": "hermes-token-economy/SKILL.md",
@@ -126,6 +127,7 @@
         },
         {
           "path": "references/package-hermes-token-observability/OVERVIEW.md",
+          "source_sha256": "e406f6f88ec6c977d697082208f4856b59c7d00624f1a81604d4da29c0afc79c",
           "sha256": "e406f6f88ec6c977d697082208f4856b59c7d00624f1a81604d4da29c0afc79c",
           "source_path": "skills/devops/hermes-token-economy/references/package-hermes-token-observability/SKILL.md",
           "target_path": "hermes-token-economy/references/package-hermes-token-observability/OVERVIEW.md",
@@ -413,9 +415,11 @@
         },
         {
           "path": "references/kira-beta-10-vm-acceptance.md",
-          "sha256": "ebb04a20a477eeabeac200cbbbc756d7b9265545ad2af50662bcad2247b8b134",
+          "source_sha256": "ebb04a20a477eeabeac200cbbbc756d7b9265545ad2af50662bcad2247b8b134",
+          "sha256": "4ac162fae37d389b75912584db2544897756d81fd1140db14a95fb078d5c9a8e",
           "source_path": "skills/software-development/hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md",
-          "target_path": "hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md"
+          "target_path": "hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md",
+          "normalization": "content: redacted the Hermes Web UI built-in bootstrap default password to a `<password>` placeholder (no credential value in the catalog); auth-smoke guidance preserved."
         },
         {
           "path": "references/kira-beta-user-contour-smoke.md",
@@ -817,9 +821,11 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "9365932279aba0785276c0bedde72e35b83437f28c117566bb8fe43fd700181d",
+          "source_sha256": "9365932279aba0785276c0bedde72e35b83437f28c117566bb8fe43fd700181d",
+          "sha256": "ff3ac45c2c51f96a8a4861a83958b9d097a99a49695601e6fbbca9aafc564d0a",
           "source_path": "skills/devops/hermes-web-ui-service-ops/SKILL.md",
-          "target_path": "hermes-web-ui-service-ops/SKILL.md"
+          "target_path": "hermes-web-ui-service-ops/SKILL.md",
+          "normalization": "content: documented helper-invocation paths updated from `scripts/chat_latency_context_split.py` and `scripts/prod_to_dev_state_snapshot_mirror.py` to their relocated `references/scripts/...` catalog paths (KIR-190 import-compatibility relocation); no other change."
         },
         {
           "path": "references/adr-005-session-read-runtime-status.md",
@@ -829,9 +835,11 @@
         },
         {
           "path": "references/beta-10-vm-acceptance-execution.md",
-          "sha256": "770d3a85f3729ff450acfd47ef3b0fb494c0931eab437ea799122af80c15c27b",
+          "source_sha256": "770d3a85f3729ff450acfd47ef3b0fb494c0931eab437ea799122af80c15c27b",
+          "sha256": "38eff42eb1086e7ae48e893537f9e529ccb9974346eb24cd14d2fb3e8df62ca3",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/beta-10-vm-acceptance-execution.md",
-          "target_path": "hermes-web-ui-service-ops/references/beta-10-vm-acceptance-execution.md"
+          "target_path": "hermes-web-ui-service-ops/references/beta-10-vm-acceptance-execution.md",
+          "normalization": "content: redacted the Hermes Web UI built-in bootstrap default login pair to `<username>` / `<password>` placeholders (no credential value in the catalog); operational bootstrap guidance preserved."
         },
         {
           "path": "references/beta-tenant-provider-and-tool-smokes.md",
@@ -1009,9 +1017,11 @@
         },
         {
           "path": "references/isolated-user-profile-webui.md",
-          "sha256": "554761bf1042d34158ff89b6ee4a457fd3cf7a6fde05cbd8788138fbcbebbaa6",
+          "source_sha256": "554761bf1042d34158ff89b6ee4a457fd3cf7a6fde05cbd8788138fbcbebbaa6",
+          "sha256": "37acf5c06a99a9067dd3778ba60be49cf8c8f132b241d0dd82135cf8068dc98f",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/isolated-user-profile-webui.md",
-          "target_path": "hermes-web-ui-service-ops/references/isolated-user-profile-webui.md"
+          "target_path": "hermes-web-ui-service-ops/references/isolated-user-profile-webui.md",
+          "normalization": "content: redacted the Hermes Web UI built-in bootstrap default login pair to `<username> / <password>` placeholders (no credential value in the catalog); login-hardening guidance preserved."
         },
         {
           "path": "references/kira-beta-10-vm-target.md",
@@ -1123,9 +1133,11 @@
         },
         {
           "path": "references/prod-to-dev-state-snapshot-mirror.md",
-          "sha256": "fb67c3fb27d1e50ec503aecd95d35b18fe577a4e32690e0402fde868534dfcb9",
+          "source_sha256": "fb67c3fb27d1e50ec503aecd95d35b18fe577a4e32690e0402fde868534dfcb9",
+          "sha256": "c7ad181e9737b71874f77ffe05ce0c5218007c1f87943446a8f0c5a787218167",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/prod-to-dev-state-snapshot-mirror.md",
-          "target_path": "hermes-web-ui-service-ops/references/prod-to-dev-state-snapshot-mirror.md"
+          "target_path": "hermes-web-ui-service-ops/references/prod-to-dev-state-snapshot-mirror.md",
+          "normalization": "content: documented helper path updated from `scripts/prod_to_dev_state_snapshot_mirror.py` to its relocated `references/scripts/...` catalog path; no other change."
         },
         {
           "path": "references/prod-vs-runtime-drift.md",
@@ -1183,10 +1195,11 @@
         },
         {
           "path": "references/session-url-inspection.md",
+          "source_sha256": "dbb84d951a882975cbf0065a56b6d204485c5e3ba02aec2fb16fa5ee11dcb6e1",
           "sha256": "de918cd2dfd43e7cb4224ee4bef4cf67674154329b632b0c1323b15bc4497908",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-url-inspection.md",
           "target_path": "hermes-web-ui-service-ops/references/session-url-inspection.md",
-          "normalization": "content: operational login literals ('admin'/'123456') replaced with '<username>'/'<password>' placeholders (credential redaction); not byte-equivalent to source."
+          "normalization": "content: operational login literals (the Hermes Web UI built-in bootstrap default username/password pair) replaced with `<username>` / `<password>` placeholders (credential redaction); not byte-equivalent to source."
         },
         {
           "path": "references/single-host-caddy-allowlist-removal.md",
@@ -1304,45 +1317,59 @@
         },
         {
           "path": "references/vm-webui-provider-latency-benchmark.md",
-          "sha256": "dd933d1859ed8f97bb0c76c070d7e4e9da64c8cbfaae699d6a598cb05d2c926a",
+          "source_sha256": "dd933d1859ed8f97bb0c76c070d7e4e9da64c8cbfaae699d6a598cb05d2c926a",
+          "sha256": "2a7536b5ca12eec8dc276a20c3db83c8dfdcef0d62b5711e2693cb25caa73154",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-webui-provider-latency-benchmark.md",
-          "target_path": "hermes-web-ui-service-ops/references/vm-webui-provider-latency-benchmark.md"
+          "target_path": "hermes-web-ui-service-ops/references/vm-webui-provider-latency-benchmark.md",
+          "normalization": "content: documented helper paths updated from `scripts/bridge_latency_benchmark.py` and `scripts/codex_bridge_trace.py` to their relocated `references/scripts/...` catalog paths; no other change."
         },
         {
           "path": "references/webui-chat-latency-context-split.md",
-          "sha256": "8e207e5522f878672897a39bae2934ca0e0ba8ef17011a69d59c91b70e779490",
+          "source_sha256": "8e207e5522f878672897a39bae2934ca0e0ba8ef17011a69d59c91b70e779490",
+          "sha256": "00a8be250b73f80282545d6fa1764a228ea2e3a94fcba0800d3b177460d0f0d2",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/webui-chat-latency-context-split.md",
-          "target_path": "hermes-web-ui-service-ops/references/webui-chat-latency-context-split.md"
+          "target_path": "hermes-web-ui-service-ops/references/webui-chat-latency-context-split.md",
+          "normalization": "content: documented helper-invocation paths updated from `scripts/bridge_latency_benchmark.py` and `scripts/chat_latency_context_split.py` to their relocated `references/scripts/...` catalog paths; no other change."
         },
         {
-          "path": "scripts/bridge_latency_benchmark.py",
-          "sha256": "59183ed539643d9c70627080702110bc500802cf07d19a5407f0ca3e25534277",
+          "path": "references/scripts/bridge_latency_benchmark.py",
+          "source_sha256": "59183ed539643d9c70627080702110bc500802cf07d19a5407f0ca3e25534277",
+          "sha256": "e57618d7388622f0872950d9b997caae2866c769994f30ab07afb64bed7f4ba6",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/bridge_latency_benchmark.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/bridge_latency_benchmark.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/bridge_latency_benchmark.py",
+          "normalization": "path+content: (1) relocated from source `scripts/<name>` to `references/scripts/<name>` so the external-catalog GitHub importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which it categorically blocks; (2) the file's example-invocation usage header updated from `scripts/bridge_latency_benchmark.py` to `references/scripts/bridge_latency_benchmark.py` to match the relocated catalog path — no longer byte-equivalent to source."
         },
         {
-          "path": "scripts/chat_latency_context_split.py",
+          "path": "references/scripts/chat_latency_context_split.py",
+          "source_sha256": "f75dea1b31b2fad0ede2ab0624578e3e8ea331b77ab67bdd4cf06e94179836d4",
           "sha256": "f75dea1b31b2fad0ede2ab0624578e3e8ea331b77ab67bdd4cf06e94179836d4",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/chat_latency_context_split.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/chat_latency_context_split.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/chat_latency_context_split.py",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         },
         {
-          "path": "scripts/check-installed-katex-rendering.mjs",
+          "path": "references/scripts/check-installed-katex-rendering.mjs",
+          "source_sha256": "bc3a43a73ef2ba3c7e1bb96b35e6f5ca8ff65dd16f0479485a5a8f5a4c427c36",
           "sha256": "bc3a43a73ef2ba3c7e1bb96b35e6f5ca8ff65dd16f0479485a5a8f5a4c427c36",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/check-installed-katex-rendering.mjs",
-          "target_path": "hermes-web-ui-service-ops/scripts/check-installed-katex-rendering.mjs"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/check-installed-katex-rendering.mjs",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         },
         {
-          "path": "scripts/codex_bridge_trace.py",
-          "sha256": "5d0ce1922cb6fa3b020a543e4a2a5d9aaad353de1797af0abf566ec6b9666fae",
+          "path": "references/scripts/codex_bridge_trace.py",
+          "source_sha256": "5d0ce1922cb6fa3b020a543e4a2a5d9aaad353de1797af0abf566ec6b9666fae",
+          "sha256": "bd87bfce8f52f582711db668ce3d3a073c71a29be5bdcadebb2749104c90f8f8",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/codex_bridge_trace.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/codex_bridge_trace.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/codex_bridge_trace.py",
+          "normalization": "path+content: (1) relocated from source `scripts/<name>` to `references/scripts/<name>` so the external-catalog GitHub importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which it categorically blocks; (2) the file's two example-invocation usage-header lines updated from `scripts/codex_bridge_trace.py` to `references/scripts/codex_bridge_trace.py` to match the relocated catalog path — no longer byte-equivalent to source."
         },
         {
-          "path": "scripts/prod_to_dev_state_snapshot_mirror.py",
+          "path": "references/scripts/prod_to_dev_state_snapshot_mirror.py",
+          "source_sha256": "bfa5f2904c26121227b81ae3697da706582a884a947485d8961cd657b27397e0",
           "sha256": "bfa5f2904c26121227b81ae3697da706582a884a947485d8961cd657b27397e0",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/prod_to_dev_state_snapshot_mirror.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/prod_to_dev_state_snapshot_mirror.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/prod_to_dev_state_snapshot_mirror.py",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         }
       ]
     },

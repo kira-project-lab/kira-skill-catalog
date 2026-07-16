@@ -37,35 +37,82 @@ published as top-level `<slug>/` directories per the catalog layout
 The default transformation is **path-only**: source skills live under
 `skills/<category>/<slug>/**` in `kira-profile`; they are published here as
 top-level `<slug>/**` to match the catalog's flat, importer-discovered layout.
-For all but three files, **contents are byte-equivalent** to source. Every
+Of the 223 published files, **212 are byte-equivalent** to source and **11
+carry a documented content normalization** (are not byte-equivalent). Every
 file's `sha256` and its `source_path → target_path` mapping is recorded in
-[`manifest.json`](manifest.json); per-file `normalization` notes flag any file
-that is not byte-equivalent.
+[`manifest.json`](manifest.json). Every deviating file — content or path-only —
+carries a per-file `normalization` reason **plus both hashes**: `source_sha256`
+(before, resolved at the source commit) and `sha256` (after, the published
+bytes). For path-only relocations/renames the two hashes are equal; for content
+normalizations they differ.
 
-Three files carry a documented, safety-driven deviation (each also carries a
-per-file `normalization` note in the manifest):
+### Content normalizations (11 files, not byte-equivalent)
 
-1. **Credential redaction** — `hermes-web-ui-service-ops/references/session-url-inspection.md`:
-   the terminal-fallback example previously posted literal `admin` / `123456`
-   values to `/api/auth/login`. Those literals are replaced with
-   `<username>` / `<password>` placeholders so the catalog carries no
-   operational credential. The example still shows the login mechanism, and the
-   change aligns the snippet with that file's own rule ("Do not hard-code or
-   invent credentials"). This satisfies the *no credentials or runtime state*
-   acceptance criterion.
-2. **Nested-skill de-registration** — the source folds an archived package into
+1. **Credential redaction (4 files)** — the Hermes Web UI built-in bootstrap
+   default login pair (a default admin username and a short numeric default
+   password) previously appeared as literals in
+   `hermes-web-ui-service-ops/references/session-url-inspection.md`,
+   `hermes-web-ui-service-ops/references/beta-10-vm-acceptance-execution.md`,
+   `hermes-web-ui-service-ops/references/isolated-user-profile-webui.md`, and
+   `hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md`.
+   Those literals are replaced with `<username>` / `<password>` placeholders so
+   **no credential value appears anywhere in the catalog** (including this
+   provenance subtree), while the operational bootstrap/hardening guidance is
+   preserved. This satisfies the *no credentials or runtime state* acceptance
+   criterion.
+2. **Helper-path follow-through (6 files)** — the five relocated helpers (see
+   the path-only relocation below) are referenced by documented invocation
+   commands. Those references are updated from `scripts/<name>` to
+   `references/scripts/<name>` so the documented commands resolve in the catalog
+   tree, in `hermes-web-ui-service-ops/SKILL.md`,
+   `references/webui-chat-latency-context-split.md`,
+   `references/vm-webui-provider-latency-benchmark.md`,
+   `references/prod-to-dev-state-snapshot-mirror.md`, and — for the example
+   usage headers inside the helpers themselves —
+   `references/scripts/bridge_latency_benchmark.py` and
+   `references/scripts/codex_bridge_trace.py`.
+3. **Citation follow-through (1 file)** — `hermes-token-economy/SKILL.md` had one
+   reference-list line pointing at the nested `.../SKILL.md`; it now points at
+   `.../OVERVIEW.md` to match the rename below. No other content changed.
+
+### Path-only relocations/renames (byte-equivalent, `source_sha256 == sha256`)
+
+4. **Script relocation for import compatibility** — `hermes-web-ui-service-ops`
+   ships five helper files that live under `scripts/**` in source. The native
+   catalog importer classifies files by path: anything under `scripts/**` (or
+   with a bare `.py`/`.mjs`/`.sh`/… extension) is `kind=script`, and an external
+   GitHub skill that contains any script-class file is categorically rejected
+   (`reason=scripts_executables_blocked`) with no force/approval bypass. Files
+   under `references/**` are classified `kind=reference` regardless of
+   extension. So the five helpers are published under `references/scripts/**`
+   instead of `scripts/**`. The relocation itself changes only the `target_path`
+   and the file bytes are byte-identical to source. (Two of the five —
+   `bridge_latency_benchmark.py` and `codex_bridge_trace.py` — additionally have
+   their in-file example usage headers updated to the new path and are therefore
+   listed above as content normalizations; the other three remain byte-equivalent.)
+5. **Nested-skill de-registration** — the source folds an archived package into
    `hermes-token-economy/references/package-hermes-token-observability/` and that
    folder shipped a nested `SKILL.md` with valid skill frontmatter. A published
    nested `SKILL.md` could be mis-imported as a ninth skill and breaks the
    "published skills are top-level `<slug>/SKILL.md`" contract, so the file is
-   renamed to `OVERVIEW.md`. Contents are unchanged (`sha256` identical); only
+   published as `OVERVIEW.md`. Contents are unchanged (`sha256` identical); only
    the filename changes so no name-based skill discovery can register it.
-3. **Citation follow-through** — `hermes-token-economy/SKILL.md` had one
-   reference-list line pointing at the nested `.../SKILL.md`; it now points at
-   `.../OVERVIEW.md` to match the rename. No other content changed.
 
-The eight source skill trees are otherwise byte-equivalent; independent
-re-checksumming (below) reports `files=223 target_mismatches=0`.
+### Intentionally not rewritten (documented, not defects)
+
+Two remaining `scripts/check-installed-katex-rendering.mjs` references are
+**package-relative to the upstream Hermes Web UI tree**, not catalog-relative,
+and are deliberately left unchanged: `references/upgrade-fork-drift-audit.md`
+uses it inside a `cd .../node_modules/hermes-web-ui` fork-drift audit block, and
+the usage header in `references/scripts/check-installed-katex-rendering.mjs`
+shows the deployed hermes-profile path. Rewriting either to `references/scripts/**`
+would make the documented drift-audit command probe a path that does not exist
+in the upstream package.
+
+Independent re-checksumming (below) reports `files=223 target_mismatches=0`
+against the published bytes. With the relocation, every one of the eight
+published skills classifies below the script trust level, so all eight pass the
+external-catalog import gate.
 
 ## Conformance check (structural)
 
@@ -123,7 +170,10 @@ PY
 
 To confirm the source side, resolve the same files at
 `kira-project-lab/kira-profile@c75d4631030011f4c7c9915dae4233e21a24a7f9` using
-each entry's `source_path` and compare `sha256`.
+each entry's `source_path` and compare against the recorded `source_sha256`
+(before). For every deviating file this proves the exact before→after pair:
+`source_sha256` matches the source bytes and `sha256` matches the published
+bytes; byte-equivalent files simply have `source_sha256 == sha256`.
 
 ## Import path
 

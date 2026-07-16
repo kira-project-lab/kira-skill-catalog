@@ -31,14 +31,22 @@ company skill library:
 | [`kira-learning-loop`](kira-learning-loop/SKILL.md) | — | How Kira Lab learns from its own failures without learning from noise. Use when reviewing agent trajectories, classifying a defect, or proposing any change to a prompt, skill, or runtime. Required reading before any coaching proposal. |
 | [`wrap-up`](wrap-up/SKILL.md) | — | End-of-task closure — review the diff, decide and state the docs decision (new ADR / update docs / none), verify doc consistency and commit hygiene. Use before declaring any substantial coding task complete. |
 
-### Platform-engineering package (v0.2.0)
+### Platform-engineering package (v0.2.1)
 
 Eight Hermes / platform executor skills, published from
 `kira-project-lab/kira-profile@c75d4631` so they live outside the cognitive
-profile. Byte-equivalent to source apart from three documented, safety-driven
-normalizations (one credential redaction, one nested-`SKILL.md` de-registration,
-and its citation follow-through); per-file checksums, the source→target mapping,
-and per-file normalization notes are in
+profile. Of 223 published files, 212 are byte-equivalent to source and 11 carry
+a documented, safety-driven content normalization: credential redaction of the
+Hermes Web UI built-in bootstrap default login pair in four references (no
+credential value appears anywhere in the catalog), the helper-path
+follow-through that repoints documented `scripts/<name>` invocations to the
+relocated `references/scripts/<name>` in six files, and one nested-`SKILL.md`
+citation follow-through. In addition, five `hermes-web-ui-service-ops` helper
+files are relocated from `scripts/**` to `references/scripts/**` and one nested
+`SKILL.md` is published as `OVERVIEW.md` (path-only, byte-equivalent) so the
+external-catalog importer accepts the package. Every deviating file records both
+`source_sha256` (before) and `sha256` (after); per-file checksums, the
+source→target mapping, and per-file normalization notes are in
 [`provenance/platform-engineering/`](provenance/platform-engineering/README.md).
 
 | Skill | Support files | Description |
@@ -49,7 +57,7 @@ and per-file normalization notes are in
 | [`hermes-token-economy`](hermes-token-economy/SKILL.md) | `references/**` (11) | Analyze and reduce Kira agent token usage: inspect live usage stores, separate input/output/cache/reasoning buckets, design lightweight tracing plugins, and find high-leverage savings without logging sensitive prompts. |
 | [`hermes-web-ui-live-dev`](hermes-web-ui-live-dev/SKILL.md) | `references/**` (17) | Operate Hermes Web UI live-dev: persistent watch-based runtime, HMR, backend restart loop, runtime identity, and verification. |
 | [`hermes-web-ui-operating-model`](hermes-web-ui-operating-model/SKILL.md) | `references/**` (90) | Mandatory entrypoint for Hermes Web UI planned work: branches, builds, previews, production deploys, runtime topology, and release/export decisions. |
-| [`hermes-web-ui-service-ops`](hermes-web-ui-service-ops/SKILL.md) | `references/**` (82), `scripts/**` (5) | Mandatory runtime/live-service companion for Hermes Web UI work. Load for any task that touches, verifies, updates, restarts, diagnoses, or depends on a running dev/preview/prod service. |
+| [`hermes-web-ui-service-ops`](hermes-web-ui-service-ops/SKILL.md) | `references/**` (87, incl. `references/scripts/**` (5)) | Mandatory runtime/live-service companion for Hermes Web UI work. Load for any task that touches, verifies, updates, restarts, diagnoses, or depends on a running dev/preview/prod service. |
 | [`hermes-web-ui-upstream-sync`](hermes-web-ui-upstream-sync/SKILL.md) | `references/**` (9) | Update Kira's Hermes Web UI fork from upstream — compare fork vs upstream, plan/execute a version bump, reconcile `origin/dev` with `upstream/main`, maintain a long-lived downstream fork. |
 
 ## Layout

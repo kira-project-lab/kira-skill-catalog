@@ -6,7 +6,7 @@ bridge socket. It records socket roundtrip, start ack, first event, first text d
 and total completion time as JSONL.
 
 Example PC:
-  python3 scripts/codex_bridge_trace.py \
+  python3 references/scripts/codex_bridge_trace.py \
     --surface pc-prod \
     --endpoint ipc:///tmp/hermes-agent-bridge-prod.sock \
     --profile kira \
@@ -15,7 +15,7 @@ Example PC:
     --out /tmp/pc-codex-gpt55-trace.jsonl
 
 Example VM tenant:
-  sudo -u kira-u-polina python3 scripts/codex_bridge_trace.py \
+  sudo -u kira-u-polina python3 references/scripts/codex_bridge_trace.py \
     --surface vm-usr-polina \
     --endpoint ipc:///data/kira/users/usr_polina/assistants/kira/web-ui-state/agent-bridge.sock \
     --profile default \

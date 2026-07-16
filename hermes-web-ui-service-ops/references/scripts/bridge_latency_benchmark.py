@@ -6,7 +6,7 @@ Hermes Web UI prod/dev/VM service diagnosis where HTTP health is fast but chat
 feels slow.
 
 Example:
-  python3 scripts/bridge_latency_benchmark.py \
+  python3 references/scripts/bridge_latency_benchmark.py \
     --endpoint ipc:///tmp/hermes-agent-bridge-prod.sock \
     --profile kira \
     --prompt 'Привет, ты здесь? Ответь одной короткой фразой.'

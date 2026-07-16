@@ -21,17 +21,17 @@ Do not jump straight to provider switching. A fast `/health` only proves the Web
 ```bash
 curl -sS -o /dev/null -w 'local_health http=%{http_code} total=%{time_total}s starttransfer=%{time_starttransfer}s\n' http://127.0.0.1:8648/health
 curl -sS -o /dev/null -w 'public_health http=%{http_code} total=%{time_total}s starttransfer=%{time_starttransfer}s\n' https://app.kiraproject.ru/health
-python3 scripts/bridge_latency_benchmark.py \
+python3 references/scripts/bridge_latency_benchmark.py \
   --endpoint ipc:///tmp/hermes-agent-bridge-prod.sock \
   --profile kira \
   --prompt 'Ответь ровно одним словом: готово' \
   --prompt 'Привет, ты здесь? Ответь одной короткой фразой.'
 ```
 
-For context split against a known heavy session, use `scripts/chat_latency_context_split.py` from this skill. Copy it out or run it from the skill directory with explicit paths:
+For context split against a known heavy session, use `references/scripts/chat_latency_context_split.py` from this skill. Copy it out or run it from the skill directory with explicit paths:
 
 ```bash
-python3 scripts/chat_latency_context_split.py \
+python3 references/scripts/chat_latency_context_split.py \
   --endpoint ipc:///tmp/hermes-agent-bridge-prod.sock \
   --profile kira \
   --db /home/werserk/.hermes-web-ui/hermes-web-ui.db \

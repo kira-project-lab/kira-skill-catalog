@@ -247,7 +247,7 @@ Evidence example: `kira-ops/docs/evidence/beta-users/usr_test_001-usr_test_002-v
 
 ## Web UI auth smoke pitfalls
 
-- On a fresh isolated Web UI state DB, `/api/auth/status` reports `hasUsers=false`; the first login must use the built-in bootstrap password `123456`, then immediately change the admin password to a generated tenant-owned value. Do not assume a generated admin password will work before bootstrap.
+- On a fresh isolated Web UI state DB, `/api/auth/status` reports `hasUsers=false`; the first login must use the built-in bootstrap password `<password>` (Hermes Web UI product default; value redacted here — never store it in the catalog), then immediately change the admin password to a generated tenant-owned value. Do not assume a generated admin password will work before bootstrap.
 - `/api/auth/me` may return the user object directly rather than under `{ user: ... }`; smoke probes should accept both shapes.
 - User profile bindings may not appear in `/api/auth/me`; verify profile access with `/api/hermes/profiles` instead.
 - Store generated smoke credentials only under tenant-owned `acceptance-secrets` with `0700` directory and `0600` file permissions. Never paste them into chat or docs.

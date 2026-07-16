@@ -19,8 +19,8 @@ Record for every run: surface, provider, model, elapsed seconds, TTFB/first-delt
 
 Reusable helpers:
 
-- `scripts/bridge_latency_benchmark.py` runs `ping`, optional `context_estimate`, and chat prompts against an `ipc://` bridge socket and prints JSONL. Copy it to a tenant-readable path on VM if the tenant socket is private, then run it as the tenant Linux user.
-- `scripts/codex_bridge_trace.py` is the focused trace helper for forced `openai-codex / gpt-5.5` comparisons. It records ping, context estimate, start ack, first event, first text delta, total time, and compact final output.
+- `references/scripts/bridge_latency_benchmark.py` runs `ping`, optional `context_estimate`, and chat prompts against an `ipc://` bridge socket and prints JSONL. Copy it to a tenant-readable path on VM if the tenant socket is private, then run it as the tenant Linux user.
+- `references/scripts/codex_bridge_trace.py` is the focused trace helper for forced `openai-codex / gpt-5.5` comparisons. It records ping, context estimate, start ack, first event, first text delta, total time, and compact final output.
 
 ## Bridge benchmark pattern
 
