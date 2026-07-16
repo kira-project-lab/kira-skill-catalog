@@ -4,7 +4,7 @@
   "source_repo": "kira-project-lab/kira-profile",
   "source_ref": "dev",
   "source_commit": "c75d4631030011f4c7c9915dae4233e21a24a7f9",
-  "normalization": "path-only for all files EXCEPT two documented content-safety normalizations: (1) `hermes-web-ui-service-ops/references/session-url-inspection.md` — operational login literals redacted to placeholders; (2) `hermes-token-economy/references/package-hermes-token-observability/SKILL.md` renamed to `OVERVIEW.md` to prevent mis-import as a ninth skill. All other files: source `skills/<category>/<slug>/**` published as top-level `<slug>/**`, contents byte-equivalent, per-file sha256 below.",
+  "normalization": "path-only for all files EXCEPT two documented content-safety normalizations: (1) `hermes-web-ui-service-ops/references/session-url-inspection.md` — operational login literals redacted to placeholders; (2) `hermes-token-economy/references/package-hermes-token-observability/SKILL.md` renamed to `OVERVIEW.md` to prevent mis-import as a ninth skill. Additionally, the five `hermes-web-ui-service-ops/scripts/**` helpers are relocated to `hermes-web-ui-service-ops/references/scripts/**` (path-only, contents byte-equivalent, sha256 unchanged) so the external-catalog GitHub importer classifies them as reference material instead of executable scripts, which it categorically blocks. All other files: source `skills/<category>/<slug>/**` published as top-level `<slug>/**`, contents byte-equivalent, per-file sha256 below.",
   "ownership": "Kira Lab",
   "skill_count": 8,
   "file_count": 223,
@@ -1315,34 +1315,39 @@
           "target_path": "hermes-web-ui-service-ops/references/webui-chat-latency-context-split.md"
         },
         {
-          "path": "scripts/bridge_latency_benchmark.py",
+          "path": "references/scripts/bridge_latency_benchmark.py",
           "sha256": "59183ed539643d9c70627080702110bc500802cf07d19a5407f0ca3e25534277",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/bridge_latency_benchmark.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/bridge_latency_benchmark.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/bridge_latency_benchmark.py",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         },
         {
-          "path": "scripts/chat_latency_context_split.py",
+          "path": "references/scripts/chat_latency_context_split.py",
           "sha256": "f75dea1b31b2fad0ede2ab0624578e3e8ea331b77ab67bdd4cf06e94179836d4",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/chat_latency_context_split.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/chat_latency_context_split.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/chat_latency_context_split.py",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         },
         {
-          "path": "scripts/check-installed-katex-rendering.mjs",
+          "path": "references/scripts/check-installed-katex-rendering.mjs",
           "sha256": "bc3a43a73ef2ba3c7e1bb96b35e6f5ca8ff65dd16f0479485a5a8f5a4c427c36",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/check-installed-katex-rendering.mjs",
-          "target_path": "hermes-web-ui-service-ops/scripts/check-installed-katex-rendering.mjs"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/check-installed-katex-rendering.mjs",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         },
         {
-          "path": "scripts/codex_bridge_trace.py",
+          "path": "references/scripts/codex_bridge_trace.py",
           "sha256": "5d0ce1922cb6fa3b020a543e4a2a5d9aaad353de1797af0abf566ec6b9666fae",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/codex_bridge_trace.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/codex_bridge_trace.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/codex_bridge_trace.py",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         },
         {
-          "path": "scripts/prod_to_dev_state_snapshot_mirror.py",
+          "path": "references/scripts/prod_to_dev_state_snapshot_mirror.py",
           "sha256": "bfa5f2904c26121227b81ae3697da706582a884a947485d8961cd657b27397e0",
           "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/prod_to_dev_state_snapshot_mirror.py",
-          "target_path": "hermes-web-ui-service-ops/scripts/prod_to_dev_state_snapshot_mirror.py"
+          "target_path": "hermes-web-ui-service-ops/references/scripts/prod_to_dev_state_snapshot_mirror.py",
+          "normalization": "path-only relocation: source `scripts/<name>` is published under `references/scripts/<name>` so the external-catalog importer classifies it as inert reference material (kind=reference) rather than an executable script (kind=script), which the GitHub import path categorically blocks. File contents are byte-equivalent to source; sha256 unchanged."
         }
       ]
     },

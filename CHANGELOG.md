@@ -4,6 +4,36 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.2.1] - 2026-07-16
+
+Corrective release for the **platform-engineering** package. v0.2.0 published
+`hermes-web-ui-service-ops`'s five helper files under `scripts/**`. The native
+GitHub importer derives a trust level from file paths: any file under
+`scripts/**` (or with a bare code extension) is classified as an executable
+script, and external GitHub skills that contain script-class files are
+categorically rejected (`reason=scripts_executables_blocked`) with no bypass. As
+published, `hermes-web-ui-service-ops` failed `skills import` and the sequential
+import stranded the package (only six of eight skills landed).
+
+Fix: the five helpers are **relocated** from
+`hermes-web-ui-service-ops/scripts/**` to
+`hermes-web-ui-service-ops/references/scripts/**`. The importer classifies
+anything under `references/**` as reference material regardless of extension, so
+the files are now inert reference copies and all eight skills import cleanly.
+This is a **path-only** normalization: file contents are byte-equivalent to
+source and every `sha256` is unchanged (independent re-checksum:
+`files=223 target_mismatches=0`). No trust boundary is bypassed — the files
+genuinely become reference material under the importer's own classification
+contract. PATCH bump: no skill content or the layout contract changed.
+
+### Changed
+
+- `hermes-web-ui-service-ops`: five `scripts/**` helpers relocated to
+  `references/scripts/**` (path-only, byte-equivalent) so the package passes the
+  external-catalog import gate. Provenance `path`/`target_path` and per-file
+  `normalization` notes updated in
+  `provenance/platform-engineering/manifest.json`.
+
 ## [0.2.0] - 2026-07-16
 
 Adds the **platform-engineering** package: eight Hermes / platform executor

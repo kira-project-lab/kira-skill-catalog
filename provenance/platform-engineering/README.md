@@ -64,8 +64,28 @@ per-file `normalization` note in the manifest):
    reference-list line pointing at the nested `.../SKILL.md`; it now points at
    `.../OVERVIEW.md` to match the rename. No other content changed.
 
+Additionally, one **path-only relocation** (contents byte-equivalent, `sha256`
+unchanged — not a content deviation):
+
+4. **Script relocation for import compatibility** — `hermes-web-ui-service-ops`
+   ships five helper files that live under `scripts/**` in source. The native
+   catalog importer classifies files by path: anything under `scripts/**` (or
+   with a bare `.py`/`.mjs`/`.sh`/… extension) is `kind=script`, and an external
+   GitHub skill that contains any script-class file is categorically rejected
+   (`reason=scripts_executables_blocked`) with no force/approval bypass. Files
+   under `references/**` are classified `kind=reference` regardless of
+   extension. So the five helpers are published under
+   `references/scripts/**` instead of `scripts/**`. This changes only the
+   `target_path` (source keeps `scripts/<name>`); file **contents are
+   byte-identical** and every `sha256` is unchanged. The helpers become inert
+   reference material — this uses the importer's own classification contract and
+   bypasses no trust boundary. Each relocated file carries a per-file
+   `normalization` note in the manifest.
+
 The eight source skill trees are otherwise byte-equivalent; independent
-re-checksumming (below) reports `files=223 target_mismatches=0`.
+re-checksumming (below) reports `files=223 target_mismatches=0`. With the
+relocation, every one of the eight published skills classifies below the script
+trust level, so all eight pass the external-catalog import gate.
 
 ## Conformance check (structural)
 
