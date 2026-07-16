@@ -4,6 +4,35 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] - 2026-07-16
+
+Adds the **orangehack** package: three OrangeHack executor skills published so
+they live outside the cognitive profile. Skills are copied from
+`kira-project-lab/kira-profile` `dev` @
+`c75d4631030011f4c7c9915dae4233e21a24a7f9` with **path-only** normalization
+(source `skills/<category>/<slug>/**` → top-level `<slug>/**`); contents are
+**byte-equivalent** except one documented content change: the `orangehack`
+routing skill's `SKILL.md` gains an appended `## Bundled context` section that
+links its two relocated context groups by valid relative paths. Those two
+context groups — the OrangeHack project sources and roadmap — are published under
+the owning routing skill's `references/` (path-only, byte-equivalent) so the
+context travels with, and is discoverable from, the skill. Per-file `sha256`
+checksums (with `source_sha256` before / `sha256` after for the deviating file),
+the source→target mapping, and per-file normalization notes are recorded in
+`provenance/orangehack/manifest.json`; ownership stays with Kira Lab. No
+credentials, organizer-only data, or runtime state are included. MINOR bump:
+additive only, no existing skill or the layout contract changed.
+
+### Added
+
+- `orangehack` — routing skill for OrangeHack platform / hackathon / competition
+  work; carries the OrangeHack project sources and roadmap under `references/`.
+- `hackathon-program-briefing` — design and prepare hackathon / ML-competition
+  program and participant-facing materials.
+- `ml-competition-data-ops` — design and operate ML competition data/scoring
+  packs with organizer-only safeguards.
+- `provenance/orangehack/` — package README and machine-checkable checksum manifest.
+
 ## [0.2.1] - 2026-07-16
 
 Corrective release for the **platform-engineering** package published in v0.2.0.
@@ -113,6 +142,7 @@ library; support files (`references/**`, templates) travel with each `SKILL.md`.
 - `kira-learning-loop` — how Kira Lab learns from its own failures.
 - `wrap-up` — end-of-task closure and docs decision.
 
+[0.3.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.3.0
 [0.2.1]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.2.1
 [0.2.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.2.0
 [0.1.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.1.0
