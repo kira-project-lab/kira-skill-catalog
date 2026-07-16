@@ -1,0 +1,1418 @@
+{
+  "package": "platform-engineering",
+  "schema": "kira-skill-catalog/provenance@1",
+  "source_repo": "kira-project-lab/kira-profile",
+  "source_ref": "dev",
+  "source_commit": "c75d4631030011f4c7c9915dae4233e21a24a7f9",
+  "normalization": "path-only for all files EXCEPT two documented content-safety normalizations: (1) `hermes-web-ui-service-ops/references/session-url-inspection.md` — operational login literals redacted to placeholders; (2) `hermes-token-economy/references/package-hermes-token-observability/SKILL.md` renamed to `OVERVIEW.md` to prevent mis-import as a ninth skill. All other files: source `skills/<category>/<slug>/**` published as top-level `<slug>/**`, contents byte-equivalent, per-file sha256 below.",
+  "ownership": "Kira Lab",
+  "skill_count": 8,
+  "file_count": 223,
+  "skills": [
+    {
+      "slug": "debugging-hermes-tui-commands",
+      "source_dir": "skills/software-development/debugging-hermes-tui-commands",
+      "target_dir": "debugging-hermes-tui-commands",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5868b8588994e6abbfbcbd85bd824898989be9a0c01d3905e387b5c1fd366738",
+          "source_path": "skills/software-development/debugging-hermes-tui-commands/SKILL.md",
+          "target_path": "debugging-hermes-tui-commands/SKILL.md"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-codex-debugging",
+      "source_dir": "skills/software-development/hermes-codex-debugging",
+      "target_dir": "hermes-codex-debugging",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "36ab70b2221ab7c1613fa82420ecc52c317df604c7615bc7a7776b1694cdf9d6",
+          "source_path": "skills/software-development/hermes-codex-debugging/SKILL.md",
+          "target_path": "hermes-codex-debugging/SKILL.md"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-provider-troubleshooting",
+      "source_dir": "skills/devops/hermes-provider-troubleshooting",
+      "target_dir": "hermes-provider-troubleshooting",
+      "file_count": 2,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5bc930ddbbeca3937b7f938f98f035639166f3a8f5035769c76e1aeb5eb5ecfa",
+          "source_path": "skills/devops/hermes-provider-troubleshooting/SKILL.md",
+          "target_path": "hermes-provider-troubleshooting/SKILL.md"
+        },
+        {
+          "path": "references/claude-subscription-backend-research.md",
+          "sha256": "ec5e9efa537be8df10fbe33d0dd2b731d86cb85aa678056b1c495575d9312e23",
+          "source_path": "skills/devops/hermes-provider-troubleshooting/references/claude-subscription-backend-research.md",
+          "target_path": "hermes-provider-troubleshooting/references/claude-subscription-backend-research.md"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-token-economy",
+      "source_dir": "skills/devops/hermes-token-economy",
+      "target_dir": "hermes-token-economy",
+      "file_count": 12,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "fa869e2721e607ffec2bd26f3ab85e630933777e0333668214288ac5c91417aa",
+          "source_path": "skills/devops/hermes-token-economy/SKILL.md",
+          "target_path": "hermes-token-economy/SKILL.md",
+          "normalization": "content: reference-list citation updated from `package-hermes-token-observability/SKILL.md` to `OVERVIEW.md` to match the de-registered nested file; otherwise byte-equivalent."
+        },
+        {
+          "path": "references/2026-06-22-current-setup-token-audit-plan.md",
+          "sha256": "bc87ba7e859669acb7ce6de094ea9b3c6111e5b1af29d24f1bf1e3c2a4d3933c",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-06-22-current-setup-token-audit-plan.md",
+          "target_path": "hermes-token-economy/references/2026-06-22-current-setup-token-audit-plan.md"
+        },
+        {
+          "path": "references/2026-06-22-kira-token-baseline.md",
+          "sha256": "f091b1917074aa3c1743e093c024e131ea6738036251ea886b31c136458aa48a",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-06-22-kira-token-baseline.md",
+          "target_path": "hermes-token-economy/references/2026-06-22-kira-token-baseline.md"
+        },
+        {
+          "path": "references/2026-06-22-skill-view-attribution.md",
+          "sha256": "042fca73748059a8f5acc59400ccc74881adbf6149e5a9c4aecf919b1964d7a4",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-06-22-skill-view-attribution.md",
+          "target_path": "hermes-token-economy/references/2026-06-22-skill-view-attribution.md"
+        },
+        {
+          "path": "references/2026-06-22-token-audit-activation-and-tokenjuice-hook.md",
+          "sha256": "06588e5db6139559bf2fb24dd280080b72868eea0728b8a935ffb87d816bea67",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-06-22-token-audit-activation-and-tokenjuice-hook.md",
+          "target_path": "hermes-token-economy/references/2026-06-22-token-audit-activation-and-tokenjuice-hook.md"
+        },
+        {
+          "path": "references/2026-07-01-model-api-latency-attribution.md",
+          "sha256": "b41e682772e4aff4a697c0b4711a4dc16ecc34275ffa1bd664bed65d05db40e5",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-07-01-model-api-latency-attribution.md",
+          "target_path": "hermes-token-economy/references/2026-07-01-model-api-latency-attribution.md"
+        },
+        {
+          "path": "references/2026-07-10-control-plane-overthinking-audit.md",
+          "sha256": "c98554da867117f061ff21c593a11f6197044d65b253f2e6d3805dfc5aa969b2",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-07-10-control-plane-overthinking-audit.md",
+          "target_path": "hermes-token-economy/references/2026-07-10-control-plane-overthinking-audit.md"
+        },
+        {
+          "path": "references/2026-07-10-kira-control-plane-improvement-plan.md",
+          "sha256": "1173447a4ebca10d18e5a85dd72646ba6fcd94871926cb35def0a8d5f9099f38",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-07-10-kira-control-plane-improvement-plan.md",
+          "target_path": "hermes-token-economy/references/2026-07-10-kira-control-plane-improvement-plan.md"
+        },
+        {
+          "path": "references/2026-07-10-progressive-disclosure-profile-ab.md",
+          "sha256": "c69c98eec69a15794103f7203027613cb94685e08d7dbe0e4a3ccd42dbd5c244",
+          "source_path": "skills/devops/hermes-token-economy/references/2026-07-10-progressive-disclosure-profile-ab.md",
+          "target_path": "hermes-token-economy/references/2026-07-10-progressive-disclosure-profile-ab.md"
+        },
+        {
+          "path": "references/hermes-token-observability-package.md",
+          "sha256": "85b4634de7b1686e6401ab6b1d17af822a4bb71ff55479e6cdbdf055672e6761",
+          "source_path": "skills/devops/hermes-token-economy/references/hermes-token-observability-package.md",
+          "target_path": "hermes-token-economy/references/hermes-token-observability-package.md"
+        },
+        {
+          "path": "references/package-hermes-token-observability/OVERVIEW.md",
+          "sha256": "e406f6f88ec6c977d697082208f4856b59c7d00624f1a81604d4da29c0afc79c",
+          "source_path": "skills/devops/hermes-token-economy/references/package-hermes-token-observability/SKILL.md",
+          "target_path": "hermes-token-economy/references/package-hermes-token-observability/OVERVIEW.md",
+          "normalization": "path: nested source `SKILL.md` published as `OVERVIEW.md` to de-register it as an importable skill; file contents byte-equivalent (sha256 unchanged)."
+        },
+        {
+          "path": "references/package-hermes-token-observability/references/skill-view-dedupe-analysis.md",
+          "sha256": "cd80ee530dee7e25f3dbe50c420d2359e698a62674f9208a2c90985fa5a1e32a",
+          "source_path": "skills/devops/hermes-token-economy/references/package-hermes-token-observability/references/skill-view-dedupe-analysis.md",
+          "target_path": "hermes-token-economy/references/package-hermes-token-observability/references/skill-view-dedupe-analysis.md"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-web-ui-live-dev",
+      "source_dir": "skills/devops/hermes-web-ui-live-dev",
+      "target_dir": "hermes-web-ui-live-dev",
+      "file_count": 18,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "fb80fb86ab5ecc9422b768df839447e02e427fec0afd15f0b73870a1a7355985",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/SKILL.md",
+          "target_path": "hermes-web-ui-live-dev/SKILL.md"
+        },
+        {
+          "path": "references/active-chat-model-switching.md",
+          "sha256": "ea5c46cd781d288747efee7b41d7ffde4f07073d036be31edcac219139ecd82f",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/active-chat-model-switching.md",
+          "target_path": "hermes-web-ui-live-dev/references/active-chat-model-switching.md"
+        },
+        {
+          "path": "references/chat-model-switch-qa.md",
+          "sha256": "c1634262cefbdce53c8ce39e1e59857df1f1f798f632a72a8220ad664fa48f18",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/chat-model-switch-qa.md",
+          "target_path": "hermes-web-ui-live-dev/references/chat-model-switch-qa.md"
+        },
+        {
+          "path": "references/chat-model-switching-real-run.md",
+          "sha256": "cf255b8a2d8167092aaf6a04712d10dbb3f29cf812bd2383f5241f55ddbc2716",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/chat-model-switching-real-run.md",
+          "target_path": "hermes-web-ui-live-dev/references/chat-model-switching-real-run.md"
+        },
+        {
+          "path": "references/chat-session-sidebar-anatomy.md",
+          "sha256": "a111636534bae40db99d9f79907adfc3e8fd46f3b00f7293a58c51d35a8c9dfe",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/chat-session-sidebar-anatomy.md",
+          "target_path": "hermes-web-ui-live-dev/references/chat-session-sidebar-anatomy.md"
+        },
+        {
+          "path": "references/chat-session-state-stability-debugging.md",
+          "sha256": "8f41b8985cc13ab3c8ec8a840f95d13310c945b37c6aa399ac2a0e03f41b916c",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/chat-session-state-stability-debugging.md",
+          "target_path": "hermes-web-ui-live-dev/references/chat-session-state-stability-debugging.md"
+        },
+        {
+          "path": "references/icon-button-visual-contract.md",
+          "sha256": "657245ddbb9b70e4a7bcaa679379830e9c032e292099c449ee2327a4614a37ed",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/icon-button-visual-contract.md",
+          "target_path": "hermes-web-ui-live-dev/references/icon-button-visual-contract.md"
+        },
+        {
+          "path": "references/live-dev-restart-and-verify.md",
+          "sha256": "d32d23471a21c231d298d83e1dd5fc162f7b3afc21752679f4d8e945a9f8d57d",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/live-dev-restart-and-verify.md",
+          "target_path": "hermes-web-ui-live-dev/references/live-dev-restart-and-verify.md"
+        },
+        {
+          "path": "references/live-dev-session-inventory.md",
+          "sha256": "97e8e763eea6de19742b8a3c2e9ff884d51b4e81e9ed63973339daa9415e7eb2",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/live-dev-session-inventory.md",
+          "target_path": "hermes-web-ui-live-dev/references/live-dev-session-inventory.md"
+        },
+        {
+          "path": "references/live-dev-session-statuses.md",
+          "sha256": "e6058371643844b87f4ceba598a35c18cf2df39193a60a68dc8c0d007528d364",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/live-dev-session-statuses.md",
+          "target_path": "hermes-web-ui-live-dev/references/live-dev-session-statuses.md"
+        },
+        {
+          "path": "references/live-dev-verification.md",
+          "sha256": "354c068fc68989dd5df2ebcfddd991443d2774b5df92d2dd4d69269cfd523fb5",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/live-dev-verification.md",
+          "target_path": "hermes-web-ui-live-dev/references/live-dev-verification.md"
+        },
+        {
+          "path": "references/public-host-allowlist.md",
+          "sha256": "0891ca22560648fe40122743a3ab2a5e95a24906ef304857a35bdbb4f85deda2",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/public-host-allowlist.md",
+          "target_path": "hermes-web-ui-live-dev/references/public-host-allowlist.md"
+        },
+        {
+          "path": "references/reset-dev-to-main.md",
+          "sha256": "f94ece86da6d297c9abada4003f4ef96452c46b1deecf378d8180be955f38e50",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/reset-dev-to-main.md",
+          "target_path": "hermes-web-ui-live-dev/references/reset-dev-to-main.md"
+        },
+        {
+          "path": "references/resize-separator-visual-contract.md",
+          "sha256": "f0b8638cdb6e824c5d2fa5df6ace024efa005e7c63890cf6f289ad3fa7848c0a",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/resize-separator-visual-contract.md",
+          "target_path": "hermes-web-ui-live-dev/references/resize-separator-visual-contract.md"
+        },
+        {
+          "path": "references/scrollbar-and-resize-handle.md",
+          "sha256": "661a3d19e73606e39121cdf655b475b678691c43d9ef6206975d3e59cede7b22",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/scrollbar-and-resize-handle.md",
+          "target_path": "hermes-web-ui-live-dev/references/scrollbar-and-resize-handle.md"
+        },
+        {
+          "path": "references/session-row-status-removal.md",
+          "sha256": "317058d125081bb93d4d01b8d4e98048180ee269ed8c0bc57a38d5298f623d66",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/session-row-status-removal.md",
+          "target_path": "hermes-web-ui-live-dev/references/session-row-status-removal.md"
+        },
+        {
+          "path": "references/session-sidebar-launchers.md",
+          "sha256": "a0a4a138175f5d7b6ba013d24dc9e5fdb5a935fa0f67299b8add9384cb9db4b2",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/session-sidebar-launchers.md",
+          "target_path": "hermes-web-ui-live-dev/references/session-sidebar-launchers.md"
+        },
+        {
+          "path": "references/sidebar-tooltip-contract.md",
+          "sha256": "90c2266e719d20d3d597fa2104be6bdf5387a2b28f22238c5e7097363dfaba81",
+          "source_path": "skills/devops/hermes-web-ui-live-dev/references/sidebar-tooltip-contract.md",
+          "target_path": "hermes-web-ui-live-dev/references/sidebar-tooltip-contract.md"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-web-ui-operating-model",
+      "source_dir": "skills/software-development/hermes-web-ui-operating-model",
+      "target_dir": "hermes-web-ui-operating-model",
+      "file_count": 91,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "f47b6b6cdc71b9767cbc8e385db7c808a803df113041e857dccc68476bf43295",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/SKILL.md",
+          "target_path": "hermes-web-ui-operating-model/SKILL.md"
+        },
+        {
+          "path": "references/account-scoped-ui-preferences.md",
+          "sha256": "dae1d0c99f371863bd3316307927453782b1a859e7625038f9ab11e794ec3811",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/account-scoped-ui-preferences.md",
+          "target_path": "hermes-web-ui-operating-model/references/account-scoped-ui-preferences.md"
+        },
+        {
+          "path": "references/action-button-link-controls.md",
+          "sha256": "2bb6e71b8f8cdfdf3622889f977fe84282b9ffab79cbbdf27d8123d33bc50d67",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/action-button-link-controls.md",
+          "target_path": "hermes-web-ui-operating-model/references/action-button-link-controls.md"
+        },
+        {
+          "path": "references/activity-rail-scroll-containment.md",
+          "sha256": "820bd82b4eeb3f4b5c52d0aaa029bceb93bab4a42b296f77cfd787bebcae09bf",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/activity-rail-scroll-containment.md",
+          "target_path": "hermes-web-ui-operating-model/references/activity-rail-scroll-containment.md"
+        },
+        {
+          "path": "references/agent-approval-guard-surface.md",
+          "sha256": "cefc0098ee68396f959c3fab16d862f188c6ba5da066ed925505a61ba838507d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/agent-approval-guard-surface.md",
+          "target_path": "hermes-web-ui-operating-model/references/agent-approval-guard-surface.md"
+        },
+        {
+          "path": "references/beta-10-vm-acceptance.md",
+          "sha256": "2f4c93164b09bf9e770a47e9cbc231e886a92deff62fcf845589c600ac1de1de",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/beta-10-vm-acceptance.md",
+          "target_path": "hermes-web-ui-operating-model/references/beta-10-vm-acceptance.md"
+        },
+        {
+          "path": "references/beta-admin-route-hardening.md",
+          "sha256": "0c352e0aef472addf42e4bfe07df2c7d496e654d2699af0514ecf95a07248a80",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/beta-admin-route-hardening.md",
+          "target_path": "hermes-web-ui-operating-model/references/beta-admin-route-hardening.md"
+        },
+        {
+          "path": "references/branch-commit-push-deploy.md",
+          "sha256": "e022ffe511596067c9cf337dbed04e856e535e4a5bacb1d9665001bfcb919d83",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/branch-commit-push-deploy.md",
+          "target_path": "hermes-web-ui-operating-model/references/branch-commit-push-deploy.md"
+        },
+        {
+          "path": "references/branch-discipline.md",
+          "sha256": "fdfd463c421a047a4fc23bb98a04966bbb226504633497f5c4ee74b5c633c14e",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/branch-discipline.md",
+          "target_path": "hermes-web-ui-operating-model/references/branch-discipline.md"
+        },
+        {
+          "path": "references/chat-composer-toggle-controls.md",
+          "sha256": "5db58c66dfdcc44ba80355c01f239b7fc1457355cbfee5273b058e1c113e9a10",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-composer-toggle-controls.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-composer-toggle-controls.md"
+        },
+        {
+          "path": "references/chat-composer-toggle-right-edge.md",
+          "sha256": "47d352a330fbbaee40e8b94e300ee0315c1645302ef774d9a992f203df83e89a",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-composer-toggle-right-edge.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-composer-toggle-right-edge.md"
+        },
+        {
+          "path": "references/chat-composer-voice-inline-controls.md",
+          "sha256": "d90e2f3fa14fdc5b1cbb56f3a767a59e0d0644d121e83864415b5690b9cf06df",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-composer-voice-inline-controls.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-composer-voice-inline-controls.md"
+        },
+        {
+          "path": "references/chat-mobile-parity-and-context-menu-actions.md",
+          "sha256": "b022f4a3d7d7453236f8a6e84a383069fca98eb1a72c455b0e13b3612b36d8c9",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-mobile-parity-and-context-menu-actions.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-mobile-parity-and-context-menu-actions.md"
+        },
+        {
+          "path": "references/chat-run-lifecycle-visualization.md",
+          "sha256": "8ccfc663b516fed256c120fcc05739379a4b46c426c8f0e8dd20fd5a82b0a7fc",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-run-lifecycle-visualization.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-run-lifecycle-visualization.md"
+        },
+        {
+          "path": "references/chat-scroll-containment.md",
+          "sha256": "271b6141a8e251048eab0c878b89dabc54163c39b794635381d1abf550201fad",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-scroll-containment.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-scroll-containment.md"
+        },
+        {
+          "path": "references/chat-slash-command-bubble-contract.md",
+          "sha256": "c2115a6e9ae963666bef6173efc6c2fdfcecbc1997aa123ad8ce947e87ccaa54",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-slash-command-bubble-contract.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-slash-command-bubble-contract.md"
+        },
+        {
+          "path": "references/chat-status-source-audit.md",
+          "sha256": "43a472eb548e0538c14f55381a943ef8ba9e7a9b9dbe17df780601259ed66dfd",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-status-source-audit.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-status-source-audit.md"
+        },
+        {
+          "path": "references/chat-visual-system-recolor-audit.md",
+          "sha256": "27236d4b9ae1116172ed0de66bf9e79b3edce7d899367de86addff54b5d53135",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/chat-visual-system-recolor-audit.md",
+          "target_path": "hermes-web-ui-operating-model/references/chat-visual-system-recolor-audit.md"
+        },
+        {
+          "path": "references/coding-agent-runtime-profile-scope.md",
+          "sha256": "d0730b33929367200d9b6149d3b83392efad79e0dd400d677da89b1f9901aae2",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/coding-agent-runtime-profile-scope.md",
+          "target_path": "hermes-web-ui-operating-model/references/coding-agent-runtime-profile-scope.md"
+        },
+        {
+          "path": "references/design-token-pass-1.md",
+          "sha256": "f4ef6a0473f2b9132d403b17f57411bf5450713fc5ddeaa42e13f957bcba3d01",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/design-token-pass-1.md",
+          "target_path": "hermes-web-ui-operating-model/references/design-token-pass-1.md"
+        },
+        {
+          "path": "references/dev-auto-update-working-site.md",
+          "sha256": "8b8bd0316918ba973c6ce798c0857b05e951d84dc9bf96e03a0dc2c9af60431d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/dev-auto-update-working-site.md",
+          "target_path": "hermes-web-ui-operating-model/references/dev-auto-update-working-site.md"
+        },
+        {
+          "path": "references/dev-integration-branch-flow.md",
+          "sha256": "e93dbaccbf0b1e6bc081187842a2192740d829d0e4316cc5520eeee04c7ea9d1",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/dev-integration-branch-flow.md",
+          "target_path": "hermes-web-ui-operating-model/references/dev-integration-branch-flow.md"
+        },
+        {
+          "path": "references/dev-worktree-merge-flow.md",
+          "sha256": "14e7ea2a732c9344fbf938b5549696e2a6f0be13e4b339373bbe87cd5bab5b95",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/dev-worktree-merge-flow.md",
+          "target_path": "hermes-web-ui-operating-model/references/dev-worktree-merge-flow.md"
+        },
+        {
+          "path": "references/devices-lan-peer-surface.md",
+          "sha256": "c1d42d60299db2ad86dae96ca2b7c50ff901a90ff54c71c923b5257a0b90c04b",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/devices-lan-peer-surface.md",
+          "target_path": "hermes-web-ui-operating-model/references/devices-lan-peer-surface.md"
+        },
+        {
+          "path": "references/feature-branch-commit-push-deploy.md",
+          "sha256": "ad4ec8d62a331772cddaa3baed6b5ce8f76dac9112183930d794ced4e75ca996",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/feature-branch-commit-push-deploy.md",
+          "target_path": "hermes-web-ui-operating-model/references/feature-branch-commit-push-deploy.md"
+        },
+        {
+          "path": "references/kira-beta-10-vm-acceptance.md",
+          "sha256": "ebb04a20a477eeabeac200cbbbc756d7b9265545ad2af50662bcad2247b8b134",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md",
+          "target_path": "hermes-web-ui-operating-model/references/kira-beta-10-vm-acceptance.md"
+        },
+        {
+          "path": "references/kira-beta-user-contour-smoke.md",
+          "sha256": "d2456983bc1aa8cd84fcc44ba3ba88674b5160baff6d185711af8293b3eb2da6",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/kira-beta-user-contour-smoke.md",
+          "target_path": "hermes-web-ui-operating-model/references/kira-beta-user-contour-smoke.md"
+        },
+        {
+          "path": "references/live-dev-transition.md",
+          "sha256": "cabeb275ea8dc395e3e9f06c74efd81cb0d36c4ce9153a086d6537709fe1478b",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/live-dev-transition.md",
+          "target_path": "hermes-web-ui-operating-model/references/live-dev-transition.md"
+        },
+        {
+          "path": "references/local-checkout-deploy-drift.md",
+          "sha256": "aee4d5c2a79adb4f293056d3b529df9b8f413218ee6f637bf5fb39a25a08034d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/local-checkout-deploy-drift.md",
+          "target_path": "hermes-web-ui-operating-model/references/local-checkout-deploy-drift.md"
+        },
+        {
+          "path": "references/main-merge-auto-deploy.md",
+          "sha256": "cbb1ee295fcab530c3542b759b05a6de84a8c008f9fb2a21c2fc90106b3b080d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/main-merge-auto-deploy.md",
+          "target_path": "hermes-web-ui-operating-model/references/main-merge-auto-deploy.md"
+        },
+        {
+          "path": "references/mobile-composer-enter-key.md",
+          "sha256": "388418b1d0eb94d0f55e69bead76052317a23ee7a91f215d9f69b22026537803",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/mobile-composer-enter-key.md",
+          "target_path": "hermes-web-ui-operating-model/references/mobile-composer-enter-key.md"
+        },
+        {
+          "path": "references/mobile-session-filter-parity.md",
+          "sha256": "15be259fea7888b1eef77847a3e3c4da0700376dbc30ff585f4d0b24572b8321",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/mobile-session-filter-parity.md",
+          "target_path": "hermes-web-ui-operating-model/references/mobile-session-filter-parity.md"
+        },
+        {
+          "path": "references/mobile-session-options-surface.md",
+          "sha256": "421e6ee9925682fe490a04d3aad6184092d4b722d1be0241184f54fa427bc933",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/mobile-session-options-surface.md",
+          "target_path": "hermes-web-ui-operating-model/references/mobile-session-options-surface.md"
+        },
+        {
+          "path": "references/mobile-web-app-icons.md",
+          "sha256": "7458db01a44afa039ed7aa1bc59099f5ec8b2867a16fa9928232dbfbbecdd7ce",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/mobile-web-app-icons.md",
+          "target_path": "hermes-web-ui-operating-model/references/mobile-web-app-icons.md"
+        },
+        {
+          "path": "references/multi-window-sync-and-adr-routing.md",
+          "sha256": "abf7b1c77638eb0a37609cf8c6fb9ef61d5e85a0adeb462b5ab1ba66dc31b2b4",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/multi-window-sync-and-adr-routing.md",
+          "target_path": "hermes-web-ui-operating-model/references/multi-window-sync-and-adr-routing.md"
+        },
+        {
+          "path": "references/nav-action-button-style.md",
+          "sha256": "d09e21038917689fdc2d55521f8573e1002b70889e8b8001fc616639c8b0bc9c",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/nav-action-button-style.md",
+          "target_path": "hermes-web-ui-operating-model/references/nav-action-button-style.md"
+        },
+        {
+          "path": "references/new-chat-creation-flow.md",
+          "sha256": "0074b3f58361ee62de8d1191ecd9067f44d1e8f6b0e3543fdf6b514c44c29642",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/new-chat-creation-flow.md",
+          "target_path": "hermes-web-ui-operating-model/references/new-chat-creation-flow.md"
+        },
+        {
+          "path": "references/new-chat-draft-session-flow.md",
+          "sha256": "c067221667dfe812f5984a729f9c24e612858b5ea862ced4301f903c91e12382",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/new-chat-draft-session-flow.md",
+          "target_path": "hermes-web-ui-operating-model/references/new-chat-draft-session-flow.md"
+        },
+        {
+          "path": "references/new-chat-option-availability.md",
+          "sha256": "0f228dc14ea644c2660f4247011b5304cbc0b6c3145490e865f841be7b01e265",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/new-chat-option-availability.md",
+          "target_path": "hermes-web-ui-operating-model/references/new-chat-option-availability.md"
+        },
+        {
+          "path": "references/obsidian-like-workspace-shell.md",
+          "sha256": "a247bfb70df3850e90930970efa5b2be6764055d26bcc5a8bdf7ce8d6b3d3f96",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/obsidian-like-workspace-shell.md",
+          "target_path": "hermes-web-ui-operating-model/references/obsidian-like-workspace-shell.md"
+        },
+        {
+          "path": "references/paperclip-entrypoint-readiness.md",
+          "sha256": "f8ff63d94ce7428d905047ceb372c2884365572fa34b64671f0495ca2cfbb6cd",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/paperclip-entrypoint-readiness.md",
+          "target_path": "hermes-web-ui-operating-model/references/paperclip-entrypoint-readiness.md"
+        },
+        {
+          "path": "references/prod-surface-guard.md",
+          "sha256": "8ca5b6a084307bbbe11bace9e52eb83168ed936e18cf0d140d6c6388cdf8fc42",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/prod-surface-guard.md",
+          "target_path": "hermes-web-ui-operating-model/references/prod-surface-guard.md"
+        },
+        {
+          "path": "references/resizable-layout-panels.md",
+          "sha256": "82ccfb4879d03b1ad2a123c26889e83f769ff30ae3ba8ce9a8a82a694bbc35bb",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/resizable-layout-panels.md",
+          "target_path": "hermes-web-ui-operating-model/references/resizable-layout-panels.md"
+        },
+        {
+          "path": "references/session-attention-indicator-redesign.md",
+          "sha256": "90b92c756663066e7b9fb21ffd0dcdfbc0c46fd5f3daf7bd8ea87e593c40d46d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-attention-indicator-redesign.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-attention-indicator-redesign.md"
+        },
+        {
+          "path": "references/session-card-badges-and-avatar.md",
+          "sha256": "e55ced97765f048c1618b4b81034372ef139438f0ecddee00c84054b22bb51a6",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-card-badges-and-avatar.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-card-badges-and-avatar.md"
+        },
+        {
+          "path": "references/session-card-committed-snapshot.md",
+          "sha256": "4e590a630fb64dd30fe57390ae6d4fc6038785d0611eb4e5bb56cd733cbc253f",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-card-committed-snapshot.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-card-committed-snapshot.md"
+        },
+        {
+          "path": "references/session-card-state-contract.md",
+          "sha256": "94826bc51a8b976b47147efc8cbb54c628c82655e564c8d55c993bc9ec342bb1",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-card-state-contract.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-card-state-contract.md"
+        },
+        {
+          "path": "references/session-card-status-contract.md",
+          "sha256": "1e71c8d15b89a23a4b7959263b951c560e64c9e0e7d4d885835615e63d06f1c9",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-card-status-contract.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-card-status-contract.md"
+        },
+        {
+          "path": "references/session-context-menu-actions.md",
+          "sha256": "ca77c42a2c1a8144ba536dddc48012312e20d766e417e4d82d34bf6a0a8e088e",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-context-menu-actions.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-context-menu-actions.md"
+        },
+        {
+          "path": "references/session-list-hover-actions.md",
+          "sha256": "d8822e9a040e6488125d5a0a3a7614543944eddc9cd39f6e19b545e0651f952d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-list-hover-actions.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-list-hover-actions.md"
+        },
+        {
+          "path": "references/session-list-launchers-and-preview.md",
+          "sha256": "061cde1cafd6abd5966baa3b7c97b6b1f3e5a71d4e62e81c1874c6467165f679",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-list-launchers-and-preview.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-list-launchers-and-preview.md"
+        },
+        {
+          "path": "references/session-list-prefs-order-recovery.md",
+          "sha256": "7d2f9c359e7c7ac23da8fcc59939d52f95c20d4ccb7deffca867296785e9d913",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-list-prefs-order-recovery.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-list-prefs-order-recovery.md"
+        },
+        {
+          "path": "references/session-list-status-taxonomy.md",
+          "sha256": "085f179d3264b0739b0e41b08b0c68aa20682cf84f4ac9f7823c5f35ecae7ede",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-list-status-taxonomy.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-list-status-taxonomy.md"
+        },
+        {
+          "path": "references/session-pins-server-authoritative.md",
+          "sha256": "e7bf693470b29b2516ae3dd2d120f7ad234a5277104f5d4b6aeb968c16301b95",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-pins-server-authoritative.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-pins-server-authoritative.md"
+        },
+        {
+          "path": "references/session-preview-vs-runtime-state.md",
+          "sha256": "3f56ad5f123352e8a6dd1978cb27edbea719ae7b7093c2e5e91fd9b08fc153aa",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-preview-vs-runtime-state.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-preview-vs-runtime-state.md"
+        },
+        {
+          "path": "references/session-read-runtime-status.md",
+          "sha256": "e1c0ee1ece60f7f61024545cabdc0bc03028b1e48be40e8bf8ce576910ad5ad8",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-read-runtime-status.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-read-runtime-status.md"
+        },
+        {
+          "path": "references/session-read-status-receipts.md",
+          "sha256": "bcec9ea7e0909cabde920d82c0490fec36b97f919523e7a21af08a0adf8dcc41",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-read-status-receipts.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-read-status-receipts.md"
+        },
+        {
+          "path": "references/session-row-active-status-no-gray-read.md",
+          "sha256": "d2935795160aeaa412f083fbd231b205178a2babfe852574487e016b9120e8bc",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-active-status-no-gray-read.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-active-status-no-gray-read.md"
+        },
+        {
+          "path": "references/session-row-layout-status.md",
+          "sha256": "e861236b19848025e1de47fddaffbd8634ddc09298e58e402d1de16b5426e22c",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-layout-status.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-layout-status.md"
+        },
+        {
+          "path": "references/session-row-state-browser-qa.md",
+          "sha256": "23e84b83b63d6cfdde96452ba971776fadf6bf24b7569b613ebfd6037ece7ee0",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-state-browser-qa.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-state-browser-qa.md"
+        },
+        {
+          "path": "references/session-row-state-runtime.md",
+          "sha256": "1fbc089cd38dd9a6c473a6506a3b19e45c74d554fd5be0a31a5b4be136129a3c",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-state-runtime.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-state-runtime.md"
+        },
+        {
+          "path": "references/session-row-status-adr-006.md",
+          "sha256": "4e573d225dd9d051f7d382567319d253a51b3e4655777ab22d374d0e5885bffc",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-status-adr-006.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-status-adr-006.md"
+        },
+        {
+          "path": "references/session-row-status-layer-removal.md",
+          "sha256": "fff079c5e3f38cf8830ce7eb7be273e1c8fbe7be38c4b0c1af57035db8447eaa",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-status-layer-removal.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-status-layer-removal.md"
+        },
+        {
+          "path": "references/session-row-status-source-of-truth-audit.md",
+          "sha256": "705ad254407d74e96502a32d6ae421a2309d2620a9759955e0ded2d0921d44ac",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-status-source-of-truth-audit.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-status-source-of-truth-audit.md"
+        },
+        {
+          "path": "references/session-row-status-state-machine.md",
+          "sha256": "10ddb14394baa3ac6548d82b53288699c5b9f3e92bdfa632ed054a834fcbd215",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-row-status-state-machine.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-row-status-state-machine.md"
+        },
+        {
+          "path": "references/session-tag-assignment-telegram.md",
+          "sha256": "d2875d43713d3b34988336ac6cac89c18dc1ace34abb59f0f1fff831ed39c180",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-tag-assignment-telegram.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-tag-assignment-telegram.md"
+        },
+        {
+          "path": "references/session-title-generation.md",
+          "sha256": "30daa850b8f53807a40bb456469f1355e88a2796cdbf5c3f0d2fdb4b4086ffc7",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-title-generation.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-title-generation.md"
+        },
+        {
+          "path": "references/session-title-settings-ui.md",
+          "sha256": "6f78a1aa5f2d366fb0e6218a536d430c7564b6875b05afbf1709e58d03175170",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-title-settings-ui.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-title-settings-ui.md"
+        },
+        {
+          "path": "references/session-vs-history.md",
+          "sha256": "25b52435a9734ffcc4bf74f9bd49d3f97db8e659b45ba2c91b73f97805bba02e",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/session-vs-history.md",
+          "target_path": "hermes-web-ui-operating-model/references/session-vs-history.md"
+        },
+        {
+          "path": "references/sidebar-action-buttons-and-rail-labels.md",
+          "sha256": "77ea7d4a95ad8d26ae2904bfb4b42e665cffc51cc8a18c3e2964271fcc858b04",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/sidebar-action-buttons-and-rail-labels.md",
+          "target_path": "hermes-web-ui-operating-model/references/sidebar-action-buttons-and-rail-labels.md"
+        },
+        {
+          "path": "references/status-realtime-sync-rearchitecture-planning.md",
+          "sha256": "fb6f0945917a9aa657e80bb924ab18ac48cb6dcc534b8b1979efc76e471805d4",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/status-realtime-sync-rearchitecture-planning.md",
+          "target_path": "hermes-web-ui-operating-model/references/status-realtime-sync-rearchitecture-planning.md"
+        },
+        {
+          "path": "references/testing-research-codegraph-tdd-plan-execution.md",
+          "sha256": "6d669c475f9071d524254d0c8609abc5ddcb1aecb5c151936cf96db53fe20398",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/testing-research-codegraph-tdd-plan-execution.md",
+          "target_path": "hermes-web-ui-operating-model/references/testing-research-codegraph-tdd-plan-execution.md"
+        },
+        {
+          "path": "references/tool-trace-thinking-indicator-contract.md",
+          "sha256": "8409afed36e5c1b7d4dc957bd4c1f9a11404d0259e046bd3a75469f4aff3d2f5",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/tool-trace-thinking-indicator-contract.md",
+          "target_path": "hermes-web-ui-operating-model/references/tool-trace-thinking-indicator-contract.md"
+        },
+        {
+          "path": "references/update-version-runbook.md",
+          "sha256": "30b673a9fb78e67f0c2922f3dfc76799f574acec0fc67ad20f9bf263ec105789",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/update-version-runbook.md",
+          "target_path": "hermes-web-ui-operating-model/references/update-version-runbook.md"
+        },
+        {
+          "path": "references/upstream-main-delta-review.md",
+          "sha256": "d53764c40ffd865446ba27693f46400e235df8efc3be0c28b293144f5b8792c1",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/upstream-main-delta-review.md",
+          "target_path": "hermes-web-ui-operating-model/references/upstream-main-delta-review.md"
+        },
+        {
+          "path": "references/upstream-main-merge-validation-pitfalls.md",
+          "sha256": "798fab7a213afcaa7fe051504b72e324cfef96412c3e25f861716286685ddff8",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/upstream-main-merge-validation-pitfalls.md",
+          "target_path": "hermes-web-ui-operating-model/references/upstream-main-merge-validation-pitfalls.md"
+        },
+        {
+          "path": "references/upstream-main-to-dev-merge.md",
+          "sha256": "0e1d4d4cd73eee4afaa3b7a86981b5f7c5c9b7470cb71aa33047d31dc417d60f",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/upstream-main-to-dev-merge.md",
+          "target_path": "hermes-web-ui-operating-model/references/upstream-main-to-dev-merge.md"
+        },
+        {
+          "path": "references/upstream-sync-certification-loop.md",
+          "sha256": "ab2a3c4eff710810305f65596ab30e3cc991e85b3d7a2f73c53ab5c3352b40a7",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/upstream-sync-certification-loop.md",
+          "target_path": "hermes-web-ui-operating-model/references/upstream-sync-certification-loop.md"
+        },
+        {
+          "path": "references/user-facing-advanced-surfaces.md",
+          "sha256": "9ce3b5e55cd54de52f2cf8d4fa6b009707a6d5178f4403ec80679aea1d4b0f79",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/user-facing-advanced-surfaces.md",
+          "target_path": "hermes-web-ui-operating-model/references/user-facing-advanced-surfaces.md"
+        },
+        {
+          "path": "references/voice-composer-live-meter-and-confirm.md",
+          "sha256": "5c45224ec4e7f836497f3d1d2c4c48495ce937493f09d08b371e0d94c5f6ca22",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-composer-live-meter-and-confirm.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-composer-live-meter-and-confirm.md"
+        },
+        {
+          "path": "references/voice-composer-send-stop-transcript.md",
+          "sha256": "c7ea9b1f51740c05e254bfe89e7dfa4fca91d2ed5f1cddd2668c3fe9a5747931",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-composer-send-stop-transcript.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-composer-send-stop-transcript.md"
+        },
+        {
+          "path": "references/voice-composer-wavesurfer-record.md",
+          "sha256": "c3bc6429c1f2decbc7cf22c8d2ae8d471c4bc6f8f334e63c841e4044c1864bfb",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-composer-wavesurfer-record.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-composer-wavesurfer-record.md"
+        },
+        {
+          "path": "references/voice-inline-waveform-stability.md",
+          "sha256": "a80b785e1564154b3c84fc3f1b60145094c1cdd4472a778158b54ec65c8007de",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-inline-waveform-stability.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-inline-waveform-stability.md"
+        },
+        {
+          "path": "references/voice-stt-local-provider-probe-debugging.md",
+          "sha256": "0a6fb52fc0b4224a5cf0e82363711d676d4c6875ecfeca7964b3c9e1b83ef6c2",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-stt-local-provider-probe-debugging.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-stt-local-provider-probe-debugging.md"
+        },
+        {
+          "path": "references/voice-stt-provider-architecture.md",
+          "sha256": "402942d20a2513182ff1116534bc2bc5589b3f539db2ead6645b2f028d8cc95d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-stt-provider-architecture.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-stt-provider-architecture.md"
+        },
+        {
+          "path": "references/voice-stt-provider-modes-and-local-whisper.md",
+          "sha256": "a5bc24e9fd81dfb81a2a0ebefd4fa30fe5dfe687c6ad1cbefa59cba8e30b89ef",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-stt-provider-modes-and-local-whisper.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-stt-provider-modes-and-local-whisper.md"
+        },
+        {
+          "path": "references/voice-stt-provider-runtime.md",
+          "sha256": "e5b44fb065e68b0cead7e13e7b029e8e7f207bd7d0fcc97db459c85c8a3a79c4",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-stt-provider-runtime.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-stt-provider-runtime.md"
+        },
+        {
+          "path": "references/voice-surface-ia-refresh.md",
+          "sha256": "a2e25e6e1aae06b7fa55f44aef0ed81e25977626ee592d5dadb19620db729f0d",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-surface-ia-refresh.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-surface-ia-refresh.md"
+        },
+        {
+          "path": "references/voice-textarea-and-page-scrollbar-contract.md",
+          "sha256": "54e45efe006eedda1137528e0b4a4282f620b4ca147169a6bf397ad4c3845551",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/voice-textarea-and-page-scrollbar-contract.md",
+          "target_path": "hermes-web-ui-operating-model/references/voice-textarea-and-page-scrollbar-contract.md"
+        },
+        {
+          "path": "references/web-ui-yolo-approval-surface.md",
+          "sha256": "e132dbfb2be15ca754867388c898453c1cb762c461543134a9e7db82bf57dd41",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/web-ui-yolo-approval-surface.md",
+          "target_path": "hermes-web-ui-operating-model/references/web-ui-yolo-approval-surface.md"
+        },
+        {
+          "path": "references/workspace-header-alignment.md",
+          "sha256": "5d4ca251d55c9766c02b31bdcfc51519bfa4bcf719dbb7280ab6f1e2462c89fe",
+          "source_path": "skills/software-development/hermes-web-ui-operating-model/references/workspace-header-alignment.md",
+          "target_path": "hermes-web-ui-operating-model/references/workspace-header-alignment.md"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-web-ui-service-ops",
+      "source_dir": "skills/devops/hermes-web-ui-service-ops",
+      "target_dir": "hermes-web-ui-service-ops",
+      "file_count": 88,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9365932279aba0785276c0bedde72e35b83437f28c117566bb8fe43fd700181d",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/SKILL.md",
+          "target_path": "hermes-web-ui-service-ops/SKILL.md"
+        },
+        {
+          "path": "references/adr-005-session-read-runtime-status.md",
+          "sha256": "ad0b665875a2e84f38c4d70b99da24ce25d78e39eaf43eaf07ba5ae375b7e597",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/adr-005-session-read-runtime-status.md",
+          "target_path": "hermes-web-ui-service-ops/references/adr-005-session-read-runtime-status.md"
+        },
+        {
+          "path": "references/beta-10-vm-acceptance-execution.md",
+          "sha256": "770d3a85f3729ff450acfd47ef3b0fb494c0931eab437ea799122af80c15c27b",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/beta-10-vm-acceptance-execution.md",
+          "target_path": "hermes-web-ui-service-ops/references/beta-10-vm-acceptance-execution.md"
+        },
+        {
+          "path": "references/beta-tenant-provider-and-tool-smokes.md",
+          "sha256": "574f6c700e3dd75985d72105ee3e7eae0fa26cb97aa1d8c5c5fd9219049fcecf",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/beta-tenant-provider-and-tool-smokes.md",
+          "target_path": "hermes-web-ui-service-ops/references/beta-tenant-provider-and-tool-smokes.md"
+        },
+        {
+          "path": "references/beta-tenant-provider-provisioning.md",
+          "sha256": "50347ae972078e6124e8f5febb65b7fadbe80f1d06c5b0bef9a30a2171c24285",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/beta-tenant-provider-provisioning.md",
+          "target_path": "hermes-web-ui-service-ops/references/beta-tenant-provider-provisioning.md"
+        },
+        {
+          "path": "references/beta-vm-acceptance-evidence-patterns.md",
+          "sha256": "fe7663c408064e111bfda3a728fb940b2e8e7ea8070ba31403f88aa8316b03b9",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/beta-vm-acceptance-evidence-patterns.md",
+          "target_path": "hermes-web-ui-service-ops/references/beta-vm-acceptance-evidence-patterns.md"
+        },
+        {
+          "path": "references/branch-preview-dev-host-service-wrapper.md",
+          "sha256": "b9b0cd2d02f96e8ca1bb572eae6ea35b2827ad305b27646aed8e0eee52e0a61d",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/branch-preview-dev-host-service-wrapper.md",
+          "target_path": "hermes-web-ui-service-ops/references/branch-preview-dev-host-service-wrapper.md"
+        },
+        {
+          "path": "references/bridge-boundary-troubleshooting.md",
+          "sha256": "0fcac024f39c8eba46a92f77af375c3636767f91c3e08194a3ee02cb54287b5c",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/bridge-boundary-troubleshooting.md",
+          "target_path": "hermes-web-ui-service-ops/references/bridge-boundary-troubleshooting.md"
+        },
+        {
+          "path": "references/bridge-timeout-deploy-verification.md",
+          "sha256": "942f9ca2cb0e5539e7703b7e6e5b2e32ae90593d0ca33a6f81b27987a70bc016",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/bridge-timeout-deploy-verification.md",
+          "target_path": "hermes-web-ui-service-ops/references/bridge-timeout-deploy-verification.md"
+        },
+        {
+          "path": "references/bridge-timeout-tuning.md",
+          "sha256": "47c4393bd45dfa80c81e43b7d08ea3b8df076c357c745425af74f54a8f47e9c2",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/bridge-timeout-tuning.md",
+          "target_path": "hermes-web-ui-service-ops/references/bridge-timeout-tuning.md"
+        },
+        {
+          "path": "references/browser-tts-openai-compatible-voice.md",
+          "sha256": "e373c1ffd9ead65122d09c50d1006d96de9561a5381d95c99ae6dc29ab419a7d",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/browser-tts-openai-compatible-voice.md",
+          "target_path": "hermes-web-ui-service-ops/references/browser-tts-openai-compatible-voice.md"
+        },
+        {
+          "path": "references/browser-tts-voice-integration.md",
+          "sha256": "e7ca9f67ab2148098dc672618a107ba0c145374c077b167db439b81d0d67b7a1",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/browser-tts-voice-integration.md",
+          "target_path": "hermes-web-ui-service-ops/references/browser-tts-voice-integration.md"
+        },
+        {
+          "path": "references/bulk-read-status-repair.md",
+          "sha256": "4c5848a454679f2613b6eba058d2a9b3fc7c544f82f2b3b61046d3ee45d6e079",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/bulk-read-status-repair.md",
+          "target_path": "hermes-web-ui-service-ops/references/bulk-read-status-repair.md"
+        },
+        {
+          "path": "references/chat-session-state-stability.md",
+          "sha256": "b5b64a9a7d15c0518c4259e9b0831ed189451158f288b69f30a39b7e18e17a8d",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/chat-session-state-stability.md",
+          "target_path": "hermes-web-ui-service-ops/references/chat-session-state-stability.md"
+        },
+        {
+          "path": "references/codex-oauth-global-runs.md",
+          "sha256": "3a0934c974abb039d959127b9d940dd5ba6ac15998233ab2c10cc3a419bc2c85",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/codex-oauth-global-runs.md",
+          "target_path": "hermes-web-ui-service-ops/references/codex-oauth-global-runs.md"
+        },
+        {
+          "path": "references/codex-oauth-profile-backed-global-runs.md",
+          "sha256": "7f3b6d49a2c943fc2cc65dcd6bc717de3645755223808f186cdd54f2cfd8bfee",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/codex-oauth-profile-backed-global-runs.md",
+          "target_path": "hermes-web-ui-service-ops/references/codex-oauth-profile-backed-global-runs.md"
+        },
+        {
+          "path": "references/coding-agent-error-reporting.md",
+          "sha256": "388fa3d6a6512146fd9c9c26c43ebab3d2ba5727b726e5d50f1000e2f8235b17",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/coding-agent-error-reporting.md",
+          "target_path": "hermes-web-ui-service-ops/references/coding-agent-error-reporting.md"
+        },
+        {
+          "path": "references/context-compression-preview-enoent.md",
+          "sha256": "f6bc415ef8e238211d74a851ee59882d8ae3d9e6a42da7dc3a2d2c458483c20d",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/context-compression-preview-enoent.md",
+          "target_path": "hermes-web-ui-service-ops/references/context-compression-preview-enoent.md"
+        },
+        {
+          "path": "references/cross-domain-hostname-alias-cutover.md",
+          "sha256": "7a2b0288c384b47743da38f0cedda21fa9c8ec87ea49d050bb3ececc0f1d9f81",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/cross-domain-hostname-alias-cutover.md",
+          "target_path": "hermes-web-ui-service-ops/references/cross-domain-hostname-alias-cutover.md"
+        },
+        {
+          "path": "references/deploy-restart-race.md",
+          "sha256": "38627c76cd70dcf3a5da9fdd833e0595ba093557e01ca0e9a2f90f207191fd79",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/deploy-restart-race.md",
+          "target_path": "hermes-web-ui-service-ops/references/deploy-restart-race.md"
+        },
+        {
+          "path": "references/desktop-remote-backend-stale-import.md",
+          "sha256": "84ff4a08b034340b6b8c5ff057524bccf316668f415d832477acc2f0f2858256",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/desktop-remote-backend-stale-import.md",
+          "target_path": "hermes-web-ui-service-ops/references/desktop-remote-backend-stale-import.md"
+        },
+        {
+          "path": "references/dev-mode-branch-preview-workflow.md",
+          "sha256": "470ea99f5167abca15810cc1795e2d2edb9e5c2d570b7f2de850d5e29d126cd4",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/dev-mode-branch-preview-workflow.md",
+          "target_path": "hermes-web-ui-service-ops/references/dev-mode-branch-preview-workflow.md"
+        },
+        {
+          "path": "references/dev-pr-branch-deploy.md",
+          "sha256": "d1938181b3542810009f091322835a16b8364690aecd4e56ac6206535d94a399",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/dev-pr-branch-deploy.md",
+          "target_path": "hermes-web-ui-service-ops/references/dev-pr-branch-deploy.md"
+        },
+        {
+          "path": "references/dev-prod-access-profile-drift.md",
+          "sha256": "06581aea79a699d4f14a2ceb7a7c1789a1a1d2888d570a479311b30887b34d09",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/dev-prod-access-profile-drift.md",
+          "target_path": "hermes-web-ui-service-ops/references/dev-prod-access-profile-drift.md"
+        },
+        {
+          "path": "references/dev-superadmin-browser-qa.md",
+          "sha256": "0b374e0c5a098579cc17106e5e9d30a2fb8ff8021eb68a7b5684536118d1ce8c",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/dev-superadmin-browser-qa.md",
+          "target_path": "hermes-web-ui-service-ops/references/dev-superadmin-browser-qa.md"
+        },
+        {
+          "path": "references/dev-superadmin-qa-account.md",
+          "sha256": "88e50428de36f0a604b3007eaae6f18488ff2594e6d9d7a507dae2f94e2110a3",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/dev-superadmin-qa-account.md",
+          "target_path": "hermes-web-ui-service-ops/references/dev-superadmin-qa-account.md"
+        },
+        {
+          "path": "references/enoent-path-mismatch.md",
+          "sha256": "6d21ee43c496c83741cadbbd50502d100bf51834d79e87482cd81e48d9d39763",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/enoent-path-mismatch.md",
+          "target_path": "hermes-web-ui-service-ops/references/enoent-path-mismatch.md"
+        },
+        {
+          "path": "references/fork-upgrade-drift-recovery.md",
+          "sha256": "106ca43ecd683f663063c6514ab3b76a3f7d1320a309d8da32cac5c1df73f2d3",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/fork-upgrade-drift-recovery.md",
+          "target_path": "hermes-web-ui-service-ops/references/fork-upgrade-drift-recovery.md"
+        },
+        {
+          "path": "references/g12-prep-stub-cohort.md",
+          "sha256": "2eb75a7efafa7b4a38a1c66abaac0905ed405d459e948ed138074eaca261b07b",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/g12-prep-stub-cohort.md",
+          "target_path": "hermes-web-ui-service-ops/references/g12-prep-stub-cohort.md"
+        },
+        {
+          "path": "references/github-actions-artifact-quota-after-tests.md",
+          "sha256": "90044fe7acacaab3afe53b67a03f6dc1dfc75f3c44dcc18d6305fb55aaec02ee",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/github-actions-artifact-quota-after-tests.md",
+          "target_path": "hermes-web-ui-service-ops/references/github-actions-artifact-quota-after-tests.md"
+        },
+        {
+          "path": "references/hermes-agent-update-recovery.md",
+          "sha256": "96831a9703c395e9746a5aca3d38821b8f0e8c2545a6fefcb3bad1a194d10382",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/hermes-agent-update-recovery.md",
+          "target_path": "hermes-web-ui-service-ops/references/hermes-agent-update-recovery.md"
+        },
+        {
+          "path": "references/hostname-route-validation.md",
+          "sha256": "ec33aa92ca53923ec0c1ba6190e4421f4260610d6122da686c8158d525fb3f01",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/hostname-route-validation.md",
+          "target_path": "hermes-web-ui-service-ops/references/hostname-route-validation.md"
+        },
+        {
+          "path": "references/isolated-user-profile-webui.md",
+          "sha256": "554761bf1042d34158ff89b6ee4a457fd3cf7a6fde05cbd8788138fbcbebbaa6",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/isolated-user-profile-webui.md",
+          "target_path": "hermes-web-ui-service-ops/references/isolated-user-profile-webui.md"
+        },
+        {
+          "path": "references/kira-beta-10-vm-target.md",
+          "sha256": "e4463537ebe1d0aff4e420d76cf793a008579aa96add18ee2a52b18a8c6aff71",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/kira-beta-10-vm-target.md",
+          "target_path": "hermes-web-ui-service-ops/references/kira-beta-10-vm-target.md"
+        },
+        {
+          "path": "references/kira-vm-backup-storage-policy.md",
+          "sha256": "c78983c7f5b565b73b9c42008d1baf9a7b3d6283801abc2eb06bd3ce898f302f",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/kira-vm-backup-storage-policy.md",
+          "target_path": "hermes-web-ui-service-ops/references/kira-vm-backup-storage-policy.md"
+        },
+        {
+          "path": "references/kira-vm-fresh-rebuild-acceptance.md",
+          "sha256": "3bc894a2aae49f91cc4eb24579102523c7e151fccce314fcd60efee886d0f4aa",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/kira-vm-fresh-rebuild-acceptance.md",
+          "target_path": "hermes-web-ui-service-ops/references/kira-vm-fresh-rebuild-acceptance.md"
+        },
+        {
+          "path": "references/kira-vm-multi-user-ops.md",
+          "sha256": "43b0670f3461ea098100f6c1d1700031c9c223a89198ef27595fc16bf0a37cc9",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/kira-vm-multi-user-ops.md",
+          "target_path": "hermes-web-ui-service-ops/references/kira-vm-multi-user-ops.md"
+        },
+        {
+          "path": "references/kira-yc-production-readiness.md",
+          "sha256": "5a16b50f1e7ecc5f441a7bfdc15b8a49a1020f4414d3f951de40587655934b3c",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/kira-yc-production-readiness.md",
+          "target_path": "hermes-web-ui-service-ops/references/kira-yc-production-readiness.md"
+        },
+        {
+          "path": "references/latex-rendering-implementation.md",
+          "sha256": "e9b46a2954b90f7e7a6722e5ff572b104a8ec2f05dfff956d7ead20f067bea7a",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/latex-rendering-implementation.md",
+          "target_path": "hermes-web-ui-service-ops/references/latex-rendering-implementation.md"
+        },
+        {
+          "path": "references/latex-rendering-research.md",
+          "sha256": "233e7d99b77d199640176a9c0ae7eea50cbe5509daf2693ba784a0dba82e9414",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/latex-rendering-research.md",
+          "target_path": "hermes-web-ui-service-ops/references/latex-rendering-research.md"
+        },
+        {
+          "path": "references/live-bundle-verification.md",
+          "sha256": "2c7011e900ef2770c908c1f6bc9b6cbd962640bc92687023c24db52ba8cbef0b",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/live-bundle-verification.md",
+          "target_path": "hermes-web-ui-service-ops/references/live-bundle-verification.md"
+        },
+        {
+          "path": "references/live-dev-transition.md",
+          "sha256": "0c94c12f6ee331b035d3637369208dffdf15d7e18255f856403065bbf97012a4",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/live-dev-transition.md",
+          "target_path": "hermes-web-ui-service-ops/references/live-dev-transition.md"
+        },
+        {
+          "path": "references/live-domain-cutover.md",
+          "sha256": "b8715d8fafe1bd5e17c92af371f5a050842d47cf28aeae49377850cfd61fa6c8",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/live-domain-cutover.md",
+          "target_path": "hermes-web-ui-service-ops/references/live-domain-cutover.md"
+        },
+        {
+          "path": "references/live-service-baseline.md",
+          "sha256": "93586dd63ea7227c14f93f2688f36122c729e42c24ed3a6149ef8081788e4177",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/live-service-baseline.md",
+          "target_path": "hermes-web-ui-service-ops/references/live-service-baseline.md"
+        },
+        {
+          "path": "references/maxim-kira-vm-desktop-self-evolution.md",
+          "sha256": "d4bbf67fc33ba810e8bafed148ec026d25f46475d5abe49b084f137fb47b77ad",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/maxim-kira-vm-desktop-self-evolution.md",
+          "target_path": "hermes-web-ui-service-ops/references/maxim-kira-vm-desktop-self-evolution.md"
+        },
+        {
+          "path": "references/multi-instance-topology.md",
+          "sha256": "e38fe61dbd14c6b3b28b5db32fa06c713416022750d49eb1b16fe0b87f70cb46",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/multi-instance-topology.md",
+          "target_path": "hermes-web-ui-service-ops/references/multi-instance-topology.md"
+        },
+        {
+          "path": "references/native-navigation-audit.md",
+          "sha256": "86dc562a88e71bb4e970f809addad1f3778eaf665420b6b6c0e0ad7e567fec6b",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/native-navigation-audit.md",
+          "target_path": "hermes-web-ui-service-ops/references/native-navigation-audit.md"
+        },
+        {
+          "path": "references/new-user-profile-onboarding.md",
+          "sha256": "9589e778544b3b91dbc8e0aa673a733def0dea8b4e703907be96a8f222425c63",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/new-user-profile-onboarding.md",
+          "target_path": "hermes-web-ui-service-ops/references/new-user-profile-onboarding.md"
+        },
+        {
+          "path": "references/pc-kira-to-vm-tenant-copy.md",
+          "sha256": "b85e65b232d606de0becd299510d6fdce713167a9d4568a24da7a369d105c782",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/pc-kira-to-vm-tenant-copy.md",
+          "target_path": "hermes-web-ui-service-ops/references/pc-kira-to-vm-tenant-copy.md"
+        },
+        {
+          "path": "references/preview-branch-worktree-conflict.md",
+          "sha256": "5dc5cb83464478b75a4a092b741f03360f734ea5242e0f34fedcdf12e496c3a0",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/preview-branch-worktree-conflict.md",
+          "target_path": "hermes-web-ui-service-ops/references/preview-branch-worktree-conflict.md"
+        },
+        {
+          "path": "references/prod-dev-bridge-endpoint-isolation.md",
+          "sha256": "a223db7ace91760d4ab3f1031612e566b090dee2ce0ea4ec09aeee90f70b58c6",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/prod-dev-bridge-endpoint-isolation.md",
+          "target_path": "hermes-web-ui-service-ops/references/prod-dev-bridge-endpoint-isolation.md"
+        },
+        {
+          "path": "references/prod-to-dev-state-snapshot-mirror.md",
+          "sha256": "fb67c3fb27d1e50ec503aecd95d35b18fe577a4e32690e0402fde868534dfcb9",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/prod-to-dev-state-snapshot-mirror.md",
+          "target_path": "hermes-web-ui-service-ops/references/prod-to-dev-state-snapshot-mirror.md"
+        },
+        {
+          "path": "references/prod-vs-runtime-drift.md",
+          "sha256": "aaa27b3c375b39e83f89b207ffa4b71a861d5d16a746efb79d004d88f97c5e53",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/prod-vs-runtime-drift.md",
+          "target_path": "hermes-web-ui-service-ops/references/prod-vs-runtime-drift.md"
+        },
+        {
+          "path": "references/readonly-database-webui.md",
+          "sha256": "9c61a30131863494db299287211d7f624baeccbbf48041e0b81811421140b0b4",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/readonly-database-webui.md",
+          "target_path": "hermes-web-ui-service-ops/references/readonly-database-webui.md"
+        },
+        {
+          "path": "references/session-attention-states.md",
+          "sha256": "4d456be28a31606f063541740da4196c88750f0efe5d3e992741345cc00958c4",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-attention-states.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-attention-states.md"
+        },
+        {
+          "path": "references/session-deep-links-routing.md",
+          "sha256": "1c89b6462755c1688e51f5f9d7a09c95fa22cfb5f25c122d8dfd512ad362df11",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-deep-links-routing.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-deep-links-routing.md"
+        },
+        {
+          "path": "references/session-list-pagination-deep-links.md",
+          "sha256": "09cc40a76df7b4c4603db925a0f95b9a45c8c2756194569417b6ee35d62a267e",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-list-pagination-deep-links.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-list-pagination-deep-links.md"
+        },
+        {
+          "path": "references/session-pins-cross-device-sync.md",
+          "sha256": "e96581cdc68ccd42d58a7ac4ef3654ccb75b9dca095eae6f4f70d487356748a8",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-pins-cross-device-sync.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-pins-cross-device-sync.md"
+        },
+        {
+          "path": "references/session-read-status-root-cause.md",
+          "sha256": "9c7cd0cad36ac33b8f90960d8abfb90f89b7b1be7d645ff6b3465397c3237c71",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-read-status-root-cause.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-read-status-root-cause.md"
+        },
+        {
+          "path": "references/session-runtime-ops.md",
+          "sha256": "f6a58c15d303215cfdf5b49a0ae35b161b3db3bee02b3dfc85f0b52a2bc8d3f6",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-runtime-ops.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-runtime-ops.md"
+        },
+        {
+          "path": "references/session-selection-widgets.md",
+          "sha256": "7322a93d32f47e3e63c0357832c455bd95804161ecbe681b8fc98215dfe9aeb3",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-selection-widgets.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-selection-widgets.md"
+        },
+        {
+          "path": "references/session-url-inspection.md",
+          "sha256": "de918cd2dfd43e7cb4224ee4bef4cf67674154329b632b0c1323b15bc4497908",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-url-inspection.md",
+          "target_path": "hermes-web-ui-service-ops/references/session-url-inspection.md",
+          "normalization": "content: operational login literals ('admin'/'123456') replaced with '<username>'/'<password>' placeholders (credential redaction); not byte-equivalent to source."
+        },
+        {
+          "path": "references/single-host-caddy-allowlist-removal.md",
+          "sha256": "2e28e1141c9cf045f329b8469dc394bfc764d423e3f75d5c1368f81ca1fdb8cb",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/single-host-caddy-allowlist-removal.md",
+          "target_path": "hermes-web-ui-service-ops/references/single-host-caddy-allowlist-removal.md"
+        },
+        {
+          "path": "references/stale-session-recovery.md",
+          "sha256": "1f4199e78abbc1dc3b0c6acfc062ff5e6100ae0096d418a0bdc0f96d32ab90b0",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/stale-session-recovery.md",
+          "target_path": "hermes-web-ui-service-ops/references/stale-session-recovery.md"
+        },
+        {
+          "path": "references/telegram-polling-conflict-duplicate-poller.md",
+          "sha256": "8581d43b61f1fd1adf81db484b48257ee49e34c123d7fe3a828fd1dca944f029",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/telegram-polling-conflict-duplicate-poller.md",
+          "target_path": "hermes-web-ui-service-ops/references/telegram-polling-conflict-duplicate-poller.md"
+        },
+        {
+          "path": "references/telegram-singleton-and-late-replies.md",
+          "sha256": "5bd4cf1ca5a77cf3d011d92379f7d0ac36e4ff43ae519bd177511925aa534f3d",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/telegram-singleton-and-late-replies.md",
+          "target_path": "hermes-web-ui-service-ops/references/telegram-singleton-and-late-replies.md"
+        },
+        {
+          "path": "references/tools-keys-settings-inventory.md",
+          "sha256": "2184c325e4f5df8a538ec58506c663f3fe9323162ab3ea75f7e18aa13b26abcf",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/tools-keys-settings-inventory.md",
+          "target_path": "hermes-web-ui-service-ops/references/tools-keys-settings-inventory.md"
+        },
+        {
+          "path": "references/two-folder-prod-dev-deploy-policy.md",
+          "sha256": "552264ab85909ecec5f157cf38acbac6cdc0261d929938094ef9d2a239bddfed",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/two-folder-prod-dev-deploy-policy.md",
+          "target_path": "hermes-web-ui-service-ops/references/two-folder-prod-dev-deploy-policy.md"
+        },
+        {
+          "path": "references/upgrade-fork-drift-audit.md",
+          "sha256": "edda9b45828dc1a5467f9b65eeb587286b8ab39039c4ddaf731981fb9beb9cd7",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/upgrade-fork-drift-audit.md",
+          "target_path": "hermes-web-ui-service-ops/references/upgrade-fork-drift-audit.md"
+        },
+        {
+          "path": "references/upstream-merge-policy.md",
+          "sha256": "405bbbf4a90d53adeb653026090b6d1dd58ac071fd88eab189ef0c73117189c6",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/upstream-merge-policy.md",
+          "target_path": "hermes-web-ui-service-ops/references/upstream-merge-policy.md"
+        },
+        {
+          "path": "references/upstream-preview-mirror.md",
+          "sha256": "509a62ee62f0ae03db94bf0445622f26e808f32f9cca24c5e5e8f32bfbc2a923",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/upstream-preview-mirror.md",
+          "target_path": "hermes-web-ui-service-ops/references/upstream-preview-mirror.md"
+        },
+        {
+          "path": "references/vm-beta-codex-auth-trace.md",
+          "sha256": "fb3efa9ba1edc8caa648ae53ac92dd91eafca4c8c552582f1ec065e6e705bd66",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-codex-auth-trace.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-codex-auth-trace.md"
+        },
+        {
+          "path": "references/vm-beta-openrouter-model-rate-limit.md",
+          "sha256": "8f2603af0342242109dec3cc9fe50f03ff5bc31fd57dcc271920b3754fd9397f",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-openrouter-model-rate-limit.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-openrouter-model-rate-limit.md"
+        },
+        {
+          "path": "references/vm-beta-real-user-g11-onboarding.md",
+          "sha256": "eeabdcd9ef9c6202d0c84b2254c8670626924c5a2a3e825bb0c8769cda9163c0",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-real-user-g11-onboarding.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-real-user-g11-onboarding.md"
+        },
+        {
+          "path": "references/vm-beta-tenant-g10-g9-ops.md",
+          "sha256": "8b9dc390db1fdb664b409fe747b76fa0dafebb83eea68fcde8fd047f076fbf32",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-tenant-g10-g9-ops.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-tenant-g10-g9-ops.md"
+        },
+        {
+          "path": "references/vm-beta-tenant-note-file-access.md",
+          "sha256": "1db869fbb4a613d183cb068395f6cda18b0638d521ad9e4091056765a974bdba",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-tenant-note-file-access.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-tenant-note-file-access.md"
+        },
+        {
+          "path": "references/vm-beta-tenant-provider-and-bridge-smoke.md",
+          "sha256": "3b335ad54ef12120cce73f383fd388458e512af59fde3b68becb40cd24ff15cd",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-tenant-provider-and-bridge-smoke.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-tenant-provider-and-bridge-smoke.md"
+        },
+        {
+          "path": "references/vm-beta-tenant-provider-readiness.md",
+          "sha256": "230607434ea807fa2be1c146c3159cf512da35f5a120115e5766c331a699d768",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-beta-tenant-provider-readiness.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-beta-tenant-provider-readiness.md"
+        },
+        {
+          "path": "references/vm-test-access-password-reset.md",
+          "sha256": "ecdb3913947b26d1682953bc86a549f1f322f581a19d66acfbf6cecd092e0905",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-test-access-password-reset.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-test-access-password-reset.md"
+        },
+        {
+          "path": "references/vm-vs-pc-codex-network-path-analysis.md",
+          "sha256": "40414884d7764214277fc5acee4df984ac39186ff67f64ba3f09ff1dcac96ce7",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-vs-pc-codex-network-path-analysis.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-vs-pc-codex-network-path-analysis.md"
+        },
+        {
+          "path": "references/vm-webui-codex-selective-egress.md",
+          "sha256": "bb9b51ac9f74ac7e8ba4b77ae37cf98c201e655eb3611288f3ff4db4c86591df",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-webui-codex-selective-egress.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-webui-codex-selective-egress.md"
+        },
+        {
+          "path": "references/vm-webui-provider-latency-benchmark.md",
+          "sha256": "dd933d1859ed8f97bb0c76c070d7e4e9da64c8cbfaae699d6a598cb05d2c926a",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/vm-webui-provider-latency-benchmark.md",
+          "target_path": "hermes-web-ui-service-ops/references/vm-webui-provider-latency-benchmark.md"
+        },
+        {
+          "path": "references/webui-chat-latency-context-split.md",
+          "sha256": "8e207e5522f878672897a39bae2934ca0e0ba8ef17011a69d59c91b70e779490",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/references/webui-chat-latency-context-split.md",
+          "target_path": "hermes-web-ui-service-ops/references/webui-chat-latency-context-split.md"
+        },
+        {
+          "path": "scripts/bridge_latency_benchmark.py",
+          "sha256": "59183ed539643d9c70627080702110bc500802cf07d19a5407f0ca3e25534277",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/bridge_latency_benchmark.py",
+          "target_path": "hermes-web-ui-service-ops/scripts/bridge_latency_benchmark.py"
+        },
+        {
+          "path": "scripts/chat_latency_context_split.py",
+          "sha256": "f75dea1b31b2fad0ede2ab0624578e3e8ea331b77ab67bdd4cf06e94179836d4",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/chat_latency_context_split.py",
+          "target_path": "hermes-web-ui-service-ops/scripts/chat_latency_context_split.py"
+        },
+        {
+          "path": "scripts/check-installed-katex-rendering.mjs",
+          "sha256": "bc3a43a73ef2ba3c7e1bb96b35e6f5ca8ff65dd16f0479485a5a8f5a4c427c36",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/check-installed-katex-rendering.mjs",
+          "target_path": "hermes-web-ui-service-ops/scripts/check-installed-katex-rendering.mjs"
+        },
+        {
+          "path": "scripts/codex_bridge_trace.py",
+          "sha256": "5d0ce1922cb6fa3b020a543e4a2a5d9aaad353de1797af0abf566ec6b9666fae",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/codex_bridge_trace.py",
+          "target_path": "hermes-web-ui-service-ops/scripts/codex_bridge_trace.py"
+        },
+        {
+          "path": "scripts/prod_to_dev_state_snapshot_mirror.py",
+          "sha256": "bfa5f2904c26121227b81ae3697da706582a884a947485d8961cd657b27397e0",
+          "source_path": "skills/devops/hermes-web-ui-service-ops/scripts/prod_to_dev_state_snapshot_mirror.py",
+          "target_path": "hermes-web-ui-service-ops/scripts/prod_to_dev_state_snapshot_mirror.py"
+        }
+      ]
+    },
+    {
+      "slug": "hermes-web-ui-upstream-sync",
+      "source_dir": "skills/software-development/hermes-web-ui-upstream-sync",
+      "target_dir": "hermes-web-ui-upstream-sync",
+      "file_count": 10,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3f7124a4446335d1981ad10f8a0c339e024a7a306c360e32da0b56a9a563f474",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/SKILL.md",
+          "target_path": "hermes-web-ui-upstream-sync/SKILL.md"
+        },
+        {
+          "path": "references/0.6.11-to-0.6.17-sync-lessons.md",
+          "sha256": "278a105f0c9e91db0e74bf746e1c7bab2eca33d4dae87cae9bd4726ee8cb2975",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/0.6.11-to-0.6.17-sync-lessons.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/0.6.11-to-0.6.17-sync-lessons.md"
+        },
+        {
+          "path": "references/dev-ci-bootstrap-and-promotion.md",
+          "sha256": "21eb09d2ffa69c7a83cb20b789a4ff0c15409715268efdc51dd37222fb818ee3",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/dev-ci-bootstrap-and-promotion.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/dev-ci-bootstrap-and-promotion.md"
+        },
+        {
+          "path": "references/integration-to-dev-promotion.md",
+          "sha256": "3788416b1658d9d2772450c29798d3857680d2c759e6de2883b6185e626fb0bc",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/integration-to-dev-promotion.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/integration-to-dev-promotion.md"
+        },
+        {
+          "path": "references/kira-0.6.11-to-0.6.17-sync-notes.md",
+          "sha256": "41f97a7f7f92adf22995aea528874037dbdd4a8b30007a80c3424a97d59b63ce",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/kira-0.6.11-to-0.6.17-sync-notes.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/kira-0.6.11-to-0.6.17-sync-notes.md"
+        },
+        {
+          "path": "references/live-qa-gate.md",
+          "sha256": "3e5325e917956862cbdea61d4aeca8d41dc11074ae21e0d467ae1645a787a61b",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/live-qa-gate.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/live-qa-gate.md"
+        },
+        {
+          "path": "references/upstream-0.6.18-certification-lessons.md",
+          "sha256": "3fdecd86d38e13100478853dd865b6736ca1ef34f956ad6bd99aabb54e273df2",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/upstream-0.6.18-certification-lessons.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/upstream-0.6.18-certification-lessons.md"
+        },
+        {
+          "path": "references/upstream-branch-reset-and-test-gate-lessons.md",
+          "sha256": "2f9864094dee91b02024d463827f90464ca91ef935b8a2edcea85c05f7b1d380",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/upstream-branch-reset-and-test-gate-lessons.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/upstream-branch-reset-and-test-gate-lessons.md"
+        },
+        {
+          "path": "references/upstream-sync-certification-matrix.md",
+          "sha256": "6eafecb17485d582aaaf9cc471aece02b0312e390b1399d548d2937b7696e26d",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/upstream-sync-certification-matrix.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/upstream-sync-certification-matrix.md"
+        },
+        {
+          "path": "references/upstream-sync-static-assets-and-live-qa.md",
+          "sha256": "2705b18da96093f4dc9b380ee92ad733116573c3878a633a709b9bb865043469",
+          "source_path": "skills/software-development/hermes-web-ui-upstream-sync/references/upstream-sync-static-assets-and-live-qa.md",
+          "target_path": "hermes-web-ui-upstream-sync/references/upstream-sync-static-assets-and-live-qa.md"
+        }
+      ]
+    }
+  ]
+}

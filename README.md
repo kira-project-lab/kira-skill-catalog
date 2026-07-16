@@ -9,7 +9,14 @@ skills, copied semantic-preserving from the company skill library.
 
 ## Inventory
 
-Ten skills ship in this catalog:
+The catalog ships two groups of skills. Each group is byte-verifiable against
+its documented source; the importer discovers every top-level `<slug>/SKILL.md`
+regardless of group.
+
+### Process skills (v0.1.0)
+
+Ten canonical Kira Lab process skills, copied semantic-preserving from the
+company skill library:
 
 | Skill | Support files | Description |
 | --- | --- | --- |
@@ -23,6 +30,27 @@ Ten skills ship in this catalog:
 | [`kira-issue-contract`](kira-issue-contract/SKILL.md) | — | The issue template every executable Kira Lab issue follows — outcome title, checkbox acceptance criteria, hard delivery gate, and the three rules that make an issue a contract. Use when creating, decomposing, or auditing any issue for agent execution. |
 | [`kira-learning-loop`](kira-learning-loop/SKILL.md) | — | How Kira Lab learns from its own failures without learning from noise. Use when reviewing agent trajectories, classifying a defect, or proposing any change to a prompt, skill, or runtime. Required reading before any coaching proposal. |
 | [`wrap-up`](wrap-up/SKILL.md) | — | End-of-task closure — review the diff, decide and state the docs decision (new ADR / update docs / none), verify doc consistency and commit hygiene. Use before declaring any substantial coding task complete. |
+
+### Platform-engineering package (v0.2.0)
+
+Eight Hermes / platform executor skills, published from
+`kira-project-lab/kira-profile@c75d4631` so they live outside the cognitive
+profile. Byte-equivalent to source apart from three documented, safety-driven
+normalizations (one credential redaction, one nested-`SKILL.md` de-registration,
+and its citation follow-through); per-file checksums, the source→target mapping,
+and per-file normalization notes are in
+[`provenance/platform-engineering/`](provenance/platform-engineering/README.md).
+
+| Skill | Support files | Description |
+| --- | --- | --- |
+| [`debugging-hermes-tui-commands`](debugging-hermes-tui-commands/SKILL.md) | — | Debug Hermes TUI slash commands: Python, gateway, Ink UI. |
+| [`hermes-codex-debugging`](hermes-codex-debugging/SKILL.md) | — | Debug Kira's own stack — Hermes Agent / Hermes Desktop connection or latency, Codex CLI/version errors, cross-machine backend reachability. Kira-specific companion to the universal systematic-debugging skill. |
+| [`hermes-provider-troubleshooting`](hermes-provider-troubleshooting/SKILL.md) | `references/**` (1) | Troubleshoot Hermes Agent model provider, auth, routing, and billing failures — 400/401/429, provider path existence, and whether community PRs/issues already solve a Hermes backend problem. |
+| [`hermes-token-economy`](hermes-token-economy/SKILL.md) | `references/**` (11) | Analyze and reduce Kira agent token usage: inspect live usage stores, separate input/output/cache/reasoning buckets, design lightweight tracing plugins, and find high-leverage savings without logging sensitive prompts. |
+| [`hermes-web-ui-live-dev`](hermes-web-ui-live-dev/SKILL.md) | `references/**` (17) | Operate Hermes Web UI live-dev: persistent watch-based runtime, HMR, backend restart loop, runtime identity, and verification. |
+| [`hermes-web-ui-operating-model`](hermes-web-ui-operating-model/SKILL.md) | `references/**` (90) | Mandatory entrypoint for Hermes Web UI planned work: branches, builds, previews, production deploys, runtime topology, and release/export decisions. |
+| [`hermes-web-ui-service-ops`](hermes-web-ui-service-ops/SKILL.md) | `references/**` (82), `scripts/**` (5) | Mandatory runtime/live-service companion for Hermes Web UI work. Load for any task that touches, verifies, updates, restarts, diagnoses, or depends on a running dev/preview/prod service. |
+| [`hermes-web-ui-upstream-sync`](hermes-web-ui-upstream-sync/SKILL.md) | `references/**` (9) | Update Kira's Hermes Web UI fork from upstream — compare fork vs upstream, plan/execute a version bump, reconcile `origin/dev` with `upstream/main`, maintain a long-lived downstream fork. |
 
 ## Layout
 
