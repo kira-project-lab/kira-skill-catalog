@@ -8,10 +8,14 @@ this catalog adheres to [Semantic Versioning](https://semver.org/).
 
 Adds the **platform-engineering** package: eight Hermes / platform executor
 skills published so they live outside the cognitive profile. Skills are copied
-**byte-equivalent** from `kira-project-lab/kira-profile` `dev` @
+from `kira-project-lab/kira-profile` `dev` @
 `c75d4631030011f4c7c9915dae4233e21a24a7f9` with **path-only** normalization
-(source `skills/<category>/<slug>/**` → top-level `<slug>/**`). Per-file
-`sha256` checksums and the source→target mapping are recorded in
+(source `skills/<category>/<slug>/**` → top-level `<slug>/**`); contents are
+**byte-equivalent** except three documented, safety-driven changes: an
+operational login literal redacted to placeholders, a nested `SKILL.md` renamed
+to `OVERVIEW.md` so it cannot be mis-imported as a ninth skill, and the one
+citation of that file updated to match. Per-file `sha256` checksums, the
+source→target mapping, and per-file normalization notes are recorded in
 `provenance/platform-engineering/manifest.json`; ownership stays with Kira Lab.
 No credentials or runtime state are included. MINOR bump: additive only, no
 existing skill or the layout contract changed.

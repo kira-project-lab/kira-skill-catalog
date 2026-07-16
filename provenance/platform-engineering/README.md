@@ -32,14 +32,72 @@ published as top-level `<slug>/` directories per the catalog layout
 | [`hermes-web-ui-service-ops`](../../hermes-web-ui-service-ops/SKILL.md) | `skills/devops/hermes-web-ui-service-ops/**` |
 | [`hermes-web-ui-upstream-sync`](../../hermes-web-ui-upstream-sync/SKILL.md) | `skills/software-development/hermes-web-ui-upstream-sync/**` |
 
-## Normalization (path-only)
+## Normalization
 
-The only transformation applied is **path**: source skills live under
+The default transformation is **path-only**: source skills live under
 `skills/<category>/<slug>/**` in `kira-profile`; they are published here as
 top-level `<slug>/**` to match the catalog's flat, importer-discovered layout.
-**File contents are byte-equivalent** — no edits to `SKILL.md`, `references/**`,
-or `scripts/**`. Every file's `sha256` and its `source_path → target_path`
-mapping is recorded in [`manifest.json`](manifest.json).
+For all but three files, **contents are byte-equivalent** to source. Every
+file's `sha256` and its `source_path → target_path` mapping is recorded in
+[`manifest.json`](manifest.json); per-file `normalization` notes flag any file
+that is not byte-equivalent.
+
+Three files carry a documented, safety-driven deviation (each also carries a
+per-file `normalization` note in the manifest):
+
+1. **Credential redaction** — `hermes-web-ui-service-ops/references/session-url-inspection.md`:
+   the terminal-fallback example previously posted literal `admin` / `123456`
+   values to `/api/auth/login`. Those literals are replaced with
+   `<username>` / `<password>` placeholders so the catalog carries no
+   operational credential. The example still shows the login mechanism, and the
+   change aligns the snippet with that file's own rule ("Do not hard-code or
+   invent credentials"). This satisfies the *no credentials or runtime state*
+   acceptance criterion.
+2. **Nested-skill de-registration** — the source folds an archived package into
+   `hermes-token-economy/references/package-hermes-token-observability/` and that
+   folder shipped a nested `SKILL.md` with valid skill frontmatter. A published
+   nested `SKILL.md` could be mis-imported as a ninth skill and breaks the
+   "published skills are top-level `<slug>/SKILL.md`" contract, so the file is
+   renamed to `OVERVIEW.md`. Contents are unchanged (`sha256` identical); only
+   the filename changes so no name-based skill discovery can register it.
+3. **Citation follow-through** — `hermes-token-economy/SKILL.md` had one
+   reference-list line pointing at the nested `.../SKILL.md`; it now points at
+   `.../OVERVIEW.md` to match the rename. No other content changed.
+
+The eight source skill trees are otherwise byte-equivalent; independent
+re-checksumming (below) reports `files=223 target_mismatches=0`.
+
+## Conformance check (structural)
+
+The authoritative `skills check` runs server-side against a live company (it
+imports into and mutates that company), so it is the Release-Engineer
+post-merge gate, not an offline step. The **offline-verifiable** layer of that
+contract — top-level `<slug>/SKILL.md` only, required `name`/`description`
+frontmatter, unique skill names, no nested `SKILL.md` — is re-runnable here:
+
+```sh
+python3 - <<'PY'
+import os, re, glob
+skills = sorted(d for d in os.listdir(".")
+                if os.path.isfile(os.path.join(d, "SKILL.md")))
+nested = [p for p in glob.glob("**/SKILL.md", recursive=True)
+          if p.count("/") > 1]
+names, dupes, bad = {}, [], []
+for slug in skills:
+    fm = open(os.path.join(slug, "SKILL.md")).read().split("---")
+    meta = fm[1] if len(fm) > 2 else ""
+    name = (re.search(r'(?m)^name:\s*(.+)$', meta) or [None, None])[1]
+    desc = re.search(r'(?m)^description:\s*', meta)
+    if not name or not desc: bad.append(slug)
+    names.setdefault((name or "").strip(), []).append(slug)
+dupes = {k: v for k, v in names.items() if len(v) > 1}
+print("top-level skills:", len(skills))
+print("nested SKILL.md :", nested or "none")
+print("missing name/desc:", bad or "none")
+print("duplicate names :", dupes or "none")
+print("RESULT:", "PASS" if not nested and not bad and not dupes else "FAIL")
+PY
+```
 
 ## Verify
 

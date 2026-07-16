@@ -4,7 +4,7 @@
   "source_repo": "kira-project-lab/kira-profile",
   "source_ref": "dev",
   "source_commit": "c75d4631030011f4c7c9915dae4233e21a24a7f9",
-  "normalization": "path-only: source `skills/<category>/<slug>/**` published as top-level `<slug>/**`; file contents byte-equivalent, per-file sha256 below.",
+  "normalization": "path-only for all files EXCEPT two documented content-safety normalizations: (1) `hermes-web-ui-service-ops/references/session-url-inspection.md` — operational login literals redacted to placeholders; (2) `hermes-token-economy/references/package-hermes-token-observability/SKILL.md` renamed to `OVERVIEW.md` to prevent mis-import as a ninth skill. All other files: source `skills/<category>/<slug>/**` published as top-level `<slug>/**`, contents byte-equivalent, per-file sha256 below.",
   "ownership": "Kira Lab",
   "skill_count": 8,
   "file_count": 223,
@@ -65,9 +65,10 @@
       "files": [
         {
           "path": "SKILL.md",
-          "sha256": "4731dcb4d3ff8743b2320cad26656401fb004245b5babe0d77d9778739244028",
+          "sha256": "fa869e2721e607ffec2bd26f3ab85e630933777e0333668214288ac5c91417aa",
           "source_path": "skills/devops/hermes-token-economy/SKILL.md",
-          "target_path": "hermes-token-economy/SKILL.md"
+          "target_path": "hermes-token-economy/SKILL.md",
+          "normalization": "content: reference-list citation updated from `package-hermes-token-observability/SKILL.md` to `OVERVIEW.md` to match the de-registered nested file; otherwise byte-equivalent."
         },
         {
           "path": "references/2026-06-22-current-setup-token-audit-plan.md",
@@ -124,10 +125,11 @@
           "target_path": "hermes-token-economy/references/hermes-token-observability-package.md"
         },
         {
-          "path": "references/package-hermes-token-observability/SKILL.md",
+          "path": "references/package-hermes-token-observability/OVERVIEW.md",
           "sha256": "e406f6f88ec6c977d697082208f4856b59c7d00624f1a81604d4da29c0afc79c",
           "source_path": "skills/devops/hermes-token-economy/references/package-hermes-token-observability/SKILL.md",
-          "target_path": "hermes-token-economy/references/package-hermes-token-observability/SKILL.md"
+          "target_path": "hermes-token-economy/references/package-hermes-token-observability/OVERVIEW.md",
+          "normalization": "path: nested source `SKILL.md` published as `OVERVIEW.md` to de-register it as an importable skill; file contents byte-equivalent (sha256 unchanged)."
         },
         {
           "path": "references/package-hermes-token-observability/references/skill-view-dedupe-analysis.md",
@@ -1181,9 +1183,10 @@
         },
         {
           "path": "references/session-url-inspection.md",
-          "sha256": "dbb84d951a882975cbf0065a56b6d204485c5e3ba02aec2fb16fa5ee11dcb6e1",
+          "sha256": "de918cd2dfd43e7cb4224ee4bef4cf67674154329b632b0c1323b15bc4497908",
           "source_path": "skills/devops/hermes-web-ui-service-ops/references/session-url-inspection.md",
-          "target_path": "hermes-web-ui-service-ops/references/session-url-inspection.md"
+          "target_path": "hermes-web-ui-service-ops/references/session-url-inspection.md",
+          "normalization": "content: operational login literals ('admin'/'123456') replaced with '<username>'/'<password>' placeholders (credential redaction); not byte-equivalent to source."
         },
         {
           "path": "references/single-host-caddy-allowlist-removal.md",

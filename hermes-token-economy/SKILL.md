@@ -242,7 +242,7 @@ See `references/2026-07-10-control-plane-overthinking-audit.md` for the measurem
 
 ## References
 
-- `references/package-hermes-token-observability/SKILL.md` — absorbed observability-focused token diagnostics package; use it for detailed live-observability notes not promoted above.
+- `references/package-hermes-token-observability/OVERVIEW.md` — absorbed observability-focused token diagnostics package (archived reference material, not an importable skill); use it for detailed live-observability notes not promoted above.
 - `references/2026-06-22-kira-token-baseline.md` — baseline observations from Maxim's Kira profile and recommended token-audit plugin shape.
 - `references/2026-06-22-current-setup-token-audit-plan.md` — plan-mode notes for improving the current Kira setup without paid resources or cheap-model routing.
 - `references/2026-06-22-token-audit-activation-and-tokenjuice-hook.md` — activation/smoke workflow, disk preflight, JSONL validation, and the Hermes v0.17 `transform_terminal_output` `returncode/env_type` compatibility pitfall.

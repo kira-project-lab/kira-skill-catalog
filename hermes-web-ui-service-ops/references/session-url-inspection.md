@@ -56,7 +56,7 @@ python - <<'PY'
 import requests
 base = 'https://hermes.ops.kiraproject.ru'
 s = requests.Session()
-token = s.post(base + '/api/auth/login', json={'username': 'admin', 'password': '123456'}, timeout=20).json()['token']
+token = s.post(base + '/api/auth/login', json={'username': '<username>', 'password': '<password>'}, timeout=20).json()['token']
 profile = 'kira'
 session_id = '<session_id>'
 r = s.get(
