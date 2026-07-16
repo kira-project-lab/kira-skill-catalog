@@ -1,0 +1,148 @@
+{
+  "package": "orangehack",
+  "owner": "OrangeHack",
+  "description": "Executable OrangeHack materials (skills + planning context) published out of the cognitive profile.",
+  "source": {
+    "repo": "kira-project-lab/kira-profile",
+    "ref": "c75d4631030011f4c7c9915dae4233e21a24a7f9",
+    "refType": "commit",
+    "branch": "dev"
+  },
+  "normalization": "path-only: every source file was moved verbatim under packages/orangehack/, preserving its original relative path; no content byte was changed.",
+  "importPath": "packages/orangehack (skills discovered at packages/orangehack/skills/**/<slug>/SKILL.md)",
+  "fileCount": 22,
+  "files": [
+    {
+      "path": "projects/orangehack/_sphere.md",
+      "sourcePath": "projects/orangehack/_sphere.md",
+      "sha256": "c3f0ba8d7f11a93e15a77cd9f9b4135bb918fec0ed0810de495907849e6acea1",
+      "bytes": 1874
+    },
+    {
+      "path": "projects/orangehack/hackathon.md",
+      "sourcePath": "projects/orangehack/hackathon.md",
+      "sha256": "151790056256a881413e7d68fe2593145d7341ccaef120a5bd902a21bcebae9b",
+      "bytes": 986
+    },
+    {
+      "path": "projects/orangehack/landing.md",
+      "sourcePath": "projects/orangehack/landing.md",
+      "sha256": "932d1724d0e85cfa554a7abfa3e9b9e61e8233a70e7725b09e599e62224d5f65",
+      "bytes": 1025
+    },
+    {
+      "path": "projects/orangehack/platform.md",
+      "sourcePath": "projects/orangehack/platform.md",
+      "sha256": "9db105bfddf2aa45488523ae5738baf1503577159c39360aaa0dcce769e5bdf3",
+      "bytes": 1553
+    },
+    {
+      "path": "roadmaps/orangehack.md",
+      "sourcePath": "roadmaps/orangehack.md",
+      "sha256": "d7b31665239a8e91d5b03ad4a8a0548398c6a410c73d9946b17c23c5cbd46120",
+      "bytes": 1841
+    },
+    {
+      "path": "skills/data-science/ml-competition-data-ops/SKILL.md",
+      "sourcePath": "skills/data-science/ml-competition-data-ops/SKILL.md",
+      "sha256": "8c965357222759a4ab97a44af48ce8a1018bd772c09a360b228b41a16982ddee",
+      "bytes": 6093
+    },
+    {
+      "path": "skills/data-science/ml-competition-data-ops/references/income-regression-hackathon-split.md",
+      "sourcePath": "skills/data-science/ml-competition-data-ops/references/income-regression-hackathon-split.md",
+      "sha256": "5e4b93a7bc177382ebf1a35720fb8dc8c3343f24df5bfd19c3ebb242ce252663",
+      "bytes": 3262
+    },
+    {
+      "path": "skills/data-science/ml-competition-data-ops/references/platform-evaluator-readiness-checks.md",
+      "sourcePath": "skills/data-science/ml-competition-data-ops/references/platform-evaluator-readiness-checks.md",
+      "sha256": "b64e0fe7e400b1ff7ac47e9bbcc31ed475e6ec92b473587d15d6363ccd5b8f5a",
+      "bytes": 3688
+    },
+    {
+      "path": "skills/orangehack/SKILL.md",
+      "sourcePath": "skills/orangehack/SKILL.md",
+      "sha256": "24851731962467fb27ca62d59ff754be446f083f07899a7a97520eb2ea509f6c",
+      "bytes": 4275
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/SKILL.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/SKILL.md",
+      "sha256": "cbf6b296e0e29183b4c5fb35ab7ab449bca42e56a375e8739ce1ea0f1b18828d",
+      "bytes": 14427
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/hackathon-assessment-models.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/hackathon-assessment-models.md",
+      "sha256": "3230348c7d318a1866a70205333f003e7053a459d73156a1f15bd781acc9edf5",
+      "bytes": 13294
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/hackathon-success-gates-status.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/hackathon-success-gates-status.md",
+      "sha256": "3f942fe694bcb1d73f1b02131850b7a4db9459842c61fa7fdf5b4538099103da",
+      "bytes": 3645
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/hck-alfa-org-meeting-synthesis.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/hck-alfa-org-meeting-synthesis.md",
+      "sha256": "1ae091ebaf124dc29890d21b4c05eb7e0c33a73838bca897a0332cce6f95a562",
+      "bytes": 3915
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/leaderboard-robust-scoring.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/leaderboard-robust-scoring.md",
+      "sha256": "9ac3d6c3e06c1932b9bfdb77482389687e30c0c5475b36d85b191490e88efcd8",
+      "bytes": 3235
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/ml-case-brief-refinement.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/ml-case-brief-refinement.md",
+      "sha256": "4414bdd2d73ce171cf588a7dc88ae1ae8a4349a676c1bc9d9a8fafa0f0613367",
+      "bytes": 2637
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/ml-competition-case-bundle.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/ml-competition-case-bundle.md",
+      "sha256": "89f3116e320c9aac1d4b695c4daa12ddf4dfe9962b4e6f434d5fbe7cb2b39726",
+      "bytes": 3519
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/ml-competition-data-bundle-and-scoring.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/ml-competition-data-bundle-and-scoring.md",
+      "sha256": "ff8330b539bb36d4b15f0f0f5d7cd84e9201b2e81059c809207bfac903c8f5c6",
+      "bytes": 4324
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/ml-competition-platform-setup.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/ml-competition-platform-setup.md",
+      "sha256": "1cbed12b9fddb32281d70e6e40c9d6c728a9fb021f782cbe02a9356f701385d6",
+      "bytes": 5156
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/ml-practice-defense-rubric.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/ml-practice-defense-rubric.md",
+      "sha256": "dd3a5638b812a071bc242ed6dabedc20108284f45effdba625171aec57337a76",
+      "bytes": 3444
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/orangehack-local-validation-accounts.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/orangehack-local-validation-accounts.md",
+      "sha256": "7ce9446c48aafbd988f07784664b99be3d8276163131fcac4da282a796889f44",
+      "bytes": 2900
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/orangehack-source-first-platform-pack.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/orangehack-source-first-platform-pack.md",
+      "sha256": "71f6a912e646f21ecc3669c3c2ad1c432cf2985f3b98eedf71892467f83db271",
+      "bytes": 3587
+    },
+    {
+      "path": "skills/productivity/hackathon-program-briefing/references/participant-platform-ux.md",
+      "sourcePath": "skills/productivity/hackathon-program-briefing/references/participant-platform-ux.md",
+      "sha256": "eecce8298e792446e25f44078860b870ae5a323108ecfaa5cd1005604168f018",
+      "bytes": 5060
+    }
+  ]
+}
