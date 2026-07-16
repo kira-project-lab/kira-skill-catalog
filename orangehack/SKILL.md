@@ -61,3 +61,10 @@ Use only the focused skills needed:
 - hackathon briefs/rubrics/materials → `hackathon-program-briefing`;
 - browser QA → the project's browser/testing skill and real browser tools;
 - repository documentation closure → `project-culture`.
+
+## Bundled context
+
+This skill travels with its OrangeHack project sources and roadmap under `references/`:
+
+- Project sources → [`references/projects/orangehack/`](references/projects/orangehack/): [`_sphere.md`](references/projects/orangehack/_sphere.md), [`hackathon.md`](references/projects/orangehack/hackathon.md), [`landing.md`](references/projects/orangehack/landing.md), [`platform.md`](references/projects/orangehack/platform.md).
+- Roadmap → [`references/roadmaps/orangehack.md`](references/roadmaps/orangehack.md).

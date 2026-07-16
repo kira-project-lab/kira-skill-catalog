@@ -9,7 +9,7 @@ skills, copied semantic-preserving from the company skill library.
 
 ## Inventory
 
-The catalog ships two groups of skills. Each group is byte-verifiable against
+The catalog ships three groups of skills. Each group is byte-verifiable against
 its documented source; the importer discovers every top-level `<slug>/SKILL.md`
 regardless of group.
 
@@ -59,6 +59,28 @@ source→target mapping, and per-file normalization notes are in
 | [`hermes-web-ui-operating-model`](hermes-web-ui-operating-model/SKILL.md) | `references/**` (90) | Mandatory entrypoint for Hermes Web UI planned work: branches, builds, previews, production deploys, runtime topology, and release/export decisions. |
 | [`hermes-web-ui-service-ops`](hermes-web-ui-service-ops/SKILL.md) | `references/**` (87, incl. `references/scripts/**` (5)) | Mandatory runtime/live-service companion for Hermes Web UI work. Load for any task that touches, verifies, updates, restarts, diagnoses, or depends on a running dev/preview/prod service. |
 | [`hermes-web-ui-upstream-sync`](hermes-web-ui-upstream-sync/SKILL.md) | `references/**` (9) | Update Kira's Hermes Web UI fork from upstream — compare fork vs upstream, plan/execute a version bump, reconcile `origin/dev` with `upstream/main`, maintain a long-lived downstream fork. |
+
+### OrangeHack package (v0.3.0)
+
+Three OrangeHack executor skills, published from
+`kira-project-lab/kira-profile@c75d4631` so they live outside the cognitive
+profile. Of 22 published files, 21 are byte-equivalent to source and 1 carries a
+documented content normalization: the `orangehack` routing skill's `SKILL.md`
+gains one appended `## Bundled context` section linking its two relocated
+context groups by valid relative paths. The two context groups travel with that
+owning skill under `references/` (path-only, byte-equivalent): the OrangeHack
+project sources (`projects/orangehack/**` → `orangehack/references/projects/orangehack/**`)
+and roadmap (`roadmaps/orangehack.md` → `orangehack/references/roadmaps/orangehack.md`).
+No credential value, organizer-only data, or runtime state is included. Every
+deviating file records both `source_sha256` (before) and `sha256` (after);
+per-file checksums, the source→target mapping, and per-file normalization notes
+are in [`provenance/orangehack/`](provenance/orangehack/README.md).
+
+| Skill | Support files | Description |
+| --- | --- | --- |
+| [`orangehack`](orangehack/SKILL.md) | `references/**` (5, incl. `references/projects/orangehack/**` (4) + `references/roadmaps/orangehack.md`) | Routing skill for any OrangeHack task — platform, landing, hackathon operations, competitions, participant/organizer UX, APIs, data lifecycle, environments, deployments, monitoring, and prod/stage verification. Supplies Maxim's durable OrangeHack constraints and routes to project-local sources and focused engineering skills. |
+| [`hackathon-program-briefing`](hackathon-program-briefing/SKILL.md) | `references/**` (12) | Design, analyze, summarize, or prepare participant-facing materials for a hackathon, ML competition, case championship, org meeting, kickoff, Q&A, final defense, rules, judging criteria, anti-cheat/fairness process, or program timeline. |
+| [`ml-competition-data-ops`](ml-competition-data-ops/SKILL.md) | `references/**` (2) | Design and operate ML competition data/scoring packs — train/test artifacts, hidden answer keys, public/private splits, sample submissions, scoring contracts, validation tooling, and organizer-only safeguards. |
 
 ## Layout
 
