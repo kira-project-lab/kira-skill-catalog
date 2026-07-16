@@ -4,6 +4,30 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.2.0] - 2026-07-16
+
+Adds the **platform-engineering** package: eight Hermes / platform executor
+skills published so they live outside the cognitive profile. Skills are copied
+**byte-equivalent** from `kira-project-lab/kira-profile` `dev` @
+`c75d4631030011f4c7c9915dae4233e21a24a7f9` with **path-only** normalization
+(source `skills/<category>/<slug>/**` → top-level `<slug>/**`). Per-file
+`sha256` checksums and the source→target mapping are recorded in
+`provenance/platform-engineering/manifest.json`; ownership stays with Kira Lab.
+No credentials or runtime state are included. MINOR bump: additive only, no
+existing skill or the layout contract changed.
+
+### Added
+
+- `debugging-hermes-tui-commands` — debug Hermes TUI slash commands.
+- `hermes-codex-debugging` — debug Kira's own Hermes Agent / Codex stack.
+- `hermes-provider-troubleshooting` — Hermes Agent provider/auth/routing/billing failures.
+- `hermes-token-economy` — analyze and reduce Kira agent token usage.
+- `hermes-web-ui-live-dev` — operate Hermes Web UI live-dev runtime.
+- `hermes-web-ui-operating-model` — entrypoint for Hermes Web UI planned work.
+- `hermes-web-ui-service-ops` — runtime/live-service companion for Hermes Web UI.
+- `hermes-web-ui-upstream-sync` — update Kira's Hermes Web UI fork from upstream.
+- `provenance/platform-engineering/` — package README and machine-checkable checksum manifest.
+
 ## [0.1.0] - 2026-07-15
 
 Seed release: publishes the ten canonical Kira Lab process skills as a
@@ -23,4 +47,5 @@ library; support files (`references/**`, templates) travel with each `SKILL.md`.
 - `kira-learning-loop` — how Kira Lab learns from its own failures.
 - `wrap-up` — end-of-task closure and docs decision.
 
+[0.2.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.2.0
 [0.1.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.1.0
