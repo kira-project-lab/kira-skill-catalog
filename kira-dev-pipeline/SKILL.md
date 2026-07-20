@@ -63,19 +63,26 @@ compares it against the live head before merging.
 
 A finding is the same finding when the same acceptance criterion or invariant remains
 unproved, even if the symptoms or attempted patches change. Give each repeated finding a
-stable finding key and state its occurrence number in the review decision.
+stable finding key and state its occurrence number in the review decision. One occurrence
+is one native review decision in which that finding key remains unproved; remediation
+attempts and diagnosis or advisory children do not increment the count.
 
 1. **First occurrence → normal remediation.** Request changes through the native review
    stage and return the same feature, Engineer, branch and PR for correction.
-2. **Second occurrence → focused diagnosis.** Create a focused diagnosis child and block
-   the feature on it. Do not write implementation code in that child: establish the root
-   cause, trace the real execution path, produce a failing proof and record one binding fix
-   contract. Use planning mode only when resolving the finding requires a new architecture
-   decision. Once the diagnosis is accepted, unblock the feature and resume the same PR.
-3. **Third occurrence → Kira operational escalation.** Keep the feature blocked and create
-   an advisory child for Kira following `kira-ask-kira`. Kira chooses whether to stop,
-   split, reassign or re-plan the work; she does not implement it. A fourth tactical
-   remediation is forbidden until that disposition is recorded.
+2. **Second occurrence → focused diagnosis.** Record `request-changes` on the native review
+   stage, create an analysis-only diagnosis child and block the feature on it. The child
+   cannot approve or reject the feature and does not replace or advance its native review
+   stage. Do not write implementation code in that child: establish the root cause, trace
+   the real execution path, produce a failing proof and record one binding fix contract.
+   Use planning mode only when resolving the finding requires a new architecture decision.
+   After the diagnosis is incorporated, unblock the feature, remediate on the same PR and
+   submit the corrected head to the native review stage again.
+3. **Third occurrence → Kira operational escalation.** When the same finding key remains
+   unproved in the third native review decision, record `request-changes`, keep the feature
+   blocked and create an advisory child for Kira following `kira-ask-kira`. Ask one concrete
+   disposition question with full context and explicit stop, split, reassign or re-plan
+   options. Kira advises; the accountable pipeline owner records the disposition. A fourth
+   tactical remediation is forbidden until that disposition is recorded.
 
 ## dev is always green (ADR 0043)
 

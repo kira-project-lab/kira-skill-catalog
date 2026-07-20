@@ -4,6 +4,19 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-07-20
+
+Corrective clarification for the anti-loop review rule added in v0.4.0. PATCH bump: no
+threshold or capability changes; this makes the existing review authority, occurrence
+counting and advisory accountability explicit.
+
+### Changed
+
+- `kira-dev-pipeline`: define an occurrence as a native review decision, keep focused
+  diagnosis children analysis-only and subordinate to the native review stage, and align
+  third-occurrence Kira consultation with `kira-ask-kira` by leaving the recorded
+  disposition with the accountable pipeline owner.
+
 ## [0.4.0] - 2026-07-20
 
 Extends the existing Kira Lab development pipeline with a bounded anti-loop rule for
@@ -156,6 +169,7 @@ library; support files (`references/**`, templates) travel with each `SKILL.md`.
 - `kira-learning-loop` — how Kira Lab learns from its own failures.
 - `wrap-up` — end-of-task closure and docs decision.
 
+[0.4.1]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.4.1
 [0.4.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.4.0
 [0.3.0]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.3.0
 [0.2.1]: https://github.com/kira-project-lab/kira-skill-catalog/releases/tag/v0.2.1
