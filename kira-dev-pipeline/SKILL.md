@@ -59,6 +59,24 @@ and on which issue; there is no parser and no verdict format to get wrong. In th
 comment, name the PR and the **head SHA you reviewed** in prose: the Release Engineer
 compares it against the live head before merging.
 
+## Anti-loop review rule
+
+A finding is the same finding when the same acceptance criterion or invariant remains
+unproved, even if the symptoms or attempted patches change. Give each repeated finding a
+stable finding key and state its occurrence number in the review decision.
+
+1. **First occurrence → normal remediation.** Request changes through the native review
+   stage and return the same feature, Engineer, branch and PR for correction.
+2. **Second occurrence → focused diagnosis.** Create a focused diagnosis child and block
+   the feature on it. Do not write implementation code in that child: establish the root
+   cause, trace the real execution path, produce a failing proof and record one binding fix
+   contract. Use planning mode only when resolving the finding requires a new architecture
+   decision. Once the diagnosis is accepted, unblock the feature and resume the same PR.
+3. **Third occurrence → Kira operational escalation.** Keep the feature blocked and create
+   an advisory child for Kira following `kira-ask-kira`. Kira chooses whether to stop,
+   split, reassign or re-plan the work; she does not implement it. A fourth tactical
+   remediation is forbidden until that disposition is recorded.
+
 ## dev is always green (ADR 0043)
 
 A CI timer sweeps every `tools/test_*.py` + `tools/selftest_*.py` after each merge to
