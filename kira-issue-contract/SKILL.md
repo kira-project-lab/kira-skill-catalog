@@ -78,5 +78,27 @@ platform evolves and then stall the program (every access stall in the KIR-118
 retrospective traced to exactly this). If a step seems to need an access path no standing
 capability covers, that is a missing-capability escalation, not a paragraph in the issue.
 
+## Rule five: a contract change is a boundary, never a drift
+
+Changing acceptance criteria (or Goal / Non-goals) while the issue is in flight is an
+explicit boundary event, not a silent continuation — silent drift is how one issue
+accumulates several incompatible architectures and unbounded review rounds (KIR-299
+retrospective). When the contract changes:
+
+1. **Amend visibly.** Update the issue's criteria checkboxes (or the `plan`/decision
+   document) in one revision, and say in a comment what changed and why. Every review
+   decision after the change is made **against the updated contract only**; findings
+   against the superseded contract are void.
+2. **Name what is approved.** Any approval recorded near a contract change must name the
+   exact artifact it approves — PR head SHA or document key + revision. "Approved" without
+   an artifact identity is not an approval.
+3. **Or cancel and reopen.** When the change invalidates the implementation approach (not
+   just details), cancel the issue and open a fresh one with a new branch and PR; the old
+   branch is a historical artifact and is never reused.
+
+If nobody can say which contract revision a review round was judged against, the issue is
+already past the boundary — stop and apply one of the three moves before any further
+remediation.
+
 Company-specific pipeline mechanics (branches, native review/approval stages, release)
 live in `kira-dev-pipeline`; this skill owns only the shape of the contract itself.

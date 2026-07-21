@@ -4,6 +4,22 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.5.0] - 2026-07-21
+
+Adds the two remaining review-quality guards from the Kira Lab cycle audit (kira-platform
+ADR 0052). MINOR bump: backward-compatible additions to two existing process skills.
+
+### Changed
+
+- `kira-dev-pipeline`: new **Grounded verdicts** rule — a native review decision (either
+  outcome) is valid only with executed checks and quoted meaningful output, or a stated
+  reason plus substitute evidence; diff-only reasoning is not review.
+- `kira-issue-contract`: new **Rule five — a contract change is a boundary, never a
+  drift** — mid-flight acceptance-criteria changes require a visible amendment with
+  post-change reviews judged only against the updated contract, approvals that name the
+  exact artifact (PR head SHA or document revision), or cancel-and-reopen when the
+  approach itself is invalidated (KIR-299 retrospective).
+
 ## [0.4.1] - 2026-07-20
 
 Corrective clarification for the anti-loop review rule added in v0.4.0. PATCH bump: no
