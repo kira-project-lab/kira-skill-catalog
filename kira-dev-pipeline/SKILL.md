@@ -59,6 +59,15 @@ and on which issue; there is no parser and no verdict format to get wrong. In th
 comment, name the PR and the **head SHA you reviewed** in prose: the Release Engineer
 compares it against the live head before merging.
 
+## Grounded verdicts
+
+A verdict — either outcome — is valid only when the relevant checks were **executed** and
+their meaningful output is quoted in the decision, or the decision states the precise
+reason they could not run plus the substitute evidence relied on. Reasoning about the diff
+alone is not review: ungrounded critique neither proves a finding nor earns an approval,
+and it is the fuel of repeated-round loops. Exit codes alone are not evidence; quote the
+output that matters.
+
 ## Anti-loop review rule
 
 A finding is the same finding when the same acceptance criterion or invariant remains
