@@ -4,6 +4,21 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.6.0] - 2026-07-22
+
+Adds the readiness preflight (kira-platform ADR 0057). MINOR bump: one new process
+skill, backward-compatible.
+
+### Added
+
+- `kira-readiness-preflight` — a `[direction]` files a Readiness Manifest before spawning
+  implementation, covering access/capability, naming, secret references, infra/endpoints,
+  owner decisions, and acceptance substrate. Fail-closed on access and secret-reference lines
+  (every terminal action resolves to a concrete `(principal, grant, key)` triple or escalates at
+  planning time); advisory on the rest; owner-gated lines batch into one gate-sweep intake. Answers
+  the KIR-298 failure where a host converge no principal could run surfaced ~6 h and one abandoned
+  build-line late.
+
 ## [0.5.0] - 2026-07-21
 
 Adds the two remaining review-quality guards from the Kira Lab cycle audit (kira-platform
