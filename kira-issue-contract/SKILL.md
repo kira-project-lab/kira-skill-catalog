@@ -78,27 +78,71 @@ platform evolves and then stall the program (every access stall in the KIR-118
 retrospective traced to exactly this). If a step seems to need an access path no standing
 capability covers, that is a missing-capability escalation, not a paragraph in the issue.
 
-## Rule five: a contract change is a boundary, never a drift
+## Rule five: file against state you re-read, not state you remember
 
-Changing acceptance criteria (or Goal / Non-goals) while the issue is in flight is an
-explicit boundary event, not a silent continuation — silent drift is how one issue
-accumulates several incompatible architectures and unbounded review rounds (KIR-299
-retrospective). When the contract changes:
+Before opening an issue whose whole point is that something is *not* done — a PR still open,
+a branch still behind, a service still stopped — read that state at the moment you file, and
+quote what you read. Live state moves while you write. TES-37 was filed at 15:49 asserting
+that PR #208 was unmerged and `dev` sat at the pre-feature SHA; the PR merged at 15:51. The
+issue then blocked, spawned a child, and the child pulled the company into work it could not
+do — all from a premise that was already false.
 
-1. **Amend visibly.** Update the issue's criteria checkboxes (or the `plan`/decision
-   document) in one revision, and say in a comment what changed and why. Every review
-   decision after the change is made **against the updated contract only**; findings
-   against the superseded contract are void.
-2. **Name what is approved.** Any approval recorded near a contract change must name the
-   exact artifact it approves — PR head SHA or document key + revision. "Approved" without
-   an artifact identity is not an approval.
-3. **Or cancel and reopen.** When the change invalidates the implementation approach (not
-   just details), cancel the issue and open a fresh one with a new branch and PR; the old
-   branch is a historical artifact and is never reused.
+Prefer **reopening the parent** over filing a sibling verification issue. A parent that was
+closed early is one status change away from correct; a sibling adds a second issue that can
+drift from the first, and both then need closing.
 
-If nobody can say which contract revision a review round was judged against, the issue is
-already past the boundary — stop and apply one of the three moves before any further
-remediation.
+## Rule six: never make a boundary depend on parsing someone else's grammar
+
+An acceptance criterion may not require predicting how a third-party program will parse its
+own arguments, when that prediction decides which credential is minted, what permission is
+held, or any other security boundary. Such a criterion has no finite set of tests: the other
+program's grammar is per-command, version-dependent, and open-ended, so every round of review
+can produce one more valid invocation that the prediction gets wrong, forever.
+
+Scope by the role's permission template. That is a property of our own configuration, and it
+is checkable.
+
+TES-32 required the `gh` shim to resolve the repository a command addresses before minting a
+token. Four review rounds, every finding real and reproduced against the installed client,
+the resolver growing to 838 lines with per-command flag-arity tables pinned to
+`AUDITED_GH_VERSION = "2.96.0"`. Cancelled, both PRs closed unmerged. What shipped instead
+mints installation-wide and changes 12 lines.
+
+**Reviewer:** a criterion of this shape is a defect of the contract. Return it to the CEO and
+say so; do not request changes on the head. A head cannot be fixed into satisfying it.
+
+## Rule seven: cancelling an issue means clearing its edges
+
+Cancellation is not finished when the status changes. Every `blockedByIssueIds` edge pointing
+at the cancelled issue must be cleared or replaced with an actionable unblock issue in the
+same action.
+
+The platform will not do it for you, deliberately: it raises a `harness_liveness_escalation`
+and asks a manager to decide. TES-35 is that escalation, filed three minutes after TES-32 was
+cancelled because TES-31 was still blocked by it.
+
+## Rule eight: a contract change is a boundary, never a drift
+
+Changing acceptance criteria, the Goal or the Non-goals while an issue is in flight is an
+explicit boundary event. Silent continuation is how one issue accumulates several incompatible
+architectures and unbounded review rounds: eight of them once, each finding real against a
+different contract, ending in cancellation and a replacement issue.
+
+Do one of three things, and never a fourth:
+
+1. **Amend visibly.** Update the criteria in one revision and say in a comment what changed and
+   why. Every review decision after that is made against the updated contract only; findings
+   against the superseded one are void.
+2. **Name what is approved.** An approval recorded near a contract change names the artifact
+   identity it approves — the exact pull-request head SHA, or the document revision. "Approved"
+   without an identity is what turns one changed contract into two disagreeing roles.
+3. **Cancel and reopen.** When the change is large enough that the work so far is superseded,
+   cancel and open the successor rather than carrying the old issue across the boundary. Clear
+   its edges as rule seven requires.
+
+If nobody can say which contract revision a review round judged, the issue is already past the
+boundary: stop and apply one of the three before any further remediation.
 
 Company-specific pipeline mechanics (branches, native review/approval stages, release)
-live in `kira-dev-pipeline`; this skill owns only the shape of the contract itself.
+live in `kira-dev-pipeline`; the boundary around the physical host lives in
+`kira-host-boundary`; this skill owns only the shape of the contract itself.
