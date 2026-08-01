@@ -32,7 +32,7 @@ rewording an instruction, and a lost wake is not laziness.
 
 1. **An agent's inference about the platform is not evidence about the platform.** Read the
    platform. Exam #8 deadlocked twice because an honest report of an API rejection was written
-   into the canon as a rule — and the rule was false (ADR 0036).
+   into the canon as a rule — and the rule was false.
 2. **If it does not reproduce, it did not happen.** One unlucky run is class M. A rule written
    to suppress it is superstition with a commit message.
 3. **If two classes fit, take the lower-level one.** A permission hole that produces confused

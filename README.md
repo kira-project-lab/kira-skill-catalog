@@ -27,10 +27,26 @@ company skill library:
 | [`kira-ask-kira`](kira-ask-kira/SKILL.md) | — | Consult Kira only when the task explicitly asks for her or requires Kira-owned knowledge or memory. Kira advises; she does not implement or replace repository research. |
 | [`kira-dev-pipeline`](kira-dev-pipeline/SKILL.md) | — | How Kira Lab ships code — decomposition, branches, the native review/approval stages, and release. Use when planning, decomposing, implementing, reviewing or releasing any engineering work. The Paperclip skill has the platform mechanics; this has only what is specific to this company. |
 | [`kira-escalation-discipline`](kira-escalation-discipline/SKILL.md) | — | Kira Lab escalation boundaries for owner confirmations, structured product questions, and conditional Kira consultation. Use when a missing decision or protected action blocks delivery. |
+| [`kira-host-boundary`](kira-host-boundary/SKILL.md) | — | The physical host is outside the company's reach — Incus, host systemd and Ansible converges are operator work, and asking the operator to run them by hand is not a workaround. Use when an acceptance criterion or a recovery step needs control of the machine the agents run on. |
 | [`kira-issue-contract`](kira-issue-contract/SKILL.md) | — | The issue template every executable Kira Lab issue follows — outcome title, checkbox acceptance criteria, hard delivery gate, and the three rules that make an issue a contract. Use when creating, decomposing, or auditing any issue for agent execution. |
 | [`kira-learning-loop`](kira-learning-loop/SKILL.md) | — | How Kira Lab learns from its own failures without learning from noise. Use when reviewing agent trajectories, classifying a defect, or proposing any change to a prompt, skill, or runtime. Required reading before any coaching proposal. |
+| [`kira-prompt-authoring`](kira-prompt-authoring/SKILL.md) | — | What to keep and what to cut when writing an agent charter or a company skill in this estate. Use when authoring, reviewing, shortening or extending any AGENTS.md or SKILL.md here, and when judging whether a rule earns its place in the context window. |
 | [`kira-readiness-preflight`](kira-readiness-preflight/SKILL.md) | — | The readiness gate every direction passes before spawning implementation — a six-category base check (access, naming, secrets, infra, decisions, substrate), fail-closed on access and secret references. Use when decomposing a `[direction]`, before marking any implementation issue actionable. Enforces ADR 0057. |
 | [`wrap-up`](wrap-up/SKILL.md) | — | End-of-task closure — review the diff, decide and state the docs decision (new ADR / update docs / none), verify doc consistency and commit hygiene. Use before declaring any substantial coding task complete. |
+
+### The bodies here are the exported form
+
+A skill in this estate carries its provenance in a marked tail — `[per: ADR 0043]`,
+`[per: TES-32]` — naming the decision or the incident that put a rule there. Those tails resolve
+only in the repository holding those documents, so they are deleted on the way here, and the rule
+body is authored to be true and complete without them. A body in this catalog is therefore not
+byte-identical to its source file, and is not meant to be: the form to pin against is the
+exported one.
+
+This is enforced upstream rather than left to care. `tools/paperclip/export_text.py` in
+`kira-platform` refuses to export text whose tails do not resolve, and a dev-CI selftest turns
+`dev` red when an unmarked reference reaches a body. That defect already shipped here once —
+`kira-learning-loop` carried a bare `(ADR 0036)` that no reader of this repository can open.
 
 ### Platform-engineering package (v0.2.1)
 

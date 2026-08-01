@@ -4,6 +4,46 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.7.0] - 2026-07-27
+
+Two new process skills, and the first release whose bodies are the *exported* form: provenance
+tails stripped, so the nine process skills published from `kira-platform` no longer point at
+documents a reader here does not have. MINOR bump: two additions, and changes to four existing
+skills that add rules without removing any.
+
+One estate reference remains outside that set — `kira-readiness-preflight` names ADR 0057 in its
+title. It is published from a different source and is left for the release that touches it.
+
+### Added
+
+- `kira-host-boundary` — the physical host is operator territory: no Incus, no host systemd, no
+  Ansible converge, and converting a host dependency into instructions for a human is the failure
+  this prevents rather than the workaround. Written after 2026-07-26, when a board chain asked the
+  owner to start a container by hand and a second gateway came up holding production's Telegram
+  token; the two fought over `getUpdates` for thirty-eight minutes.
+- `kira-prompt-authoring` — what earns a place in a charter or a company skill and what does not:
+  the retention test (a rule names a dated failure whose fix belongs to text, or states a safety,
+  authority or product requirement, and carries a provenance tail either way), the accuracy-before-
+  density order, and the operative/provenance split this release implements.
+
+### Changed
+
+- **All bodies are now the exported form.** Provenance tails (`[per: ADR 0043]`, `[per: TES-32]`)
+  are deleted on export; each rule body reads complete without them. Bodies are no longer
+  byte-identical to their sources in `kira-platform`, by design — pin against the exported form.
+- `kira-learning-loop`: removed a bare `(ADR 0036)` from the body — an unmarked reference to a
+  document this repository does not carry. It arrived with the seed in `v0.1.0` and has been in
+  every release since; it is the defect the export step exists to prevent.
+- `kira-escalation-discipline`: the owner's reserved classes are now enumerated, and the
+  user-facing gate is no longer used to ask a colleague a question.
+- `kira-dev-pipeline`: carries the split between product and technical ownership of a decision,
+  and the rule that three review rounds are evidence about the issue rather than about the change.
+- `kira-issue-contract`: new rules — a criterion may not require predicting how a third-party
+  program parses its own arguments when that prediction decides a security boundary (no finite set
+  of tests exists, so the reviewer returns it as a defect of the contract); file against state you
+  re-read rather than state you remember; cancelling an issue means clearing its edges. The
+  contract-change boundary is renumbered rule eight and otherwise unchanged.
+
 ## [0.6.0] - 2026-07-22
 
 Adds the readiness preflight (kira-platform ADR 0057). MINOR bump: one new process
