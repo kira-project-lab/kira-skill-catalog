@@ -1,0 +1,159 @@
+{
+  "schema": "kira-skill-catalog/provenance@1",
+  "package": "kira-platform-process",
+  "source_repo": "kira-project-lab/kira-platform",
+  "source_ref": "dev",
+  "source_commit": "f43fd3b504f6c25fe29d3971da866947b0e4d4cc",
+  "ownership": "Kira Lab",
+  "normalization": "Each source `tools/paperclip/skills/<slug>/**` Markdown file is mechanically exported to top-level `<slug>/**` by `tools/paperclip/export_text.py`. The exporter removes authored provenance tails (`[per: ...]`) while preserving the operative rule body. Entries whose bytes change record `source_sha256` (authored source), `sha256` (exported target), and a normalization reason; byte-identical entries record the shared digest as `sha256` only.",
+  "skill_count": 9,
+  "file_count": 11,
+  "skills": [
+    {
+      "slug": "adr",
+      "source_dir": "tools/paperclip/skills/adr",
+      "target_dir": "adr",
+      "file_count": 3,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "82f2f9d996a49539fd5e762958cea0fdbca93b98eea40f70219ed57116b4577b",
+          "source_path": "tools/paperclip/skills/adr/SKILL.md",
+          "target_path": "adr/SKILL.md"
+        },
+        {
+          "path": "references/adr-index.md",
+          "sha256": "20d030b1b09463a936ba6590b29bb4ade52adac86da7762259f7be0b75875fdb",
+          "source_path": "tools/paperclip/skills/adr/references/adr-index.md",
+          "target_path": "adr/references/adr-index.md"
+        },
+        {
+          "path": "references/adr.md",
+          "sha256": "b710a833f8f158a61faffa79dfabade7b560c07af68b2af78c92dc71ce792b5c",
+          "source_path": "tools/paperclip/skills/adr/references/adr.md",
+          "target_path": "adr/references/adr.md"
+        }
+      ]
+    },
+    {
+      "slug": "git-workflow",
+      "source_dir": "tools/paperclip/skills/git-workflow",
+      "target_dir": "git-workflow",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5225e85bd8cb0abfe13de4f15ade7a0402230380083b8ccb82be20e1275bc348",
+          "source_path": "tools/paperclip/skills/git-workflow/SKILL.md",
+          "target_path": "git-workflow/SKILL.md"
+        }
+      ]
+    },
+    {
+      "slug": "kira-dev-pipeline",
+      "source_dir": "tools/paperclip/skills/kira-dev-pipeline",
+      "target_dir": "kira-dev-pipeline",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9d962aadb8a48818a487990efb6ef566273ef95ebbbf7ec2ceacfd63406ce925",
+          "source_sha256": "a5df2aa3721d7f414aa2e71a361a94eb36814e3d8b584d2c1e12321fdafbebce",
+          "source_path": "tools/paperclip/skills/kira-dev-pipeline/SKILL.md",
+          "target_path": "kira-dev-pipeline/SKILL.md",
+          "normalization": "Mechanical export removed authored provenance tails (`[per: ...]`); the operative body is otherwise unchanged."
+        }
+      ]
+    },
+    {
+      "slug": "kira-escalation-discipline",
+      "source_dir": "tools/paperclip/skills/kira-escalation-discipline",
+      "target_dir": "kira-escalation-discipline",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a83aa1f25c5d3ddf0dcbb9a6fe878caa100776e4e33b90cee2f7667f1c5c0e99",
+          "source_sha256": "dd56fbb3cd80f9d5dde062609c87d18ed9ba587f9feb68e4f7a655fa94cce88d",
+          "source_path": "tools/paperclip/skills/kira-escalation-discipline/SKILL.md",
+          "target_path": "kira-escalation-discipline/SKILL.md",
+          "normalization": "Mechanical export removed authored provenance tails (`[per: ...]`); the operative body is otherwise unchanged."
+        }
+      ]
+    },
+    {
+      "slug": "kira-host-boundary",
+      "source_dir": "tools/paperclip/skills/kira-host-boundary",
+      "target_dir": "kira-host-boundary",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "84c81bc8dd74306860d66ef945085f453bf7f9a5f2c5b782f74a51307f1a2d3b",
+          "source_sha256": "516bdf6dea2e1908b4ad6488829b631629afe0355fb3db28b4baa4ae549e1f2a",
+          "source_path": "tools/paperclip/skills/kira-host-boundary/SKILL.md",
+          "target_path": "kira-host-boundary/SKILL.md",
+          "normalization": "Mechanical export removed authored provenance tails (`[per: ...]`); the operative body is otherwise unchanged."
+        }
+      ]
+    },
+    {
+      "slug": "kira-issue-contract",
+      "source_dir": "tools/paperclip/skills/kira-issue-contract",
+      "target_dir": "kira-issue-contract",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "71e6b4b991ab0529498a1ce2e23eff2a182aaa601b75f03042748d6bd276b091",
+          "source_sha256": "e5c5bc1d6970493ef16e076fd3e9ccceebbdbd41079cbb84c2dcc7a451cf1cad",
+          "source_path": "tools/paperclip/skills/kira-issue-contract/SKILL.md",
+          "target_path": "kira-issue-contract/SKILL.md",
+          "normalization": "Mechanical export removed authored provenance tails (`[per: ...]`); the operative body is otherwise unchanged."
+        }
+      ]
+    },
+    {
+      "slug": "kira-learning-loop",
+      "source_dir": "tools/paperclip/skills/kira-learning-loop",
+      "target_dir": "kira-learning-loop",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ac2a346da5ed9a8dba22c14d21709b256632e6a98773a8b78b80ff3a85d17c75",
+          "source_path": "tools/paperclip/skills/kira-learning-loop/SKILL.md",
+          "target_path": "kira-learning-loop/SKILL.md"
+        }
+      ]
+    },
+    {
+      "slug": "kira-prompt-authoring",
+      "source_dir": "tools/paperclip/skills/kira-prompt-authoring",
+      "target_dir": "kira-prompt-authoring",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "726144047a83866e5d69496a6aef517de501cd9f7db2461f6d4cc34814cb5bed",
+          "source_path": "tools/paperclip/skills/kira-prompt-authoring/SKILL.md",
+          "target_path": "kira-prompt-authoring/SKILL.md"
+        }
+      ]
+    },
+    {
+      "slug": "wrap-up",
+      "source_dir": "tools/paperclip/skills/wrap-up",
+      "target_dir": "wrap-up",
+      "file_count": 1,
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "92aaad96e789cbf1aa3ae72d503c69c44d45922bbad24dde18f6e5c94a74a036",
+          "source_path": "tools/paperclip/skills/wrap-up/SKILL.md",
+          "target_path": "wrap-up/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

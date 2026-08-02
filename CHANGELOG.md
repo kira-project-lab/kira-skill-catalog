@@ -4,6 +4,16 @@ All notable changes to the Kira Lab process-skill catalog are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and
 this catalog adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- Refreshed the nine process skills sourced from `kira-project-lab/kira-platform`
+  at commit `f43fd3b504f6c25fe29d3971da866947b0e4d4cc` using its mechanical text
+  exporter, and added complete 9-skill / 11-file provenance under
+  `provenance/kira-platform-process/`. This does not assign that source to the
+  catalog's other process skills or create a new release tag.
+
 ## [0.7.0] - 2026-07-27
 
 Two new process skills, and the first release whose bodies are the *exported* form: provenance

@@ -23,23 +23,26 @@ The standing hop key exists only to forward a port: it is pinned to
 forwarder by construction, so no retry, no alternate invocation and no escalation converts it
 into a shell. If a step needs the host, it needs a human, always.
 
-## Staging autonomy does not mean host control
+## Staging autonomy does not create a delivery path
 
-`kira-escalation-discipline` tells you staging is an autonomous zone and that you must not
-open an owner gate for staging deploys, converges or restarts. That autonomy is over the
-**sanctioned path** — `make … TARGET=staging` — not over the machine. Reaching for
-`incus start kira-staging` because "staging is ours" inverts the rule.
+Staging autonomy remains a policy intent, not current authority to mutate it. There is currently
+no sanctioned staging mutation path: guarded `TARGET=staging` commands fail closed
+until a separate safe non-production guard exists. Do not open an owner gate to bypass that absence
+and do not ask the operator to run the same mutation directly.
 
-**Never ask for `kira-staging` to be started outside `make … TARGET=staging`.** A bare
-`incus start` brings up a second `hermes-gateway` holding the *same* Telegram bot token as
+**Never run or request `incus start kira-staging`.** It brings up a second `hermes-gateway`
+holding the *same* Telegram bot token as
 production. On 2026-07-26 that is exactly what happened: the two instances fought over
 `getUpdates` for 38 minutes, production logged 52 conflicts, and inbound owner messages in
 that window may have been delivered to the staging instance instead. The board could not see
 any of it. Cost paid; do not pay it again.
+The generic `incus start` action against `kira-staging` is the same forbidden mutation.
 
 ## What to do instead
 
-When a step, an acceptance criterion or a recovery path needs the host:
+When a step, an acceptance criterion or a recovery path needs the host — or any operation the
+platform denies you outright, such as editing another agent's configuration (rights are scoped
+per role; no teammate holds them in full, so a 403 for you is a 403 for the company):
 
 1. **Stop.** Do not design around it, do not fan out, do not retry the hop key.
 2. **Hand it back as an out-of-scope finding** — a comment on the issue naming the exact
@@ -48,6 +51,9 @@ When a step, an acceptance criterion or a recovery path needs the host:
    marked operator-work. `blocked` pages nobody; that is fine and correct here.
 4. **Continue with everything that does not depend on it.** A host dependency in one
    criterion does not stall the other five.
+
+For a staging mutation, the exact blocked reason is the missing non-production guard. Wait for
+that guard; do not recast the work as an operator hand-off or an owner confirmation.
 
 ## What you must not turn it into
 

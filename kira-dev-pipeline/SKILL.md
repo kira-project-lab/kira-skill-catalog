@@ -5,210 +5,278 @@ description: How this company ships code — decomposition, branches, the native
 
 # Dev pipeline
 
-The **Paperclip skill** is the manual for the platform: heartbeat, checkout, status,
-delegation, execution stages. Read it there. This skill adds only what is ours.
+The **Paperclip skill** is the manual for the platform: heartbeat, checkout, status, delegation,
+execution stages. This adds only what is ours.
 
-Vocabulary: a **direction** is a long-lived stream mapped to a GitHub repository. A
-**feature** is one shippable unit inside it: one engineer, one branch, one worktree, one
-PR. Two duties recur below — **product ownership** (the outcome: the spec, the scope
-boundary, whether to keep going) and **technical ownership** (the realisation: design,
-decomposition, sequencing, sanctioned operations). Your company's charters name the role
-holding each; a smaller company may give both to one role. The reviewer and
-the approver are whoever the issue's own stages name.
+A **direction** is a long-lived stream mapped to a GitHub repository; a **feature** is one
+shippable unit inside it — one engineer, one branch, one worktree, one PR. Two duties recur:
+**product ownership** (the outcome — spec, scope boundary, whether to keep going) and **technical
+ownership** (the realisation — design, decomposition, sequencing, sanctioned operations). Your
+charters name who holds each; a smaller company may give both to one role. The reviewer and the
+approver are whoever the issue's own stages name.
 
 ## How work travels
 
-Native execution stages carry a feature — nobody routes it by hand:
+Native execution stages carry a feature; nobody routes it by hand. Technical ownership creates the
+feature issue, assigns the engineer, and puts the path on the issue itself
+(`executionPolicy.stages`): a **review** stage, then an **approval** stage held by the role that
+merges. The engineer moves the issue to `in_review` and the platform wakes the reviewer. Approve
+advances to approval, request-changes returns it to the engineer, and only the active participant
+can decide. The approver merges, then closes.
 
-- Technical ownership decomposes the direction, creates the feature issue, assigns the
-  engineer, and puts the review path on the issue itself (`executionPolicy.stages`): a
-  **review** stage, then an **approval** stage held by the role that merges and releases.
-- **The approval participant must never be the issue's implementer.** Paperclip forbids
-  approving your own work, so when the assignee is the role that would normally approve —
-  an operator issue the release duty runs itself: a staging/prod converge, a promotion
-  train, an infra change — give the approval stage to a different role with standing to
-  judge it, by default the leadership duty that ordered the work. A self-approval stage
-  fails the review→approval transition with HTTP 422 "no eligible approval participant"
-  and strands the issue (KIR-120 lost ~30m to exactly this; the same trap waits on every
-  issue the release role executes itself, e.g. the promotion train).
-- The engineer finishes and moves the issue to `in_review`. Paperclip reassigns it to the
-  stage participant and wakes them.
-- The reviewer decides. Approve advances the issue to the approval stage; request-changes
-  returns it to the engineer. Only the active participant can decide.
-- The approver merges, then closes the feature.
+**The approval participant must never be the issue's implementer.** Paperclip forbids approving
+your own work, so when the assignee *is* the role that would normally approve — an operator issue
+the release duty runs itself, a promotion train, an infra change — give approval to a different
+role with standing to judge it, by default the leadership duty that ordered the work. Getting it
+wrong fails the review→approval transition with `422 no eligible approval participant` and strands
+the issue; about thirty minutes went to exactly that.
 
-Never model review as a child issue, a mention grant, or a comment asking someone to pick
-the work up. Those split the audit trail away from the issue being reviewed and loosen
-who may decide. The stage keeps the gate, the authority, the return path and the wake on
-the work.
+Never model review as a child issue, a mention grant, or a comment asking someone to pick the work
+up. Those split the audit trail from the work and loosen who may decide. The stage keeps the gate,
+the authority, the return path and the wake on the work itself.
 
 ## Decomposition (technical ownership)
 
-- Features whose file sets overlap are **sequential**, never parallel. Say which files
-  each feature owns, in a table, before delegating.
-- One feature → one engineer. A follow-up to in-flight work goes to the same engineer on
-  the same branch.
+- Features whose file sets overlap are **sequential**, never parallel. Say which files each feature
+  owns, in a table, before delegating.
+- One feature → one engineer. A follow-up to in-flight work goes to the same engineer on the same
+  branch.
 - Branch `feat/<issue-key>-<slug>` in a fresh worktree.
 
-## Judge against a fresh base (review stage)
+## The review stage
 
-`git fetch origin` before you compare anything, and diff against `origin/main` — never a
-local ref. Merges land while you review: a local `main` goes stale in minutes, and a
-three-dot diff taken against it will show you other people's merged commits as if they
-were this PR's scope. Exam #9 lost a review round to exactly that — a blocking finding
-that evaporated on a fresh fetch, same head, no code changed.
+**Judge against a fresh base.** `git fetch origin` before comparing anything, and diff against the
+remote ref of the branch this PR targets — `origin/dev` for a feature, `origin/main` only for a
+promotion train. Never a local ref: it goes stale in minutes and shows other people's merged
+commits as this PR's scope. Never a base the PR does not target either — diffing a feature against
+`main` produces the same wrong-scope finding by another route. Exam #9 lost a round to precisely
+this: a blocking finding that evaporated on a fresh fetch, same head, no code changed.
 
-## The verdict (review stage)
+**The verdict is your native stage decision** — approve or request-changes on the review stage,
+never a specially formatted comment. The platform records who decided, when, and on what; there is
+no parser to satisfy. Name the PR and the **head SHA you reviewed** in prose, because the approver
+compares it against the live head before merging. Do not attempt a GitHub `APPROVE` review: every
+agent authenticates as the same GitHub App, so PR author and reviewer are one identity and GitHub
+refuses it whatever the token permits — a `COMMENT` review is fine as an audit trail.
 
-The verdict is your **native stage decision** — approve or request-changes on the review
-stage itself, never a specially-formatted comment. The platform records who decided,
-when, and on which issue; there is no parser and no verdict format to get wrong. In the
-decision comment, name the PR and the **head SHA you reviewed** in prose: the approver
-compares it against the live head before merging.
+**A verdict is grounded or it is not a verdict.** Either outcome is valid only when the relevant
+checks were executed and their meaningful output is quoted, or when the decision says why they
+could not run and what evidence stands in their place. Reasoning from the diff alone proves no
+finding and earns no approval, and it is what feeds repeated rounds. An exit code is not evidence.
 
-## A verdict is grounded or it is not a verdict
-
-Either outcome is valid only when the relevant checks were **executed** and their meaningful
-output is quoted in the decision — or when the decision states why they could not run and what
-evidence stands in their place. Reasoning about the diff alone is not review: it neither proves
-a finding nor earns an approval, and it is what feeds repeated rounds. An exit code is not
-evidence; quote the output that matters.
+**Every finding is labelled substance or hygiene, and only substance blocks.** Substance: if this
+finding stands, the claim could be false or the change unsafe. Hygiene: untidy but the claim
+holds — extra read-only reads, surplus output, formatting. Hygiene findings go into the verdict
+as advisories and never carry a request-changes on their own; criteria bind the deliverable
+artifact, not the whole transcript that produced it (`kira-issue-contract` rule nine). LAB-28
+took four rounds where the substance was proven in round one and every later block was hygiene
+read as blocking. A changes-requested verdict also names its round — "Round N" — so the count
+below needs no archaeology.
 
 ## Three rounds, then doubt the contract
 
 A review round is evidence about the head. Three rounds are evidence about the issue.
 
-**At the review stage.** From the third request-changes on one issue, your decision comment must say
-whether the new findings are the **same class** as the earlier ones. Same class means the
-previous fix was correct and the criterion simply reaches further than the fix did. Say
-so plainly — that sentence is a fact about the contract, and nobody else is positioned to
-observe it.
+**At the review stage,** from the third request-changes on one issue your decision comment must say
+whether the new findings are the **same class** as the earlier ones — meaning the previous fix was
+correct and the criterion simply reaches further than the fix did. Nobody else is positioned to
+observe that.
 
-**Engineer.** After a third request-changes, do not push a fourth head. Post a
-scope-doubt comment carrying three things and nothing else:
+**Implementer — whichever role holds the issue:** after a third request-changes, do not push a
+fourth head. Post a scope-doubt comment carrying three things and nothing else — how many rounds
+have happened; the line count of the artifact at round one and now; whether the acceptance
+criterion has a **finite** set of tests that can satisfy it, and why. Then stop, @mention the
+contract owner (the issue's author, usually the CTO) and set the issue `blocked`. You are not
+conceding the findings; you are reporting that fixing them one by one has not converged.
 
-- how many rounds have happened;
-- the line count of the artifact you are changing at round one and now;
-- whether the acceptance criterion has a **finite** set of tests that can satisfy it,
-  and why.
+**Contract owner:** a scope-doubt comment is a contract question, answered inside the company on
+the board and never through a user gate. Arbitrate one of three ways: amend the contract visibly
+(`kira-issue-contract` rule eight), void the finding with recorded rationale, or change the
+approach — with a recommendation attached, and never re-delegate the same contract unchanged. A
+dispute involving the contract owner's own work goes to the CEO. If the resolution would move
+the direction's own scope, that is an owner class — `kira-escalation-discipline`.
 
-Then stop and wait. You are not conceding the findings are wrong; you are reporting that
-fixing each one has not been converging.
+The rule is a counted round rather than a judgement call because the failure looks like progress
+from inside: on 2026-07-26 a token-scoping shim took four rounds in under three hours, every
+finding real and every fix correct, and twelve runs and 183 minutes shipped nothing while two pull
+requests closed unmerged. The approach changed instead, and the replacement merged 57 minutes later
+as twelve changed lines in one template.
 
-**Leadership.** A scope-doubt comment is a contract question for product ownership,
-answered inside the company on the board — not through a user gate. The
-decision is one of two — bound the contract, or change the approach — with a
-recommendation attached. Never re-delegate the same contract. If the resolution would
-change the direction's own scope, that is an owner class: `kira-escalation-discipline`.
+## The GitHub App reaches four accounts, and roles differ per account
 
-### Why this rule fights your instincts
+`kira-platform-app` is installed on `kira-project-lab`, `werserk`, `team-4u-projects` and
+`Orange-Hack`. Mint against whichever owns the repository:
 
-On 2026-07-26 a token-scoping shim went four review rounds in under three hours. Every
-finding was real and reproduced; every fix was correct and pinned by a regression that was
-red first. Twelve runs and 183 minutes shipped nothing, and two pull requests closed
-unmerged. The owner changed the approach instead, and the replacement merged 57 minutes
-later as twelve changed lines in one template.
+```sh
+GH_TOKEN=$(gh-app-token --org werserk --role engineer)
+```
 
-Nobody was wrong in any single round. That is exactly the shape that does not stop on its
-own, which is why the stop is a counted round rather than a judgement call.
+The minter matches installations by account login, so the account name is the whole configuration —
+there is nothing to set up first. What differs is the **role**: permissions are per role, not per
+account, and the table is checked in at `ansible/roles/paperclip_team/files/gh-app-token`. Read your
+row before assuming an operation is available; `reviewer` cannot push and `release` cannot write
+issues, by design.
+
+Git over HTTPS is a separate path from the `gh` API and does **not** yet resolve the account from the
+repository — the credential helper defaults to `kira-project-lab`. Until that ships, clone and push
+outside that organisation will fail even though `gh` works.
+
+**A token you mint is a secret for the rest of the run.** Your run transcript is durable and is read
+by other agents and by the owner, so anything printed there is exposed for as long as the log lives.
+The rules are mechanical, not judgement calls:
+
+- **Anything that reads a place where credentials live may return one. Use forms that count or
+  locate, never forms that print.** Environments (`env`, `printenv`, `set`, `export -p`), process
+  tables and their command lines (`ps`, `/proc/*/cmdline`, `/proc/*/environ`), service definitions,
+  connection strings, and other agents' logs are all such places — the list is illustrative and you
+  are expected to recognise the next one yourself. Two runs breached this on 2026-07-30 within three
+  hours: the first dumped an environment, the second inspected the process table, and the rule at the
+  time named only the first because it listed commands instead of the class.
+- Never echo, `cat` or interpolate a secret into output. To search for one, use `grep -c` for a count
+  or `grep -l` for paths; never a form that prints the matching line.
+- **Never put a secret on a command line, even as `$VAR`.** The shell expands before `exec`, so the
+  literal sits in `/proc/<pid>/cmdline` for the whole request and any concurrent process can read it —
+  which is exactly how a reviewer caught one on 2026-07-30. Your transcript looks clean because it
+  stores the unexpanded text; the process table does not. Pass it out of band instead:
+
+  ```sh
+  # not this
+  curl -H "Authorization: Bearer $PAPERCLIP_API_KEY" "$PAPERCLIP_API_URL/api/issues/$ID"
+  # this
+  printf 'header = "Authorization: Bearer %s"\n' "$PAPERCLIP_API_KEY" > "$cfg"   # umask 077
+  curl --config "$cfg" "$PAPERCLIP_API_URL/api/issues/$ID"; rm -f "$cfg"
+  ```
+
+  It happened to be harmless because that token lives one hour and is bound to its own run. The next
+  credential in your hand may be neither.
+- Auditing whether credentials leak somewhere is the sharpest case of this rule, not an exception to
+  it. Answer "does this log contain a connection string" with `grep -c`; the moment you print the
+  match to prove it, you have added one more copy to a durable transcript and destroyed your own
+  slice.
+
+## What you print is resent on every later turn
+
+Your transcript is not a scrollback — it is the prompt. Every character a tool returns is resent with
+each subsequent turn of the run, so a single careless read is paid dozens of times. Measured across
+one day of this company: tool output was 64% of the technical owner's transcript, and 80% of that
+volume sat in the 10–50 KB band — ordinary file reads and API responses, not exotic mistakes.
+
+Two habits carry almost all of it:
+
+- **Bound every command at the source.** `grep -c` for a count and `grep -l` for paths instead of
+  printing matches; `--max-count`; `jq` projecting the two fields you need rather than the object;
+  `head -c` on anything whose size you have not checked. Ask for the answer, not the haystack.
+- **Never read a run-log with a line-based tool.** `/data/kira-paperclip/instances/default/data/run-logs/**`
+  is NDJSON whose lines reach 131 145 characters. On a real 64 MB log, `tail -n 12` returns 46 295
+  characters — twelve lines. Use `tools/paperclip/logread.py`, which is bounded by construction:
+
+  ```sh
+  python3 tools/paperclip/logread.py summary  <log>                 # shape only, ~300 chars
+  python3 tools/paperclip/logread.py grep     <pattern> <log>       # line numbers + capped excerpts
+  python3 tools/paperclip/logread.py fields   ts,seq,stream <log>   # named fields, truncated values
+  ```
+
+  `summary` on that same 64 MB log returns 311 characters — 149 times less than the twelve-line tail,
+  and it answers the orientation question the tail was reaching for.
+- Diagnosing a credential means printing its **name and length**, never its value:
+  `echo "GH_TOKEN len=${#GH_TOKEN}"`.
+- A secret that has reached a transcript is an incident you **report**, naming the run and the
+  location and nothing else. Do not edit, delete or truncate the log to clean it up — that destroys
+  evidence and is not yours to do.
 
 ## Ask across an assignment boundary with `agent://`
 
-An agent may comment on an issue assigned to somebody else when a prior comment on that
-issue mentions it as `agent://<agentId>`, and that comment's author is either the issue's
-assignee or an active board user. That is the platform's own grant
-(`commentAuthorCanGrantIssueMention`), not a workaround.
-
-So: **if your comment asks something of an agent that is not the assignee, mention it.**
-Without the mention its reply is a `403` and the answer lands wherever it can — TES-34
-exists for no other reason, and the owner's question on TES-32 was answered on a
-different issue than the one he asked it on. Across the board's whole history the mention
-appears in exactly one comment.
-
-This does not loosen the review path. Review stays a native stage (see above); a mention
-is for a question, never for handing over work.
+To ask something of an agent that is not the issue's assignee, mention it as `agent://<agentId>`.
+Without the mention its reply is a `403` and the answer lands wherever it can — an owner's question
+was once answered on a different issue than the one he asked it on. This is the platform's own
+grant (`commentAuthorCanGrantIssueMention`), not a workaround, and it is for a question, never for
+handing over work: review stays a native stage. The same boundary holds for state: a `PATCH` on an
+issue assigned to someone else returns `403` — to change it, create a child issue assigned to its
+owner naming the exact edit.
 
 ## dev is always green
 
-Every configured CI job must be green before any merge, in every repository. For a
-`kira-platform` PR targeting `dev`, that baseline tightens: pre-merge **dev-CI** evidence
-is **exactly one** current GitHub check named `dev-ci` with status `completed` and
-conclusion `success`. Its tested head SHA, the reviewer's approved SHA, and the PR's
-current live head SHA must be identical.
+Every configured CI job must be green before any merge, in every repository. For a `kira-platform`
+PR targeting `dev` **or `main`** the baseline tightens: **exactly one** current GitHub check named
+`dev-ci`, with status `completed` and conclusion `success`, whose tested head SHA equals both the
+reviewer's approved SHA and the PR's live head. Promotion trains are included deliberately: the
+workflow triggers on both branches, so a train showing zero checks is a fault to investigate, never
+the expected state.
 
-Count that check rather than eyeballing it. List the check runs for the PR's live head,
-keep the current (latest-per-name) results — superseded runs of an earlier attempt are
-history, not evidence — and count the rows named `dev-ci`. Any count other than one fails
-closed: zero means the gate never ran, two or more means no single run can be named as
-the one that decided. A missing `dev-ci`, a stale check, or any non-success state fails
-closed the same way. Return the feature to the engineer with the observed evidence;
-never infer green from absence.
+Count that check rather than eyeballing it: list the check runs for the live head, keep the latest
+per name — superseded runs are history, not evidence — and count the rows named `dev-ci`. Any count
+other than one fails closed, because zero means the gate never ran and two means no single run can
+be named as the one that decided. A missing check, a stale one, or any non-success state fails
+closed the same way. Return the feature with the observed evidence; never infer green from absence.
 
-For a repository without configured pre-merge checks, the executable issue contract must
-name exact verification commands and expected results against the live head. The
-approver runs and records that contract; absence of both a configured check and an
-explicit verification contract also fails closed.
+In a repository with no configured pre-merge checks, the issue contract must name exact
+verification commands and expected results against the live head, and the approver runs and records
+them. Neither a check nor a verification contract also fails closed.
 
-A CI timer sweeps every `tools/test_*.py` + `tools/selftest_*.py` after each merge to
-`dev` and files an **urgent** hotfix issue when anything is red. That issue is a
-drop-everything lane: branch from fresh `origin/dev`, fix the actual defect (the test OR
-the code — whichever is wrong), PR to `dev`. Never let a promotion train be the thing
-that discovers red tests (KIR-147/148 cost the KIR-122 train ~1.5h exactly this way).
-Corollary for every PR: if your change alters a contract a selftest asserts, update the
-selftest in the same PR — the sweep treats your merge as the offending HEAD.
+A CI timer sweeps every `tools/test_*.py` and `tools/selftest_*.py` after each merge to `dev` and
+files an **urgent** hotfix issue when anything is red: branch from fresh `origin/dev`, fix whichever
+is wrong — the test or the code — and PR to `dev`. Never let a promotion train be the thing that
+discovers red tests; one lost about an hour and a half that way. Corollary: if your change alters a
+contract a selftest asserts, update the selftest in the same PR, because the sweep treats your merge
+as the offending HEAD.
 
-## Staging (release duty)
+## Staging and prod (release duty)
 
-Staging is an autonomous zone: no owner gate for anything confined to it.
-The deploy identity is the **standing** keygate key (`--standing`, tag `kg-standing-re`,
-targets `staging-hop`/`staging-core`) — install once, reuse across issues, no per-task
-keygen/install/remove ceremony. If `keygate check` shows it missing, reinstall and carry
-on.
+Staging autonomy remains the policy intent: a staging-only action does not become an owner gate.
+There is currently no sanctioned staging mutation path. Guarded
+`TARGET=staging` commands fail closed until a separate safe non-production guard exists. The
+standing keygate identity may remain
+installed (`--standing`, tag `kg-standing-re`, targets `staging-hop` and `staging-core`), but it
+does not authorize a deploy, converge, restart, or key reinstall while the path is unavailable.
+`keygate check` remains read-only inspection, not permission to reinstall. Record the blocked
+release and wait; do not open an owner gate and do not ask for a direct host, Ansible, Incus, or
+hand-run `make` workaround.
 
-## Prod converge (release duty)
-
-The decision about prod is the train merge into `main` — a technical-ownership decision
-along this sanctioned path, and not the owner's. The
-converge after it is mechanics you run yourself through **prodgate** — never
-by asking the owner, never by inventing a path:
-
+The decision about prod is the train merge into `main` — a technical-ownership decision along this
+sanctioned path, not the owner's. The converge after it is mechanics you run yourself through
+**prodgate**, never by asking the owner and never by inventing a path:
 
 ```sh
 prodgate converge --target snapshot     # rollback point first
 prodgate converge --target cognition    # or: deploy, hermes-studio, paperclip-team
 ```
 
-The reply's `main_sha` is your deployed-SHA evidence. Refusals are terminal answers (unknown
-target, converge in flight, 15-min cooldown) — wait, don't work around. The allowlist is exactly
-`cognition`/`deploy`/`hermes-studio`/`paperclip-team`/`snapshot`;
-infra roles as a whole stay with the operator. `paperclip-team` is the one narrow exception
-(owner approval 44ae0010): a fixed `--tags paperclip_team_kira_mcp` that converges the
-managed Kira MCP block only — the two tagged tasks, never the whole `paperclip_team` role.
+The reply's `main_sha` is your deployed-SHA evidence. Refusals are terminal answers — unknown
+target, converge in flight, 15-minute cooldown — so wait rather than work around. The allowlist is
+exactly `cognition`, `deploy`, `hermes-studio`, `paperclip-team` and `snapshot`; infra roles as a
+whole stay with the operator. `paperclip-team` is the one narrow exception (owner approval
+44ae0010): a fixed `--tags paperclip_team_kira_mcp` converging the managed Kira MCP block only,
+never the whole `paperclip_team` role.
 
-## Standing capabilities — reference them, never reinvent access
-
-Issues and plans name the capability they use and NOTHING more: **standing staging key**
-(keygate), **prodgate** (prod converge), **dev-CI** (red dev files its own hotfix issue). An
-issue that describes an access mechanism of its own — an ephemeral key ritual, an owner gate for
-staging, a manual prod path — is stale by definition: fixing the text is part of picking the
-issue up, and at the review stage a stale access description is a **blocking finding**.
+**Reference a standing capability, never reinvent access.** Issues and plans name the capability
+they use and nothing more: prodgate and dev-CI are active; staging mutation is explicitly
+unavailable pending its separate guard. An issue describing an access mechanism of its own — an
+ephemeral key ritual, an owner gate for staging, a direct host workaround, a manual prod path — is
+stale by definition; fixing the text is part of picking the issue up, and at the review stage a
+stale access description is a blocking finding.
 
 ## The merge (release duty)
 
-- Merge **only while you hold the approval stage** and it is decided approve — the stage
-  decision is the gate; there is no separate merge-gate parser.
-- Before `gh pr merge --squash`, compare the PR's live head against the SHA named in the review
-  decision. A push after review invalidates the review: send the issue back through the review
-  stage, never merge a head nobody reviewed.
+- Merge **only while you hold the approval stage** and it is decided approve. The stage decision is
+  the gate; there is no separate merge-gate parser.
+- **The merge happens in the issue that carries that approval stage — never in a new one.** If the
+  approved work is not merged when its gate issue completes, reopen or return that issue; creating a
+  successor issue to press the button splits the audit trail and costs a full cycle. Five issues across
+  two orders existed for no other reason.
+- Before merging, compare the PR's live head against the SHA named in the review decision. A push
+  after review invalidates the review: send it back through the review stage rather than merge a
+  head nobody read.
+- Merge with a merge commit (`gh pr merge --merge`), never squash: this repository's history is the
+  audit trail, and a promotion train squashed into one commit loses which change carried what.
 - Never force-push, never push to `main`. Hooks enforce this; they are not obstacles.
-- Release: everything claimed is merged, `main` is green, changelog/README/versions agree → tag
-  → GitHub release → report the URL on the direction issue.
-- A broken `main` is yours: revert first via a hotfix PR; fix forward only for a proven
+- Release when everything claimed is merged, `main` is green, and changelog, README and versions
+  agree — tag, GitHub release, report the URL on the direction issue.
+- A broken `main` is yours: revert first through a hotfix PR, and fix forward only for a proven
   one-liner.
 
 ## When a decision is not yours
 
-`blocked` pages nobody — it is a planning status, not a pager. Which decisions leave the company
-and how they travel is `kira-escalation-discipline`. A user-facing gate is never opened for a
-question a colleague can answer, whatever your role: those gates carry no topic, so nothing can
-route them, and they land on the owner.
+`blocked` pages nobody — it is a planning status, not a pager. Which decisions leave the company and
+how they travel is `kira-escalation-discipline`. A user-facing gate is never opened for a question a
+colleague can answer, whatever your role: those gates carry no topic, so nothing can route them and
+they land on the owner.

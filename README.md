@@ -13,10 +13,10 @@ The catalog ships three groups of skills. Each group is byte-verifiable against
 its documented source; the importer discovers every top-level `<slug>/SKILL.md`
 regardless of group.
 
-### Process skills (v0.1.0)
+### Process skills
 
-Ten canonical Kira Lab process skills, copied semantic-preserving from the
-company skill library:
+Thirteen canonical Kira Lab process skills. The initial ten were seeded in
+v0.1.0; later releases added the others:
 
 | Skill | Support files | Description |
 | --- | --- | --- |
@@ -25,22 +25,29 @@ company skill library:
 | [`bootstrap-docs`](bootstrap-docs/SKILL.md) | `references/**` (5) | Bootstrap engineering-culture docs in a new project — CLAUDE.md, AGENTS.md, CONTRIBUTING.md, docs/adr with a real ADR 0001 recording the initial architecture. Use for greenfield repos with no docs conventions yet. |
 | [`git-workflow`](git-workflow/SKILL.md) | — | Dev/main branching with promotion trains — batch owner review of a cumulative diff instead of per-PR review, no-squash promotion, hotfix path, layered rollback. Use when working in a repo that has a dev branch, or when setting up the delivery flow for a project whose owner wants to review results, not every PR. |
 | [`kira-ask-kira`](kira-ask-kira/SKILL.md) | — | Consult Kira only when the task explicitly asks for her or requires Kira-owned knowledge or memory. Kira advises; she does not implement or replace repository research. |
-| [`kira-dev-pipeline`](kira-dev-pipeline/SKILL.md) | — | How Kira Lab ships code — decomposition, branches, the native review/approval stages, and release. Use when planning, decomposing, implementing, reviewing or releasing any engineering work. The Paperclip skill has the platform mechanics; this has only what is specific to this company. |
-| [`kira-escalation-discipline`](kira-escalation-discipline/SKILL.md) | — | Kira Lab escalation boundaries for owner confirmations, structured product questions, and conditional Kira consultation. Use when a missing decision or protected action blocks delivery. |
+| [`kira-dev-pipeline`](kira-dev-pipeline/SKILL.md) | — | How this company ships code — decomposition, branches, the native review/approval stages, and release. Use when planning, decomposing, implementing, reviewing or releasing any engineering work. The Paperclip skill has the platform mechanics; this has only what is specific to the company. |
+| [`kira-escalation-discipline`](kira-escalation-discipline/SKILL.md) | — | Which decisions leave the company for the owner — the eight owner classes — and how every other question is answered in-company through the board. Use when a missing decision or a protected action blocks delivery, and before opening any gate. |
 | [`kira-host-boundary`](kira-host-boundary/SKILL.md) | — | The physical host is outside the company's reach — Incus, host systemd and Ansible converges are operator work, and asking the operator to run them by hand is not a workaround. Use when an acceptance criterion or a recovery step needs control of the machine the agents run on. |
-| [`kira-issue-contract`](kira-issue-contract/SKILL.md) | — | The issue template every executable Kira Lab issue follows — outcome title, checkbox acceptance criteria, hard delivery gate, and the three rules that make an issue a contract. Use when creating, decomposing, or auditing any issue for agent execution. |
+| [`kira-issue-contract`](kira-issue-contract/SKILL.md) | — | The issue template every executable Kira Lab issue follows — outcome title, checkbox acceptance criteria, hard delivery gate, and the rules that make an issue a contract. Use when creating, decomposing, or auditing any issue for agent execution. |
 | [`kira-learning-loop`](kira-learning-loop/SKILL.md) | — | How Kira Lab learns from its own failures without learning from noise. Use when reviewing agent trajectories, classifying a defect, or proposing any change to a prompt, skill, or runtime. Required reading before any coaching proposal. |
 | [`kira-prompt-authoring`](kira-prompt-authoring/SKILL.md) | — | What to keep and what to cut when writing an agent charter or a company skill in this estate. Use when authoring, reviewing, shortening or extending any AGENTS.md or SKILL.md here, and when judging whether a rule earns its place in the context window. |
 | [`kira-readiness-preflight`](kira-readiness-preflight/SKILL.md) | — | The readiness gate every direction passes before spawning implementation — a six-category base check (access, naming, secrets, infra, decisions, substrate), fail-closed on access and secret references. Use when decomposing a `[direction]`, before marking any implementation issue actionable. Enforces ADR 0057. |
 | [`wrap-up`](wrap-up/SKILL.md) | — | End-of-task closure — review the diff, decide and state the docs decision (new ADR / update docs / none), verify doc consistency and commit hygiene. Use before declaring any substantial coding task complete. |
+
+Nine skills in this table are published from `kira-project-lab/kira-platform`:
+`adr`, `git-workflow`, `kira-dev-pipeline`, `kira-escalation-discipline`,
+`kira-host-boundary`, `kira-issue-contract`, `kira-learning-loop`,
+`kira-prompt-authoring`, and `wrap-up`. Their exact source commit, export
+normalization, per-file digests, and coverage are recorded in
+[`provenance/kira-platform-process/`](provenance/kira-platform-process/README.md).
 
 ### The bodies here are the exported form
 
 A skill in this estate carries its provenance in a marked tail — `[per: ADR 0043]`,
 `[per: TES-32]` — naming the decision or the incident that put a rule there. Those tails resolve
 only in the repository holding those documents, so they are deleted on the way here, and the rule
-body is authored to be true and complete without them. A body in this catalog is therefore not
-byte-identical to its source file, and is not meant to be: the form to pin against is the
+body is authored to be true and complete without them. A body in this catalog may therefore not
+be byte-identical to its source file, by design: the form to pin against is the
 exported one.
 
 This is enforced upstream rather than left to care. `tools/paperclip/export_text.py` in
