@@ -2,7 +2,8 @@
 name: git-workflow
 description: Dev/main branching with promotion trains — batch owner review of a cumulative diff instead of per-PR review, no-squash promotion, hotfix path, layered rollback. Use when working in a repo that has a dev branch, or when setting up the delivery flow for a project whose owner wants to review results, not every PR.
 ---
-<!-- vendored from werserk/dev-culture@3fc1388 — edit there and re-run scripts/vendor.sh -->
+<!-- vendored from werserk/dev-culture@3fc1388. Edit it there and copy the file back; there is no
+     vendor script in this repository, and the one this banner used to name never existed here. -->
 
 # Git workflow: dev/main with promotion trains
 

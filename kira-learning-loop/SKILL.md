@@ -25,8 +25,15 @@ Every finding gets a class. Get this wrong and you fix the wrong surface.
 | **H** harness defect | the check was wrong, not the team | the harness |
 | **T** transport | nobody reasoned badly; the work simply stopped — a wake was lost | the relay / platform |
 
-**Only P and S may ever become a prompt or skill change.** A permission cannot be fixed by
-rewording an instruction, and a lost wake is not laziness.
+**Only P and S may become a prompt or skill change on the evidence of a defect.** A permission
+cannot be fixed by rewording an instruction, and a lost wake is not laziness. A, R, T and H stay
+barred from text whatever else is true; M is barred absolutely.
+
+A defect is not the only thing that licenses text. Two further bases exist, both
+narrower than they look: **a vendor instruction**, cited to the guide that gives it — temporary,
+expiring with the rewrite exception it was created for — and **an owner decision recorded as an
+ADR**, accepted, or proposed with the owner's decision dated and sourced in the text. Without
+that qualifier an author could write a proposal licensing their own change.
 
 ## The rules that keep this honest
 

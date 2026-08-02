@@ -16,13 +16,18 @@ learned at its own cost.
 
 ## Density: what the vendors ask
 
-Anthropic's guidance for Opus 5 and OpenAI's for GPT-5.6 agree that unnecessary instruction is
-not free. OpenAI measured it on internal coding-agent evals — leaner system prompts scored
-10-15% higher while cutting tokens 41-66% — and calls those figures directional, to be
-re-checked on your own tasks. This estate runs agents on both vendors' models — visible in git
-at `companies/orangehack/.paperclip.yaml`, which pins `gpt-5.6-sol` and `claude-opus-4-8`; Kira
-Lab pins none in its package, so read its live assignment from the board rather than from here.
-Neither guide can be treated as the only one that applies; where they agree, write one text.
+Anthropic's guidance for Opus 5 and OpenAI's for GPT-5.6 agree that unnecessary instruction is not
+free. OpenAI measured it on internal coding-agent evals — leaner system prompts scored 10-15%
+higher while cutting tokens 41-66% — and calls those figures directional, to be re-checked on your
+own tasks.
+
+This estate runs both vendors' models, one per role, pinned in each company's `.paperclip.yaml`:
+`companies/kira-lab/.paperclip.yaml` and
+`companies/orangehack/.paperclip.yaml` both name `gpt-5.6-sol` for the judgement roles and a Claude
+model for the ones that write. Read the pin rather than assuming, and when the pin and the live
+board disagree the board is the fact and the pin is the bug: Kira Lab's engineer sat pinned to `claude-opus-4-8` while the running
+company used `claude-opus-5`, because the pin was copied from a roster that no longer existed.
+Neither guide is the only one that applies; where they agree, write one text.
 
 **State each instruction once** (OpenAI). A rule in two places is one rule plus a maintenance
 bug.
@@ -47,11 +52,12 @@ longer documents and narrates more than earlier ones. Silence on length is not n
 **Assign only the skills a role uses** (OpenAI: expose only relevant tools, with short precise
 descriptions). Every assignment is context the role pays for on every run.
 
-**A shared skill names duties, not job titles.** `kira-dev-pipeline` carries a section headed
-"Decomposition (CEO)" and is assigned to two companies with different rosters — one of which has
-no CTO, and one of which no longer decomposes from the CEO at all. A skill that names
-posts breaks on the first company shaped differently; a skill that names the duty ("whoever owns
-decomposition") survives the reshuffle and survives becoming a template.
+**A shared skill names duties, not job titles.** `kira-dev-pipeline` is assigned to two companies
+with different rosters, one of them without a CTO. Its decomposition section was headed
+"Decomposition (CEO)" until the leadership split made that false in one of the two on the same
+day; it now reads "Decomposition (technical ownership)" and did not need touching again. A skill
+that names posts breaks on the first company shaped differently; a skill that names the duty
+survives the reshuffle, and survives becoming a template.
 
 **Give the whole specification up front.** Anthropic reports this for Opus 5; OpenAI's guide is
 silent on it, so treat it as an Opus finding rather than a law.
@@ -81,13 +87,16 @@ real dated failure, and no sentence in a charter repairs it — class R belongs 
 layer. The date proves something happened; the class decides whether text is the thing that
 answers it.
 
-Limb two's citation is what stops it from absorbing everything. "No secret value in plaintext
-in git" carries ``, the decision that keeps repo config encrypted with SOPS/age
-and runtime secrets in Lockbox; "CI is read-only, `actions: write` withheld" carries
-``. Neither waited for an
-incident, and neither rests on preference. A rule that can name no decision behind it is not a
-product requirement — it is a habit. Paraphrase carefully: the reader is expected to open the
-citation, and a paraphrase that does not survive that opening fails the same test it invokes.
+Limb two is what stops the test from absorbing everything, and its guard is that a decision
+exists — not that the text names it. "No secret value in plaintext in git" rests on the decision
+that keeps repo config encrypted with SOPS/age and runtime secrets in Lockbox; "CI is read-only,
+`actions: write` withheld" rests on the one that withheld it. Neither waited for an incident and
+neither rests on preference.
+
+A rule that can name no decision behind it is not a product requirement — it is a habit. The
+difference is checked by whoever audits the corpus against `docs/decisions/`, not by the agent
+reading the rule, so the burden is on the author: if you cannot point at the decision when asked,
+the rule does not qualify under this limb.
 
 The second half of that limb covers a species the first draft of this test deleted by accident:
 facts of the platform. "Do not attempt a GitHub `APPROVE` — every agent authenticates as the
@@ -120,12 +129,15 @@ So the first pass over any text asks whether it is true here, not whether it is 
 
 - Every path, tool, flag and skill name resolves where the agent runs. A reference that does not
   is a defect, not a stale comment.
-- **A reason and a citation are different things, and they live in different places.** Write the
-  rule so it is true and complete on its own — the reason in one sentence inside the rule — and
-  put the decision that established it in a marked tail: ``. The body has to
-  survive being copied to another company where that ADR does not exist; the tail does not, and
-  is stripped when the text is exported. An unmarked `` in body prose is the defect
-  here: its reader cannot tell it from an instruction to go and read something.
+- **A rule carries its reason and never its citation.** Write the rule so it is true and complete
+  on its own, with the reason in one sentence inside it: *what failed*, not *where that is
+  recorded*. The record stays in `docs/decisions/` and `docs/incidents/ledger.md` for whoever
+  audits the corpus; the agent reading the rule at runtime cannot open either, so a reference in
+  the text buys the reader nothing and costs every reader something.
+
+  This replaced a marked-tail notation on 2026-07-28. The cost of the change is real and worth
+  stating: a rule that looks arbitrary can no longer be traced to the failure that bought it from
+  inside the text. Before deleting one, assume it was expensive.
 - Every claim about the platform comes from the platform's own manual or its API. An agent's
   account of what happened to it is a hypothesis about the platform, not evidence.
 - Every claim attributed to a vendor stays inside what that vendor said. A finding about one

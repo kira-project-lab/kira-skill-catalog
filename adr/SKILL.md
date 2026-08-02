@@ -3,7 +3,8 @@ name: adr
 description: Scaffold a new Architecture Decision Record — next number, repo-matching style, index update, supersede cross-links. Use when a decision changes runtime behavior, API contracts, data ownership, deployment model, or security/permission boundaries.
 argument-hint: [decision-title]
 ---
-<!-- vendored from werserk/dev-culture@3fc1388 — edit there and re-run scripts/vendor.sh -->
+<!-- vendored from werserk/dev-culture@3fc1388. Edit it there and copy the file back; there is no
+     vendor script in this repository, and the one this banner used to name never existed here. -->
 
 Create a new ADR for: **$ARGUMENTS** (if empty, derive the title from the decision just made in this conversation; if no decision is identifiable, ask).
 
